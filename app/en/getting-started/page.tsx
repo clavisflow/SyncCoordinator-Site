@@ -10,7 +10,7 @@ import {
   Workflow,
 } from "lucide-react";
 import { DocsShell, ProductMark } from "../../docs-shell";
-import { localeAlternates } from "../../i18n";
+import { localeAlternates, sitePath } from "../../i18n";
 
 export const metadata: Metadata = {
   title: "Getting Started | SyncCoordinator Documentation",
@@ -149,15 +149,15 @@ aspire run --apphost src/SyncCoordinator.AppHost/SyncCoordinator.AppHost.csproj`
           </div>
           <div className="workflowConsoleGrid gettingStartedScreens">
             <figure>
-              <img src="/management-ui/systems.jpg" alt="Systems page for reviewing database connections and enabled state" />
+              <img src={sitePath("/management-ui/systems.jpg")} alt="Systems page for reviewing database connections and enabled state" />
               <figcaption><strong>Systems</strong><span>Manage database connections and enabled state.</span></figcaption>
             </figure>
             <figure>
-              <img src="/management-ui/routes.jpg" alt="Synchronization rules page for source, destination, and direction" />
+              <img src={sitePath("/management-ui/routes.jpg")} alt="Synchronization rules page for source, destination, and direction" />
               <figcaption><strong>Rules</strong><span>Choose direction and conflict behavior.</span></figcaption>
             </figure>
             <figure className="workflowConsolePrimary">
-              <img src="/management-ui/mapping.jpg" alt="Table mapping page for tables, columns, keys, and conversion" />
+              <img src={sitePath("/management-ui/mapping.jpg")} alt="Table mapping page for tables, columns, keys, and conversion" />
               <figcaption><strong>Mappings</strong><span>Configure tables, keys, fields, and value conversion.</span></figcaption>
             </figure>
           </div>
@@ -179,7 +179,7 @@ aspire run --apphost src/SyncCoordinator.AppHost/SyncCoordinator.AppHost.csproj`
               <li><span>4</span><div><strong>Enable the rule</strong><p>After both sides pass verification, enable synchronization in the rule settings.</p></div></li>
             </ol>
             <figure className="gettingStartedDeployPreview">
-              <img src="/management-ui/database-setup.jpg" alt="Database deployment page for reviewing SQL, deploying objects, and verifying definitions" />
+              <img src={sitePath("/management-ui/database-setup.jpg")} alt="Database deployment page for reviewing SQL, deploying objects, and verifying definitions" />
               <figcaption>Database deployment</figcaption>
             </figure>
           </div>
@@ -278,7 +278,7 @@ Remove-Item Env:SYNC_COORDINATOR_DESIGN_CONNECTION`}</code></pre>
         <section className="overviewNext" aria-labelledby="getting-started-next">
           <p className="eyebrow">NEXT</p>
           <h2 id="getting-started-next">Read next</h2>
-          <div><a href="/en/workflow"><Workflow aria-hidden="true" />Workflow</a></div>
+          <div><a href={sitePath("/en/workflow")}><Workflow aria-hidden="true" />Workflow</a></div>
         </section>
       </article>
     </DocsShell>

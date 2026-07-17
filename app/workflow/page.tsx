@@ -16,7 +16,7 @@ import {
   Workflow as WorkflowIcon,
 } from "lucide-react";
 import { DocsShell, ProductMark } from "../docs-shell";
-import { localeAlternates } from "../i18n";
+import { localeAlternates, sitePath } from "../i18n";
 
 export const metadata: Metadata = {
   title: "Workflow | SyncCoordinator Documentation",
@@ -277,15 +277,15 @@ export default function WorkflowPage() {
           </p>
           <div className="workflowConsoleGrid">
             <figure className="workflowConsolePrimary">
-              <img src="/management-ui/operations.jpg" alt="処理状況画面。システムごとのキュー読取位置と同期処理履歴を表示" />
+              <img src={sitePath("/management-ui/operations.jpg")} alt="処理状況画面。システムごとのキュー読取位置と同期処理履歴を表示" />
               <figcaption><strong>処理状況</strong><span>Checkpoint、処理結果、試行回数、エラーを確認します。</span></figcaption>
             </figure>
             <figure>
-              <img src="/management-ui/conflicts.jpg" alt="コンフリクト履歴画面。要対応の競合を一覧表示" />
+              <img src={sitePath("/management-ui/conflicts.jpg")} alt="コンフリクト履歴画面。要対応の競合を一覧表示" />
               <figcaption><strong>コンフリクト</strong><span>要対応の競合と解決状態を確認します。</span></figcaption>
             </figure>
             <figure>
-              <img src="/management-ui/notifications.jpg" alt="通知設定画面。Webhook通知先と対象イベントを設定" />
+              <img src={sitePath("/management-ui/notifications.jpg")} alt="通知設定画面。Webhook通知先と対象イベントを設定" />
               <figcaption><strong>通知</strong><span>Webhook通知先、対象イベント、署名設定を管理します。</span></figcaption>
             </figure>
           </div>
@@ -295,8 +295,8 @@ export default function WorkflowPage() {
           <p className="eyebrow">NEXT</p>
           <h2 id="workflow-next">次に読む</h2>
           <div>
-            <a href="/architecture"><ShieldCheck aria-hidden="true" />Architecture</a>
-            <a href="/getting-started"><WorkflowIcon aria-hidden="true" />Getting Started</a>
+            <a href={sitePath("/architecture")}><ShieldCheck aria-hidden="true" />Architecture</a>
+            <a href={sitePath("/getting-started")}><WorkflowIcon aria-hidden="true" />Getting Started</a>
           </div>
         </section>
       </article>

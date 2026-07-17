@@ -10,7 +10,7 @@ import {
   useState,
 } from "react";
 import { Search } from "lucide-react";
-import type { SiteLocale } from "./i18n";
+import { sitePath, type SiteLocale } from "./i18n";
 
 type SearchEntry = {
   title: string;
@@ -137,7 +137,7 @@ export function DocsSearch({ locale = "ja" }: { locale?: SiteLocale }) {
 
   function navigateTo(entry: SearchEntry) {
     setOpen(false);
-    window.location.assign(entry.href);
+    window.location.assign(sitePath(entry.href));
   }
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -205,7 +205,7 @@ export function DocsSearch({ locale = "ja" }: { locale?: SiteLocale }) {
               id={`${listboxId}-${index}`}
               key={entry.href}
               className={index === activeIndex ? "searchResult selected" : "searchResult"}
-              href={entry.href}
+              href={sitePath(entry.href)}
               role="option"
               aria-selected={index === activeIndex}
               onMouseEnter={() => setActiveIndex(index)}

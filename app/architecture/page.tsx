@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Box, Database, GitFork, Workflow } from "lucide-react";
 import { DocsShell, ProductMark } from "../docs-shell";
-import { localeAlternates } from "../i18n";
+import { localeAlternates, sitePath } from "../i18n";
 
 export const metadata: Metadata = {
   title: "Architecture | SyncCoordinator Documentation",
@@ -351,8 +351,8 @@ AppHost ─────────→ Worker / Web / demo resources`}</code></p
           <p className="eyebrow">NEXT</p>
           <h2 id="architecture-next">次に読む</h2>
           <div>
-            <a href="/overview"><GitFork aria-hidden="true" />Overview</a>
-            <a href="/workflow"><Workflow aria-hidden="true" />Workflow</a>
+            <a href={sitePath("/overview")}><GitFork aria-hidden="true" />Overview</a>
+            <a href={sitePath("/workflow")}><Workflow aria-hidden="true" />Workflow</a>
           </div>
         </section>
       </article>

@@ -16,7 +16,7 @@ import {
   Workflow as WorkflowIcon,
 } from "lucide-react";
 import { DocsShell, ProductMark } from "../../docs-shell";
-import { localeAlternates } from "../../i18n";
+import { localeAlternates, sitePath } from "../../i18n";
 
 export const metadata: Metadata = {
   title: "Workflow | SyncCoordinator Documentation",
@@ -223,15 +223,15 @@ export default function EnglishWorkflowPage() {
           </p>
           <div className="workflowConsoleGrid">
             <figure className="workflowConsolePrimary">
-              <img src="/management-ui/operations.jpg" alt="Operations page showing Queue Checkpoints and synchronization history" />
+              <img src={sitePath("/management-ui/operations.jpg")} alt="Operations page showing Queue Checkpoints and synchronization history" />
               <figcaption><strong>Operations</strong><span>Review Checkpoints, results, attempts, and errors.</span></figcaption>
             </figure>
             <figure>
-              <img src="/management-ui/conflicts.jpg" alt="Conflict history page listing conflicts that need attention" />
+              <img src={sitePath("/management-ui/conflicts.jpg")} alt="Conflict history page listing conflicts that need attention" />
               <figcaption><strong>Conflicts</strong><span>Review held conflicts and their resolution state.</span></figcaption>
             </figure>
             <figure>
-              <img src="/management-ui/notifications.jpg" alt="Notification settings page for webhook endpoints and events" />
+              <img src={sitePath("/management-ui/notifications.jpg")} alt="Notification settings page for webhook endpoints and events" />
               <figcaption><strong>Notifications</strong><span>Manage endpoints, event selection, and signing configuration.</span></figcaption>
             </figure>
           </div>
@@ -241,8 +241,8 @@ export default function EnglishWorkflowPage() {
           <p className="eyebrow">NEXT</p>
           <h2 id="workflow-next">Read next</h2>
           <div>
-            <a href="/en/architecture"><ShieldCheck aria-hidden="true" />Architecture</a>
-            <a href="/en/getting-started"><WorkflowIcon aria-hidden="true" />Getting Started</a>
+            <a href={sitePath("/en/architecture")}><ShieldCheck aria-hidden="true" />Architecture</a>
+            <a href={sitePath("/en/getting-started")}><WorkflowIcon aria-hidden="true" />Getting Started</a>
           </div>
         </section>
       </article>

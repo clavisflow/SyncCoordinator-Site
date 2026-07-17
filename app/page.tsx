@@ -7,7 +7,7 @@ import {
   Server,
 } from "lucide-react";
 import { DocsShell, documentationSections, ProductMark } from "./docs-shell";
-import { localeAlternates } from "./i18n";
+import { localeAlternates, sitePath } from "./i18n";
 
 export const metadata: Metadata = {
   title: "SyncCoordinator Documentation | ClavisFlow",
@@ -42,7 +42,7 @@ function DetailedHeroIllustration() {
   return (
     <figure className="heroIllustration">
       <img
-        src="/hero-sync-flow.png"
+        src={sitePath("/hero-sync-flow.png")}
         alt="業務システムのデータをSyncCoordinatorで同期し、競合を自動または手動で解決する流れ"
       />
     </figure>

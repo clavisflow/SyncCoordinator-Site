@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Box, Database, GitFork, Network, Server, Workflow } from "lucide-react";
 import { DocsShell, ProductMark } from "../../docs-shell";
-import { localeAlternates } from "../../i18n";
+import { localeAlternates, sitePath } from "../../i18n";
 
 export const metadata: Metadata = {
   title: "Overview | SyncCoordinator Documentation",
@@ -149,7 +149,7 @@ export default function EnglishOverviewPage() {
           </div>
           <figure className="overviewConsolePreview">
             <img
-              src="/management-ui/dashboard.jpg"
+              src={sitePath("/management-ui/dashboard.jpg")}
               alt="SyncCoordinator management dashboard showing synchronization routes, processing status, and recent conflicts"
             />
           </figure>
@@ -159,8 +159,8 @@ export default function EnglishOverviewPage() {
           <p className="eyebrow">NEXT</p>
           <h2 id="overview-next">Read next</h2>
           <div>
-            <a href="/en/architecture"><GitFork aria-hidden="true" />Architecture</a>
-            <a href="/en/workflow"><Workflow aria-hidden="true" />Workflow</a>
+            <a href={sitePath("/en/architecture")}><GitFork aria-hidden="true" />Architecture</a>
+            <a href={sitePath("/en/workflow")}><Workflow aria-hidden="true" />Workflow</a>
           </div>
         </section>
       </article>

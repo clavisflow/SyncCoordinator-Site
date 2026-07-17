@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
 import { DocsShell, ProductMark } from "../docs-shell";
 import { getDocumentationSections } from "../documentation-sections";
-import { localeAlternates } from "../i18n";
+import { localeAlternates, sitePath } from "../i18n";
 
 export const metadata: Metadata = {
   title: "SyncCoordinator Documentation | ClavisFlow",
@@ -42,7 +42,7 @@ export default function EnglishHome() {
             </div>
             <figure className="heroIllustration">
               <img
-                src="/hero-sync-flow.png"
+                src={sitePath("/hero-sync-flow.png")}
                 alt="SynCo synchronizes data across business systems and resolves conflicts automatically or manually"
               />
             </figure>

@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { documentationSections, getDocumentationSections } from "./documentation-sections";
 import { DocsSearch } from "./docs-search";
-import { localizedPath, type SiteLocale } from "./i18n";
+import { localizedPath, sitePath, type SiteLocale } from "./i18n";
 import { MobileNavigation } from "./mobile-navigation";
 
 export { documentationSections } from "./documentation-sections";
@@ -11,9 +11,9 @@ function BrandSignature() {
   return (
     <span className="brandSignature brandSignature-footer" aria-label="ClavisFlow">
       <span className="signatureMark" aria-hidden="true">
-        <img src="/clavisflow-brand-icon.png" alt="" />
+        <img src={sitePath("/clavisflow-brand-icon.png")} alt="" />
       </span>
-      <img className="signatureWordmark" src="/clavisflow-wordmark.png" alt="" />
+      <img className="signatureWordmark" src={sitePath("/clavisflow-wordmark.png")} alt="" />
     </span>
   );
 }
@@ -22,7 +22,7 @@ export function ProductMark({ variant }: { variant: "header" | "hero" | "diagram
   return (
     <img
       className={`productMark productMark-${variant}`}
-      src="/sync-brand-mark.png"
+      src={sitePath("/sync-brand-mark.png")}
       alt=""
       aria-hidden="true"
     />
@@ -40,7 +40,7 @@ export function DocsShell({
 }) {
   const sections = getDocumentationSections(locale);
   const currentPath = activeSection ? `/${activeSection}` : "/";
-  const jaHref = currentPath;
+  const jaHref = localizedPath("ja", currentPath);
   const enHref = localizedPath("en", currentPath);
 
   return (
