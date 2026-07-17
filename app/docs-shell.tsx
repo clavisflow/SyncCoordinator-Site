@@ -50,7 +50,7 @@ export function DocsShell({
 
         <nav className="headerNav" aria-label="Primary navigation">
           <a className="active" href="/">Home</a>
-          <a href="/#getting-started">Download</a>
+          <a href="/getting-started">Download</a>
           <a href="https://github.com/" rel="noreferrer">GitHub</a>
         </nav>
 

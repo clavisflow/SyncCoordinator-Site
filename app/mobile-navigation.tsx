@@ -51,7 +51,7 @@ export function MobileNavigation({ activeSection }: { activeSection?: string }) 
         </nav>
         <nav className="mobileNavUtility" aria-label="Mobile primary navigation">
           <a href="/" onClick={close}>Home</a>
-          <a href="/#getting-started" onClick={close}>Download</a>
+          <a href="/getting-started" onClick={close}>Download</a>
           <a href="https://github.com/" rel="noreferrer" onClick={close}>GitHub</a>
         </nav>
       </div>

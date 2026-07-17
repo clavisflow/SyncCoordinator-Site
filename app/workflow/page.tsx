@@ -294,7 +294,7 @@ export default function WorkflowPage() {
           <h2 id="workflow-next">次に読む</h2>
           <div>
             <a href="/architecture"><ShieldCheck aria-hidden="true" />Architecture</a>
-            <a href="/#getting-started"><WorkflowIcon aria-hidden="true" />Getting Started</a>
+            <a href="/getting-started"><WorkflowIcon aria-hidden="true" />Getting Started</a>
           </div>
         </section>
       </article>

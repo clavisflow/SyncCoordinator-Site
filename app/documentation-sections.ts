@@ -40,7 +40,7 @@ export const documentationSections: DocumentationSection[] = [
   },
   {
     id: "getting-started",
-    href: "/#getting-started",
+    href: "/getting-started",
     icon: Rocket,
     title: "Getting Started",
     description: "インストール、初期設定、最初の同期を順に案内します。",

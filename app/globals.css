@@ -1835,6 +1835,406 @@ footer {
   line-height: 1.65;
 }
 
+.gettingStartedPathGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.gettingStartedPathGrid article {
+  display: flex;
+  flex-direction: column;
+  min-height: 250px;
+  padding: 27px 28px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+}
+
+.gettingStartedPathGrid > article > .lucide {
+  width: 25px;
+  height: 25px;
+  margin-bottom: 17px;
+  color: var(--green-800);
+}
+
+.gettingStartedPathGrid .eyebrow { margin-bottom: 9px; }
+
+.gettingStartedPathGrid h3 {
+  margin: 0;
+  color: var(--green-950);
+  font-size: 19px;
+}
+
+.gettingStartedPathGrid article > p:not(.eyebrow) {
+  margin: 11px 0 0;
+  color: #56625e;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.gettingStartedPathLink {
+  align-self: flex-start;
+  margin-top: auto;
+  padding-top: 22px;
+  color: var(--green-800);
+  font-size: 15px;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.gettingStartedPathLink::after { content: "  →"; }
+.gettingStartedPathLink:hover { text-decoration: underline; }
+
+.gettingStartedPrerequisites {
+  margin-top: 26px;
+  padding: 22px 24px;
+  background: #f7faf9;
+  border: 1px solid #d2dfda;
+  border-radius: 4px;
+}
+
+.gettingStartedPrerequisites > strong {
+  color: var(--green-950);
+  font-size: 16px;
+}
+
+.gettingStartedPrerequisites ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 26px;
+  margin: 16px 0 0;
+  padding-left: 20px;
+}
+
+.gettingStartedPrerequisites li {
+  color: #33463f;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.gettingStartedPrerequisites li::marker { color: var(--green-700); }
+
+.gettingStartedPrerequisites p {
+  margin: 16px 0 0;
+  padding-top: 14px;
+  color: #56625e;
+  border-top: 1px solid #dbe5e1;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.gettingStartedSetupGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 26px;
+}
+
+.gettingStartedSetupGrid article {
+  min-width: 0;
+  padding: 25px 24px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+
+.gettingStartedSetupGrid .lucide {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 16px;
+  color: var(--green-800);
+}
+
+.gettingStartedSetupGrid .eyebrow { margin-bottom: 8px; }
+
+.gettingStartedSetupGrid h3 {
+  margin: 0;
+  color: var(--green-950);
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.gettingStartedSetupGrid article > p:not(.eyebrow) {
+  margin: 10px 0 0;
+  color: #56625e;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.gettingStartedSetupGrid dl {
+  margin: 20px 0 0;
+  border-top: 1px solid #dce5e1;
+}
+
+.gettingStartedSetupGrid dl > div {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #e5ebe8;
+}
+
+.gettingStartedSetupGrid dt,
+.gettingStartedSetupGrid dd {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.gettingStartedSetupGrid dt {
+  color: var(--green-800);
+  font-weight: 700;
+}
+
+.gettingStartedSetupGrid dd { color: #3f504a; }
+
+.gettingStartedPathGrid ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gettingStartedPathGrid li {
+  padding: 6px 9px;
+  color: var(--green-900);
+  background: var(--green-50);
+  border: 1px solid #d4e2dc;
+  border-radius: 3px;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 12px;
+}
+
+.gettingStartedRoadmap {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.gettingStartedRoadmap li {
+  min-height: 94px;
+  padding: 20px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.gettingStartedRoadmap span {
+  display: block;
+  color: var(--green-700);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 12px;
+}
+
+.gettingStartedRoadmap strong {
+  display: block;
+  margin-top: 9px;
+  color: var(--green-950);
+  font-size: 14px;
+}
+
+.gettingStartedCode {
+  margin: 27px 0 0;
+  overflow-x: auto;
+  padding: 24px 26px;
+  color: #e9f3ef;
+  background: #102a23;
+  border: 1px solid var(--green-950);
+  border-radius: 5px;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+.gettingStartedExpected {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-top: 20px;
+  padding: 20px 22px;
+  background: var(--green-50);
+  border: 1px solid #d3e1db;
+  border-radius: 5px;
+}
+
+.gettingStartedExpected .lucide {
+  width: 22px;
+  height: 22px;
+  color: var(--green-800);
+}
+
+.gettingStartedExpected strong {
+  color: var(--green-950);
+  font-size: 15px;
+}
+
+.gettingStartedExpected p {
+  margin: 6px 0 0;
+  color: #56625e;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.gettingStartedInstructionList {
+  display: grid;
+  gap: 0;
+  margin: 27px 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.gettingStartedInstructionList li {
+  display: grid;
+  grid-template-columns: 38px 1fr;
+  gap: 15px;
+  padding: 20px 4px;
+  border-bottom: 1px solid var(--line);
+}
+
+.gettingStartedInstructionList li > span {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: var(--green-800);
+  border-radius: 50%;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 12px;
+}
+
+.gettingStartedInstructionList strong {
+  color: var(--green-950);
+  font-size: 15px;
+}
+
+.gettingStartedInstructionList p {
+  margin: 7px 0 0;
+  color: #56625e;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.gettingStartedInstructionList code,
+.gettingStartedRequirements code,
+.gettingStartedPathGrid code,
+.gettingStartedPage .overviewBody code,
+.gettingStartedPage .architectureCallout code,
+.gettingStartedPage .workflowBoundaryNote code {
+  padding: 2px 5px;
+  color: var(--green-900);
+  background: var(--green-50);
+  border: 1px solid #d7e3de;
+  border-radius: 3px;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: .9em;
+}
+
+.gettingStartedProductionDetails .architectureDetailsContent > p code {
+  padding: 2px 5px;
+  color: var(--green-900);
+  background: var(--green-50);
+  border: 1px solid #d7e3de;
+  border-radius: 3px;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: .9em;
+}
+
+.gettingStartedScreens .workflowConsolePrimary { grid-column: 1 / -1; }
+
+.gettingStartedDeployGrid {
+  display: grid;
+  grid-template-columns: minmax(0, .82fr) minmax(360px, 1.18fr);
+  align-items: start;
+  gap: 28px;
+  margin-top: 28px;
+}
+
+.gettingStartedDeployGrid .gettingStartedInstructionList { margin-top: 0; }
+
+.gettingStartedDeployPreview {
+  margin: 0;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  box-shadow: 0 6px 16px rgba(6, 47, 39, .05);
+}
+
+.gettingStartedDeployPreview img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gettingStartedDeployPreview figcaption {
+  padding: 14px 17px;
+  color: var(--green-950);
+  border-top: 1px solid var(--line);
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.gettingStartedVerifyGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 27px;
+}
+
+.gettingStartedVerifyGrid article {
+  min-height: 170px;
+  padding: 25px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+}
+
+.gettingStartedVerifyGrid .lucide {
+  width: 23px;
+  height: 23px;
+  margin-bottom: 15px;
+  color: var(--green-800);
+}
+
+.gettingStartedVerifyGrid strong,
+.gettingStartedChecklist strong {
+  display: block;
+  color: var(--green-950);
+  font-size: 15px;
+}
+
+.gettingStartedVerifyGrid p,
+.gettingStartedChecklist p {
+  margin: 8px 0 0;
+  color: #56625e;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.gettingStartedChecklist {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  margin-top: 18px;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.gettingStartedChecklist article {
+  min-height: 136px;
+  padding: 23px 24px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
 .overviewConsole {
   padding: 52px 0;
   border-bottom: 1px solid var(--line);
@@ -2068,6 +2468,9 @@ footer {
   .workflowResolutionFlow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .workflowNotificationFlow { grid-template-columns: 1fr; }
   .workflowNotificationFlow > span { justify-self: center; transform: rotate(90deg); }
+  .gettingStartedSetupGrid { grid-template-columns: 1fr; }
+  .gettingStartedRoadmap { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .gettingStartedDeployGrid { grid-template-columns: 1fr; }
   footer { margin: 20px 32px 0; }
 }
 
@@ -2158,6 +2561,12 @@ footer {
   .workflowConsoleGrid .workflowConsolePrimary { grid-column: auto; }
   .workflowConsoleGrid figcaption { display: block; }
   .workflowConsoleGrid figcaption span { display: block; margin-top: 6px; }
+  .gettingStartedPathGrid, .gettingStartedRoadmap, .gettingStartedVerifyGrid, .gettingStartedChecklist { grid-template-columns: 1fr; }
+  .gettingStartedPathGrid article, .gettingStartedVerifyGrid article, .gettingStartedChecklist article { min-height: auto; }
+  .gettingStartedPrerequisites { padding: 20px; }
+  .gettingStartedPrerequisites ul { grid-template-columns: 1fr; }
+  .gettingStartedScreens .workflowConsolePrimary { grid-column: auto; }
+  .gettingStartedCode { padding: 20px; font-size: 13px; }
   .overviewConsole { padding: 40px 0; }
   .overviewConsoleHeading { display: block; }
   .overviewConsoleHeading > p { margin-top: 18px; font-size: 14px; }
