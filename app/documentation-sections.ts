@@ -33,7 +33,7 @@ export const documentationSections: DocumentationSection[] = [
   },
   {
     id: "workflow",
-    href: "/#workflow",
+    href: "/workflow",
     icon: Workflow,
     title: "Workflow",
     description: "変更検知から競合解決、同期完了までの流れを説明します。",

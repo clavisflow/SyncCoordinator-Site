@@ -1555,6 +1555,286 @@ footer {
 .architectureDetailsContent .architectureSequence { margin-top: 0; }
 .architectureDetailsContent.architectureSecurityGrid { margin-top: 0; }
 
+.workflowPipeline {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.workflowPipeline li {
+  min-height: 196px;
+  position: relative;
+  padding: 28px 25px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.workflowStepNumber {
+  position: absolute;
+  top: 25px;
+  right: 24px;
+  color: #81908b;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 12px;
+}
+
+.workflowPipeline .lucide {
+  width: 24px;
+  height: 24px;
+  color: var(--green-800);
+}
+
+.workflowPipeline strong {
+  display: block;
+  margin-top: 17px;
+  color: var(--green-950);
+  font-size: 16px;
+}
+
+.workflowPipeline p {
+  margin: 9px 0 0;
+  color: #596561;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.workflowConvergenceGrid,
+.workflowOutcomeGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.workflowConvergenceGrid article {
+  min-height: 150px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-content: center;
+  gap: 8px 12px;
+  padding: 24px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+}
+
+.workflowConvergenceGrid .lucide {
+  width: 21px;
+  height: 21px;
+  color: var(--green-800);
+}
+
+.workflowConvergenceGrid strong {
+  color: var(--green-950);
+  font-size: 15px;
+}
+
+.workflowConvergenceGrid > article > span {
+  color: var(--green-700);
+  font-size: 18px;
+  text-align: center;
+}
+
+.workflowConvergenceGrid p {
+  margin: 0;
+  color: #52605b;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.workflowBoundaryNote {
+  margin: 24px 0 0;
+  padding: 18px 20px;
+  color: #4e5b56;
+  background: #fbfcfb;
+  border-left: 3px solid #9cb5ac;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.workflowOutcomeGrid > article {
+  min-height: 168px;
+  padding: 25px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+}
+
+.workflowOutcomeGrid .eyebrow { margin-bottom: 10px; }
+
+.workflowOutcomeGrid h3 {
+  margin: 0;
+  color: var(--green-950);
+  font-size: 17px;
+}
+
+.workflowOutcomeGrid article > p:last-child {
+  margin: 11px 0 0;
+  color: #596561;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.workflowResolutionFlow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.workflowResolutionFlow li {
+  min-height: 150px;
+  padding: 23px 21px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.workflowResolutionFlow strong {
+  display: block;
+  color: var(--green-950);
+  font-size: 15px;
+}
+
+.workflowResolutionFlow span {
+  display: block;
+  margin-top: 9px;
+  color: #596561;
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.workflowRecoveryNotes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.workflowRecoveryNotes article {
+  min-height: 138px;
+  padding: 23px 24px;
+  background: var(--green-50);
+  border: 1px solid #d3e1db;
+  border-radius: 5px;
+}
+
+.workflowRecoveryNotes .lucide {
+  width: 21px;
+  height: 21px;
+  margin-bottom: 12px;
+  color: var(--green-800);
+}
+
+.workflowRecoveryNotes strong {
+  display: block;
+  color: var(--green-950);
+  font-size: 15px;
+}
+
+.workflowRecoveryNotes p {
+  margin: 8px 0 0;
+  color: #56625e;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.workflowNotificationFlow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 14px;
+  margin-top: 28px;
+  padding: 27px;
+  background: #fbfcfb;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+}
+
+.workflowNotificationFlow > div {
+  min-height: 134px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+
+.workflowNotificationFlow .lucide {
+  width: 22px;
+  height: 22px;
+  margin-bottom: 13px;
+  color: var(--green-800);
+}
+
+.workflowNotificationFlow strong {
+  color: var(--green-950);
+  font-size: 15px;
+}
+
+.workflowNotificationFlow div span {
+  margin-top: 7px;
+  color: #5a6662;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.workflowNotificationFlow > span {
+  color: var(--green-700);
+  font-size: 19px;
+}
+
+.workflowConsoleGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.workflowConsoleGrid figure {
+  margin: 0;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  box-shadow: 0 6px 16px rgba(6, 47, 39, .05);
+}
+
+.workflowConsoleGrid .workflowConsolePrimary { grid-column: 1 / -1; }
+
+.workflowConsoleGrid img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-bottom: 1px solid var(--line);
+}
+
+.workflowConsoleGrid figcaption {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 17px 19px;
+}
+
+.workflowConsoleGrid figcaption strong {
+  flex: 0 0 auto;
+  color: var(--green-950);
+  font-size: 14px;
+}
+
+.workflowConsoleGrid figcaption span {
+  color: #5a6662;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
 .overviewConsole {
   padding: 52px 0;
   border-bottom: 1px solid var(--line);
@@ -1784,6 +2064,10 @@ footer {
   .overviewPage { padding: 54px 32px 30px; }
   .architectureDependency { grid-template-columns: 1fr; }
   .architectureSequence { grid-template-columns: repeat(2, 1fr); }
+  .workflowPipeline { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .workflowResolutionFlow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .workflowNotificationFlow { grid-template-columns: 1fr; }
+  .workflowNotificationFlow > span { justify-self: center; transform: rotate(90deg); }
   footer { margin: 20px 32px 0; }
 }
 
@@ -1869,6 +2153,11 @@ footer {
   .architectureDeployment { grid-template-columns: 1fr; gap: 22px; padding: 27px 24px; }
   .architectureObjectList { grid-template-columns: 1fr; }
   .architectureDecisionList, .architectureSecurityGrid { grid-template-columns: 1fr; }
+  .workflowPipeline, .workflowConvergenceGrid, .workflowOutcomeGrid, .workflowResolutionFlow, .workflowRecoveryNotes, .workflowConsoleGrid { grid-template-columns: 1fr; }
+  .workflowPipeline li, .workflowResolutionFlow li { min-height: auto; }
+  .workflowConsoleGrid .workflowConsolePrimary { grid-column: auto; }
+  .workflowConsoleGrid figcaption { display: block; }
+  .workflowConsoleGrid figcaption span { display: block; margin-top: 6px; }
   .overviewConsole { padding: 40px 0; }
   .overviewConsoleHeading { display: block; }
   .overviewConsoleHeading > p { margin-top: 18px; font-size: 14px; }

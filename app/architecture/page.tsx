@@ -95,7 +95,7 @@ export default function ArchitecturePage() {
             <div className="architectureCoordinator">
               <div className="architectureCoordinatorLabel">
                 <ProductMark variant="diagram" />
-                <strong>SyncCoordinator</strong>
+                <strong>SynCo</strong>
               </div>
               <div className="architectureCoordinatorStack">
                 <div><Box aria-hidden="true" /><strong>Web</strong><span>設定・管理</span></div>
@@ -350,7 +350,7 @@ AppHost ─────────→ Worker / Web / demo resources`}</code></p
           <h2 id="architecture-next">次に読む</h2>
           <div>
             <a href="/overview"><GitFork aria-hidden="true" />Overview</a>
-            <a href="/#workflow"><Workflow aria-hidden="true" />Workflow</a>
+            <a href="/workflow"><Workflow aria-hidden="true" />Workflow</a>
           </div>
         </section>
       </article>

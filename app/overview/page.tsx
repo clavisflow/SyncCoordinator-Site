@@ -85,7 +85,7 @@ export default function OverviewPage() {
             <div className="syncDiagramFlow syncDiagramFlow-left" aria-hidden="true" />
             <div className="syncDiagramCore">
               <ProductMark variant="diagram" />
-              <strong>SyncCoordinator</strong>
+              <strong>SynCo</strong>
               <span>設定・同期・運用</span>
             </div>
             <div className="syncDiagramFlow syncDiagramFlow-right" aria-hidden="true" />
@@ -160,7 +160,7 @@ export default function OverviewPage() {
           <h2 id="overview-next">次に読む</h2>
           <div>
             <a href="/architecture"><GitFork aria-hidden="true" />Architecture</a>
-            <a href="/#workflow"><Workflow aria-hidden="true" />Workflow</a>
+            <a href="/workflow"><Workflow aria-hidden="true" />Workflow</a>
           </div>
         </section>
       </article>
