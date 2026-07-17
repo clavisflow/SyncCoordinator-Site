@@ -286,6 +286,33 @@ button, input { font: inherit; }
   border-bottom: 1px solid var(--line);
 }
 
+.heroWithIllustration {
+  min-height: 0;
+  display: block;
+  padding-bottom: 72px;
+}
+
+.heroWithIllustration .heroCopy {
+  max-width: none;
+}
+
+.heroDetailRow {
+  display: grid;
+  grid-template-columns: minmax(300px, .8fr) minmax(380px, 1.2fr);
+  align-items: center;
+  gap: 52px;
+  margin-top: 42px;
+}
+
+.heroWithIllustration .tagline {
+  margin: 0 0 22px;
+}
+
+.heroWithIllustration .heroIllustration {
+  width: 100%;
+  margin: 0;
+}
+
 .eyebrow {
   margin: 0 0 18px;
   color: var(--green-800);
@@ -359,6 +386,25 @@ button, input { font: inherit; }
   line-height: 2;
 }
 
+.heroMetadata {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 13px 0 0;
+  color: var(--green-900);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+.heroMetadata span {
+  padding: 4px 9px;
+  background: var(--green-50);
+  border: 1px solid #d4e2dc;
+  border-radius: 4px;
+}
+
 .heroActions {
   display: flex;
   flex-wrap: wrap;
@@ -392,6 +438,17 @@ button, input { font: inherit; }
   width: min(100%, 430px);
   aspect-ratio: 1.14;
   margin: 0 auto;
+}
+
+.heroIllustration {
+  width: min(100%, 590px);
+  margin: 0 auto;
+}
+
+.heroIllustration img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .coordinatorNode {
@@ -586,13 +643,335 @@ footer {
   opacity: 1;
 }
 
+.overviewPage {
+  max-width: 1104px;
+  margin: 0 auto;
+  padding: 68px 0 38px;
+}
+
+.overviewHero {
+  padding: 0 0 54px;
+  border-bottom: 1px solid var(--line);
+}
+
+.overviewTitle {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.overviewTitle .productMark-hero {
+  width: 66px;
+  margin-top: 3px;
+}
+
+.overviewTitle h1 {
+  margin: 0;
+  color: var(--green-950);
+  font-size: clamp(38px, 4vw, 54px);
+  letter-spacing: -.045em;
+}
+
+.overviewLead {
+  max-width: 770px;
+  margin: 21px 0 0;
+  color: #43504c;
+  font-size: 17px;
+  line-height: 1.95;
+}
+
+.syncDiagram {
+  display: grid;
+  grid-template-columns: minmax(190px, 1fr) 70px 166px 70px minmax(190px, 1fr);
+  align-items: center;
+  gap: 0;
+  margin: 28px 0 0;
+  padding: 34px;
+  background: #fbfcfb;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+}
+
+.syncDiagramSystem,
+.syncDiagramCore {
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 22px 16px;
+  text-align: center;
+}
+
+.syncDiagramSystem {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+
+.syncDiagramSystem .lucide {
+  width: 27px;
+  height: 27px;
+  margin-bottom: 12px;
+  color: var(--green-800);
+}
+
+.syncDiagramSystem strong,
+.syncDiagramCore strong {
+  color: var(--green-950);
+  font-size: 14px;
+  font-weight: 680;
+}
+
+.syncDiagramSystem > span:not(.syncDiagramStatus),
+.syncDiagramCore > span {
+  display: block;
+  margin-top: 4px;
+  color: #6b7773;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.syncDiagramStatus {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 3px 6px;
+  color: var(--green-800);
+  background: var(--green-50);
+  border: 1px solid #c9dcd4;
+  border-radius: 99px;
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.syncDiagramCore {
+  min-height: 174px;
+  background: var(--green-50);
+  border: 1px solid #c9dcd4;
+  border-radius: 4px;
+}
+
+.syncDiagramCore .productMark-diagram {
+  width: 62px;
+  margin-bottom: 10px;
+}
+
+.syncDiagramFlow {
+  height: 1px;
+  position: relative;
+  background: repeating-linear-gradient(to right, var(--green-700) 0 4px, transparent 4px 8px);
+}
+
+.syncDiagramFlow::after {
+  content: "↔";
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 4px;
+  color: var(--green-800);
+  background: #fbfcfb;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.syncDiagram figcaption {
+  grid-column: 1 / -1;
+  margin-top: 24px;
+  color: #5a6662;
+  font-size: 13px;
+  line-height: 1.75;
+  text-align: center;
+}
+
+.overviewSection {
+  padding: 52px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.overviewSectionHeading .eyebrow { margin-bottom: 10px; }
+
+.overviewSectionHeading h2,
+.overviewScope h2,
+.overviewConsoleHeading h2,
+.overviewNext h2 {
+  margin: 0;
+  color: var(--green-950);
+  font-size: 27px;
+  letter-spacing: -.025em;
+}
+
+.overviewBody {
+  max-width: 810px;
+  margin: 24px 0 0;
+  color: #485451;
+  font-size: 16px;
+  line-height: 2;
+}
+
+.overviewNote {
+  color: #65716d;
+  font-size: 14px;
+}
+
+.overviewFeatureGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  margin-top: 26px;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.overviewFeature {
+  min-height: 188px;
+  padding: 27px 30px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.overviewFeature .lucide,
+.overviewUseCase .lucide {
+  width: 24px;
+  height: 24px;
+  color: var(--green-800);
+}
+
+.overviewFeature h3,
+.overviewUseCase h3 {
+  margin: 17px 0 8px;
+  color: var(--green-950);
+  font-size: 17px;
+}
+
+.overviewFeature p,
+.overviewUseCase p {
+  margin: 0;
+  color: #5b6663;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.overviewUseCaseGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 26px;
+}
+
+.overviewUseCase {
+  min-height: 184px;
+  padding: 26px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+}
+
+.overviewConsole {
+  padding: 52px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.overviewConsoleHeading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 42px;
+}
+
+.overviewConsoleHeading .eyebrow { margin-bottom: 10px; }
+
+.overviewConsoleHeading > p {
+  max-width: 430px;
+  margin: 0 0 2px;
+  color: #596561;
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.overviewConsolePreview {
+  margin: 28px 0 0;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  box-shadow: 0 8px 20px rgba(6, 47, 39, .06);
+}
+
+.overviewConsolePreview img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.overviewScope {
+  display: grid;
+  grid-template-columns: minmax(220px, .7fr) 1.3fr;
+  gap: 46px;
+  margin-top: 52px;
+  padding: 32px 36px;
+  background: var(--green-50);
+  border: 1px solid #d4e2dc;
+  border-left: 3px solid var(--green-800);
+}
+
+.overviewScope .eyebrow { margin-bottom: 9px; }
+
+.overviewScopeText {
+  color: #495550;
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+.overviewScopeText p { margin: 0; }
+.overviewScopeText p + p { margin-top: 12px; }
+
+.overviewNext {
+  padding: 52px 0 12px;
+}
+
+.overviewNext .eyebrow { margin-bottom: 10px; }
+
+.overviewNext > div {
+  display: flex;
+  gap: 12px;
+  margin-top: 23px;
+}
+
+.overviewNext a {
+  min-width: 172px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 14px 16px;
+  color: var(--green-950);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 620;
+}
+
+.overviewNext a:hover,
+.overviewNext a:focus-visible {
+  background: var(--green-50);
+  border-color: #9cb5ac;
+  outline: none;
+}
+
+.overviewNext .lucide { width: 18px; height: 18px; }
+
 @media (max-width: 1180px) {
   .topHeader { grid-template-columns: 1fr auto 240px; }
   .productLabel, .brandDivider { display: none; }
   .sideNav { width: 246px; }
   .mainContent { margin-left: 246px; }
   .hero { grid-template-columns: 1fr; gap: 40px; }
+  .heroWithIllustration { display: block; }
   .architectureDiagram { width: 380px; }
+  .heroIllustration { width: min(100%, 590px); }
   .cardGrid { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -626,7 +1005,11 @@ footer {
   .sideNav .navIcon, .pdfLink { display: none; }
   .mainContent { margin-left: 0; padding-top: 125px; }
   .hero { padding: 64px 32px 50px; }
+  .heroWithIllustration { padding-bottom: 58px; }
+  .heroDetailRow { grid-template-columns: 1fr; gap: 36px; margin-top: 34px; }
+  .heroWithIllustration .heroIllustration { width: min(100%, 680px); }
   .docsSection { padding: 44px 32px 30px; }
+  .overviewPage { padding: 54px 32px 30px; }
   footer { margin: 20px 32px 0; }
 }
 
@@ -637,6 +1020,9 @@ footer {
   .sideNav { top: 99px; }
   .mainContent { padding-top: 148px; }
   .hero { min-height: auto; padding: 54px 22px 42px; }
+  .heroWithIllustration { padding-bottom: 44px; }
+  .heroDetailRow { gap: 30px; margin-top: 28px; }
+  .heroWithIllustration .heroIllustration { width: 100%; }
   .heroTitle { align-items: flex-start; gap: 12px; }
   .productMark-hero { width: 44px; margin-top: 5px; border-radius: 11px; }
   .heroTitle h1 { min-width: 0; font-size: clamp(34px, 10vw, 46px); overflow-wrap: anywhere; }
@@ -646,7 +1032,39 @@ footer {
   .heroActions { display: grid; grid-template-columns: 1fr; }
   .primaryButton, .secondaryButton { width: 100%; }
   .architectureDiagram { width: min(100%, 350px); }
+  .heroIllustration { width: 100%; }
   .docsSection { padding: 40px 22px 24px; }
+  .overviewPage { padding: 44px 22px 24px; }
+  .overviewHero { padding-bottom: 40px; }
+  .overviewTitle { gap: 13px; }
+  .overviewTitle .productMark-hero { width: 48px; margin-top: 2px; border-radius: 12px; }
+  .overviewTitle h1 { font-size: 36px; }
+  .overviewLead { margin-top: 16px; font-size: 14px; line-height: 1.9; }
+  .overviewIllustration { padding: 40px 0; }
+  .syncDiagram {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 22px;
+  }
+  .syncDiagramSystem, .syncDiagramCore { min-height: 142px; }
+  .syncDiagramFlow { width: 1px; height: 26px; justify-self: center; background: repeating-linear-gradient(to bottom, var(--green-700) 0 4px, transparent 4px 8px); }
+  .syncDiagramFlow::after { top: 50%; left: -11px; transform: translateY(-50%) rotate(90deg); background: #fbfcfb; }
+  .syncDiagram figcaption { grid-column: auto; margin-top: 5px; }
+  .overviewSection { padding: 40px 0; }
+  .overviewSectionHeading h2, .overviewScope h2, .overviewConsoleHeading h2, .overviewNext h2 { font-size: 24px; }
+  .overviewBody { margin-top: 18px; font-size: 14px; line-height: 1.9; }
+  .overviewNote { font-size: 13px; }
+  .overviewFeatureGrid, .overviewUseCaseGrid { grid-template-columns: 1fr; }
+  .overviewFeature { min-height: auto; padding: 24px; }
+  .overviewUseCase { min-height: auto; padding: 24px; }
+  .overviewConsole { padding: 40px 0; }
+  .overviewConsoleHeading { display: block; }
+  .overviewConsoleHeading > p { margin-top: 18px; font-size: 14px; }
+  .overviewConsolePreview { margin-top: 22px; }
+  .overviewScope { grid-template-columns: 1fr; gap: 21px; margin-top: 40px; padding: 27px 24px; }
+  .overviewNext { padding-top: 40px; }
+  .overviewNext > div { display: grid; grid-template-columns: 1fr; }
+  .overviewNext a { width: 100%; }
   .sectionHeading { display: block; }
   .sectionHeading > p { margin-top: 12px; }
   .cardGrid { grid-template-columns: 1fr; }
