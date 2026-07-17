@@ -168,6 +168,13 @@ button, input { font: inherit; }
   background: var(--green-800);
 }
 
+.mobileNavControl,
+.mobileMenuButton,
+.mobileNavPanel,
+.mobileNavBackdrop {
+  display: none;
+}
+
 .search {
   height: 44px;
   display: flex;
@@ -223,7 +230,7 @@ button, input { font: inherit; }
   top: 88px;
   bottom: 0;
   left: 0;
-  width: 308px;
+  width: 260px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -270,7 +277,7 @@ button, input { font: inherit; }
 .pdfLink .lucide { width: 19px; height: 19px; }
 
 .mainContent {
-  margin-left: 308px;
+  margin-left: 260px;
   padding-top: 88px;
 }
 
@@ -869,6 +876,685 @@ footer {
   border-radius: 5px;
 }
 
+.architectureToc {
+  display: grid;
+  grid-template-columns: 176px 1fr;
+  gap: 28px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.architectureToc > p {
+  margin: 6px 0 0;
+  color: var(--green-950);
+  font-size: 14px;
+  font-weight: 680;
+}
+
+.architectureToc ol {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 34px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.architectureToc a {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 6px 0;
+  color: #34413d;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.architectureToc a:hover {
+  color: var(--green-800);
+}
+
+.architectureToc span {
+  color: var(--green-700);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 12px;
+}
+
+.architectureSection {
+  padding: 52px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.architectureSubheading {
+  margin: 38px 0 0;
+  color: var(--green-950);
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+.architectureSubheading + .architectureComponentGrid,
+.architectureSubheading + .architectureReliabilityGrid {
+  margin-top: 18px;
+}
+
+.architectureTopology {
+  display: grid;
+  grid-template-columns: minmax(155px, .75fr) 52px minmax(290px, 1.5fr) 52px minmax(155px, .75fr);
+  align-items: center;
+  gap: 0;
+  margin: 28px 0 0;
+  padding: 30px;
+  background: #fbfcfb;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+}
+
+.architectureBusinessNode {
+  min-height: 184px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 12px;
+  text-align: center;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+
+.architectureBusinessNode > .lucide {
+  width: 26px;
+  height: 26px;
+  margin-bottom: 11px;
+  color: var(--green-800);
+}
+
+.architectureBusinessNode strong,
+.architectureCoordinator strong {
+  color: var(--green-950);
+  font-size: 13px;
+  font-weight: 680;
+}
+
+.architectureBusinessNode span,
+.architectureBusinessNode small {
+  display: block;
+  margin-top: 5px;
+  color: #65716d;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.architectureBusinessNode small {
+  margin-top: 10px;
+  color: var(--green-800);
+  font-size: 12px;
+}
+
+.architectureFlow {
+  height: 1px;
+  position: relative;
+  background: repeating-linear-gradient(to right, var(--green-700) 0 4px, transparent 4px 8px);
+}
+
+.architectureFlow::after {
+  content: "→";
+  position: absolute;
+  top: -9px;
+  right: -2px;
+  color: var(--green-800);
+  font-size: 17px;
+  line-height: 1;
+}
+
+.architectureFlow span {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  width: 76px;
+  transform: translateX(-50%);
+  color: #6a7672;
+  font-size: 12px;
+  text-align: center;
+}
+
+.architectureCoordinator {
+  padding: 19px;
+  background: var(--green-50);
+  border: 1px solid #c9dcd4;
+  border-radius: 4px;
+}
+
+.architectureCoordinatorLabel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-bottom: 14px;
+}
+
+.architectureCoordinatorLabel .productMark-diagram {
+  width: 37px;
+  border-radius: 9px;
+}
+
+.architectureCoordinatorStack {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.architectureCoordinatorStack > div {
+  min-height: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #d4e2dc;
+  border-radius: 3px;
+}
+
+.architectureCoordinatorStack .lucide {
+  width: 19px;
+  height: 19px;
+  margin-bottom: 8px;
+  color: var(--green-800);
+}
+
+.architectureCoordinatorStack span {
+  margin-top: 4px;
+  color: #6b7773;
+  font-size: 12px;
+}
+
+.architectureTopology figcaption {
+  grid-column: 1 / -1;
+  margin-top: 22px;
+  color: #5a6662;
+  font-size: 13px;
+  line-height: 1.75;
+  text-align: center;
+}
+
+.architectureComponentGrid,
+.architectureReliabilityGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-top: 26px;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.architectureComponent,
+.architectureReliabilityGrid article {
+  min-height: 190px;
+  padding: 27px 25px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.architectureComponent .lucide {
+  width: 24px;
+  height: 24px;
+  color: var(--green-800);
+}
+
+.architectureComponent h3 {
+  margin: 17px 0 8px;
+  color: var(--green-950);
+  font-size: 16px;
+}
+
+.architectureComponent p,
+.architectureReliabilityGrid p {
+  margin: 0;
+  color: #5b6663;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.architectureConcernGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.architectureConcernGrid > article {
+  padding: 27px 28px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+}
+
+.architectureConcernGrid .eyebrow { margin-bottom: 9px; }
+
+.architectureConcernGrid h3 {
+  margin: 0;
+  color: var(--green-950);
+  font-size: 20px;
+  letter-spacing: -.015em;
+}
+
+.architectureConcernFlow {
+  margin: 21px 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: concern-step;
+}
+
+.architectureConcernFlow li {
+  position: relative;
+  padding: 17px 0 17px 39px;
+  counter-increment: concern-step;
+  border-top: 1px solid var(--line);
+}
+
+.architectureConcernFlow li::before {
+  content: counter(concern-step);
+  width: 25px;
+  height: 25px;
+  display: grid;
+  place-items: center;
+  position: absolute;
+  top: 17px;
+  left: 0;
+  color: var(--green-800);
+  background: var(--green-50);
+  border: 1px solid #c9dcd4;
+  border-radius: 50%;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 12px;
+}
+
+.architectureConcernFlow strong,
+.architectureConcernFlow span { display: block; }
+
+.architectureConcernFlow strong {
+  color: var(--green-950);
+  font-size: 14px;
+}
+
+.architectureConcernFlow span {
+  margin-top: 6px;
+  color: #5a6662;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.architectureRuleGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.architectureRuleGrid > article {
+  padding: 27px 28px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+}
+
+.architectureRuleGrid .eyebrow { margin-bottom: 9px; }
+
+.architectureRuleGrid h3 {
+  margin: 0;
+  color: var(--green-950);
+  font-size: 20px;
+  letter-spacing: -.015em;
+}
+
+.architectureRuleGrid ul {
+  margin: 21px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.architectureRuleGrid li {
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+}
+
+.architectureRuleGrid strong,
+.architectureRuleGrid span { display: block; }
+
+.architectureRuleGrid strong {
+  color: var(--green-950);
+  font-size: 14px;
+}
+
+.architectureRuleGrid span {
+  margin-top: 6px;
+  color: #5a6662;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.architectureInitialDataNote {
+  margin: 22px 0 0;
+  padding: 18px 21px;
+  color: #4d5a55;
+  background: #fbfcfb;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--green-700);
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.architectureInitialDataNote strong { color: var(--green-950); }
+
+.architectureDeployment {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) 1fr;
+  gap: 40px;
+  margin-top: 28px;
+  padding: 30px 34px;
+  background: var(--green-50);
+  border: 1px solid #d4e2dc;
+  border-left: 3px solid var(--green-800);
+}
+
+.architectureDeployment .eyebrow { margin-bottom: 12px; }
+
+.architectureObjectList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.architectureObjectList li {
+  color: var(--green-900);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.architectureObjectList li::before {
+  content: "— ";
+  color: #8aa69c;
+}
+
+.architectureDeploymentNote {
+  margin: 0;
+  align-self: center;
+  color: #55625d;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.architectureUnchanged {
+  align-self: center;
+}
+
+.architectureUnchanged .eyebrow { margin-bottom: 12px; }
+
+.architectureUnchanged ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.architectureUnchanged li {
+  position: relative;
+  padding-left: 22px;
+  color: #4d5a55;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.architectureUnchanged li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--green-800);
+  font-weight: 700;
+}
+
+.architectureReliabilityGrid article {
+  min-height: 146px;
+}
+
+.architectureReliabilityGrid strong {
+  display: block;
+  margin-bottom: 11px;
+  color: var(--green-950);
+  font-size: 16px;
+}
+
+.architectureDependency {
+  display: grid;
+  grid-template-columns: minmax(380px, 1.05fr) 1fr;
+  gap: 28px;
+  margin-top: 28px;
+}
+
+.architectureDependency pre {
+  min-width: 0;
+  margin: 0;
+  padding: 26px;
+  overflow-x: auto;
+  color: #eef5f1;
+  background: var(--green-950);
+  border-radius: 5px;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+.architectureDependency dl {
+  margin: 0;
+  border-top: 1px solid var(--line);
+}
+
+.architectureDependency dl > div {
+  display: grid;
+  grid-template-columns: 112px 1fr;
+  gap: 15px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.architectureDependency dt {
+  color: var(--green-950);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.architectureDependency dd {
+  margin: 0;
+  color: #596560;
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.architectureTableWrap {
+  margin-top: 28px;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+
+.architectureTable {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+  color: #52605b;
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.architectureTable th,
+.architectureTable td {
+  padding: 16px 18px;
+  vertical-align: top;
+  text-align: left;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.architectureTable tr:last-child th,
+.architectureTable tr:last-child td { border-bottom: 0; }
+.architectureTable th:last-child,
+.architectureTable td:last-child { border-right: 0; }
+
+.architectureTable thead th {
+  color: var(--green-950);
+  background: var(--green-50);
+  font-weight: 680;
+}
+
+.architectureTable tbody th {
+  width: 164px;
+  color: var(--green-900);
+  background: #fbfcfb;
+  font-weight: 650;
+}
+
+.architectureSequence {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin: 26px 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: architecture-step;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.architectureSequence li {
+  min-height: 132px;
+  padding: 20px;
+  counter-increment: architecture-step;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.architectureSequence li::before {
+  content: "0" counter(architecture-step);
+  display: block;
+  margin-bottom: 13px;
+  color: var(--green-700);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 13px;
+}
+
+.architectureSequence strong,
+.architectureSequence span { display: block; }
+.architectureSequence strong { color: var(--green-950); font-size: 14px; }
+.architectureSequence span { margin-top: 7px; color: #5d6965; font-size: 13px; line-height: 1.7; }
+
+.architectureDecisionList,
+.architectureSecurityGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.architectureDecisionList article,
+.architectureSecurityGrid article {
+  padding: 23px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+
+.architectureDecisionList strong,
+.architectureSecurityGrid strong {
+  display: block;
+  color: var(--green-950);
+  font-size: 15px;
+}
+
+.architectureDecisionList p,
+.architectureSecurityGrid p {
+  margin: 9px 0 0;
+  color: #5b6762;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.architectureCallout {
+  margin: 22px 0 0;
+  padding: 19px 22px;
+  color: #46534e;
+  background: var(--green-50);
+  border-left: 3px solid var(--green-800);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.architectureDetailsList {
+  margin-top: 26px;
+  border-top: 1px solid var(--line);
+}
+
+.architectureDetailsList details {
+  border-bottom: 1px solid var(--line);
+}
+
+.architectureDetailsList summary {
+  min-height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  color: var(--green-950);
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 650;
+  list-style: none;
+}
+
+.architectureDetailsList summary::-webkit-details-marker { display: none; }
+
+.architectureDetailsList summary::after {
+  content: "+";
+  color: var(--green-700);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.architectureDetailsList details[open] summary::after { content: "−"; }
+
+.architectureDetailsContent {
+  padding: 0 0 26px;
+}
+
+.architectureDetailsContent > p {
+  max-width: 820px;
+  margin: 0 0 18px;
+  color: #596560;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.architectureDetailsContent pre {
+  margin: 0;
+  padding: 24px;
+  overflow-x: auto;
+  color: #eef5f1;
+  background: var(--green-950);
+  border-radius: 5px;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+.architectureDetailsContent .architectureSequence { margin-top: 0; }
+.architectureDetailsContent.architectureSecurityGrid { margin-top: 0; }
+
 .overviewConsole {
   padding: 52px 0;
   border-bottom: 1px solid var(--line);
@@ -973,52 +1659,145 @@ footer {
   .architectureDiagram { width: 380px; }
   .heroIllustration { width: min(100%, 590px); }
   .cardGrid { grid-template-columns: repeat(2, 1fr); }
+  .overviewPage { padding-right: 40px; padding-left: 40px; }
 }
 
-@media (max-width: 860px) {
-  html { scroll-padding-top: 126px; }
+@media (max-width: 1180px) {
+  html { scroll-padding-top: 86px; }
   .topHeader {
     min-height: 76px;
     height: auto;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: minmax(0, 1fr) minmax(190px, 260px) 44px;
     gap: 10px;
     padding: 12px 18px;
   }
+  .brand { min-width: 0; }
   .productMark-header { width: 34px; margin-right: 9px; border-radius: 9px; }
   .headerProductName { font-size: 18px; }
   .headerNav { display: none; }
   .search { width: min(100%, 260px); }
-  .sideNav {
+  .mobileNavControl { display: contents; }
+  .mobileMenuButton {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    color: var(--green-950);
+    background: #fff;
+    border: 1px solid #ccd4d0;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .mobileMenuButton:hover,
+  .mobileMenuButton:focus-visible {
+    background: var(--green-50);
+    border-color: #9cb5ac;
+    outline: none;
+  }
+  .mobileMenuButton .lucide { width: 22px; height: 22px; }
+  .mobileNavPanel {
+    position: fixed;
+    z-index: 21;
     top: 76px;
     right: 0;
-    bottom: auto;
-    width: auto;
-    height: 49px;
+    left: 0;
+    max-height: calc(100vh - 76px);
     display: block;
-    padding: 0 12px;
-    overflow-x: auto;
-    border-right: 0;
+    overflow-y: auto;
+    padding: 24px 22px 20px;
+    background: #fff;
     border-bottom: 1px solid var(--line);
+    box-shadow: 0 10px 22px rgba(6, 47, 39, .08);
   }
-  .sideNav nav { display: flex; gap: 0; }
-  .sideNav nav a { min-height: 48px; padding: 0 13px; border-radius: 0; font-size: 13px; white-space: nowrap; }
-  .sideNav .navIcon, .pdfLink { display: none; }
-  .mainContent { margin-left: 0; padding-top: 125px; }
+  .mobileNavPanel[hidden] { display: none; }
+  .mobileNavLabel {
+    margin: 0 0 12px;
+    color: var(--green-800);
+    font-family: var(--font-geist-mono), monospace;
+    font-size: 12px;
+    font-weight: 650;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+  .mobileNavLinks {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+  .mobileNavLinks a {
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    color: #27332f;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 590;
+  }
+  .mobileNavLinks a:hover,
+  .mobileNavLinks a:focus-visible {
+    background: var(--green-50);
+    outline: none;
+  }
+  .mobileNavLinks a.selected {
+    color: var(--green-900);
+    background: var(--green-100);
+  }
+  .mobileNavLinks .lucide { width: 20px; height: 20px; color: var(--green-800); }
+  .mobileNavUtility {
+    display: flex;
+    gap: 24px;
+    margin-top: 16px;
+    padding: 16px 12px 0;
+    border-top: 1px solid var(--line);
+  }
+  .mobileNavUtility a {
+    color: #53605c;
+    font-size: 14px;
+  }
+  .mobileNavUtility a:hover,
+  .mobileNavUtility a:focus-visible { color: var(--green-800); outline: none; }
+  .mobileNavBackdrop {
+    position: fixed;
+    z-index: 19;
+    top: 76px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    padding: 0;
+    background: rgba(6, 47, 39, .14);
+    border: 0;
+  }
+  .sideNav { display: none; }
+  .mainContent { margin-left: 0; padding-top: 76px; }
+}
+
+@media (max-width: 860px) {
   .hero { padding: 64px 32px 50px; }
   .heroWithIllustration { padding-bottom: 58px; }
   .heroDetailRow { grid-template-columns: 1fr; gap: 36px; margin-top: 34px; }
   .heroWithIllustration .heroIllustration { width: min(100%, 680px); }
   .docsSection { padding: 44px 32px 30px; }
   .overviewPage { padding: 54px 32px 30px; }
+  .architectureDependency { grid-template-columns: 1fr; }
+  .architectureSequence { grid-template-columns: repeat(2, 1fr); }
   footer { margin: 20px 32px 0; }
 }
 
 @media (max-width: 620px) {
-  .topHeader { grid-template-columns: 1fr; }
-  .brand { justify-content: center; }
-  .search { width: 100%; height: 40px; }
-  .sideNav { top: 99px; }
-  .mainContent { padding-top: 148px; }
+  html { scroll-padding-top: 118px; }
+  .topHeader { grid-template-columns: minmax(0, 1fr) 44px; }
+  .brand { grid-column: 1; grid-row: 1; justify-content: flex-start; }
+  .mobileMenuButton { grid-column: 2; grid-row: 1; }
+  .search { grid-column: 1 / -1; grid-row: 2; width: 100%; height: 40px; }
+  .mobileNavPanel { top: 110px; max-height: calc(100vh - 110px); }
+  .mobileNavBackdrop { top: 110px; }
+  .mobileNavLinks { grid-template-columns: 1fr; }
+  .mobileNavUtility { justify-content: space-between; gap: 12px; }
+  .mainContent { padding-top: 110px; }
   .hero { min-height: auto; padding: 54px 22px 42px; }
   .heroWithIllustration { padding-bottom: 44px; }
   .heroDetailRow { gap: 30px; margin-top: 28px; }
@@ -1040,7 +1819,6 @@ footer {
   .overviewTitle .productMark-hero { width: 48px; margin-top: 2px; border-radius: 12px; }
   .overviewTitle h1 { font-size: 36px; }
   .overviewLead { margin-top: 16px; font-size: 14px; line-height: 1.9; }
-  .overviewIllustration { padding: 40px 0; }
   .syncDiagram {
     grid-template-columns: 1fr;
     gap: 14px;
@@ -1057,6 +1835,40 @@ footer {
   .overviewFeatureGrid, .overviewUseCaseGrid { grid-template-columns: 1fr; }
   .overviewFeature { min-height: auto; padding: 24px; }
   .overviewUseCase { min-height: auto; padding: 24px; }
+  .architectureToc { grid-template-columns: 1fr; gap: 8px; padding: 20px 0; }
+  .architectureToc > p { margin-top: 0; }
+  .architectureToc ol { grid-template-columns: 1fr; }
+  .architectureSection { padding: 40px 0; }
+  .architectureSubheading { margin-top: 32px; font-size: 19px; }
+  .architectureTopology {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 22px;
+  }
+  .architectureBusinessNode { min-height: 148px; }
+  .architectureFlow {
+    width: 1px;
+    height: 28px;
+    justify-self: center;
+    background: repeating-linear-gradient(to bottom, var(--green-700) 0 4px, transparent 4px 8px);
+  }
+  .architectureFlow::after { top: auto; right: -8px; bottom: -2px; transform: rotate(90deg); }
+  .architectureFlow span { display: none; }
+  .architectureTopology figcaption { grid-column: auto; margin-top: 5px; }
+  .architectureCoordinatorStack { gap: 6px; }
+  .architectureCoordinatorStack > div { min-height: 78px; padding: 6px 3px; }
+  .architectureComponentGrid, .architectureReliabilityGrid { grid-template-columns: 1fr; }
+  .architectureComponent, .architectureReliabilityGrid article { min-height: auto; padding: 24px; }
+  .architectureConcernGrid { grid-template-columns: 1fr; }
+  .architectureConcernGrid > article { padding: 24px; }
+  .architectureRuleGrid { grid-template-columns: 1fr; }
+  .architectureRuleGrid > article { padding: 24px; }
+  .architectureDependency pre { padding: 20px; }
+  .architectureDependency dl > div { grid-template-columns: 1fr; gap: 5px; }
+  .architectureSequence { grid-template-columns: 1fr; }
+  .architectureDeployment { grid-template-columns: 1fr; gap: 22px; padding: 27px 24px; }
+  .architectureObjectList { grid-template-columns: 1fr; }
+  .architectureDecisionList, .architectureSecurityGrid { grid-template-columns: 1fr; }
   .overviewConsole { padding: 40px 0; }
   .overviewConsoleHeading { display: block; }
   .overviewConsoleHeading > p { margin-top: 18px; font-size: 14px; }

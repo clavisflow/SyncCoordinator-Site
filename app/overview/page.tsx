@@ -159,7 +159,7 @@ export default function OverviewPage() {
           <p className="eyebrow">NEXT</p>
           <h2 id="overview-next">次に読む</h2>
           <div>
-            <a href="/#architecture"><GitFork aria-hidden="true" />Architecture</a>
+            <a href="/architecture"><GitFork aria-hidden="true" />Architecture</a>
             <a href="/#workflow"><Workflow aria-hidden="true" />Workflow</a>
           </div>
         </section>
