@@ -90,7 +90,7 @@ export default function GettingStartedPage() {
           <div className="gettingStartedPrerequisites">
             <strong>この手順に必要なもの</strong>
             <ul>
-              <li>Windows 11（win-x64）</li>
+              <li>Windows 10（win-x64、確認済み）</li>
               <li>.NET SDK 10.0.301</li>
               <li>Aspire CLI 13.4.4</li>
               <li>Docker Desktop</li>
@@ -235,6 +235,17 @@ aspire run --apphost src/SyncCoordinator.AppHost/SyncCoordinator.AppHost.csproj`
           <p className="overviewBody">
             デモ用DBを本番へ移すのではなく、CoreモードでWebとWorkerを起動し、実際の業務システムを管理画面から登録します。管理画面の操作とDB反映の流れは、デモで行った手順と同じです。
           </p>
+
+          <div className="gettingStartedPrerequisites">
+            <strong>現行のCoreモード手順で確認済みの実行環境</strong>
+            <ul>
+              <li>Windows 10（win-x64）</li>
+              <li>.NET SDK 10.0.301</li>
+              <li>Aspire CLI 13.4.4</li>
+              <li>Aspire packages / templates 13.4.6</li>
+            </ul>
+            <p>管理DBに外部SQL Serverを使う場合、Docker Desktopは不要です。管理DBをコンテナで起動する場合だけ必要です。Windows Serverの対応範囲は、検証済み環境が確定してから掲載します。</p>
+          </div>
 
           <h3 className="architectureSubheading">1. Coordinator管理DBを用意する</h3>
           <p className="overviewBody">

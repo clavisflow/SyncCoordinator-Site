@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { documentationSections, getDocumentationSections } from "./documentation-sections";
+import { getDocumentationSections } from "./documentation-sections";
 import { DocsSearch } from "./docs-search";
 import { localizedPath, sitePath, type SiteLocale } from "./i18n";
 import { MobileNavigation } from "./mobile-navigation";

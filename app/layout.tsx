@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { sitePath } from "./i18n";
+import { siteOrigin, sitePath } from "./i18n";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,14 +13,13 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteOrigin = process.env.NEXT_PUBLIC_SITE_ORIGIN ?? "http://localhost:3000";
 const englishPath = sitePath("/en");
 const title = "SyncCoordinator Documentation | ClavisFlow";
 const description =
   "Official documentation for ClavisFlow SyncCoordinator, an enterprise data synchronization platform.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteOrigin),
+  ...(siteOrigin ? { metadataBase: new URL(siteOrigin) } : {}),
   title,
   description,
   icons: {
@@ -31,13 +30,13 @@ export const metadata: Metadata = {
     type: "website",
     title,
     description,
-    images: [{ url: `${siteOrigin}${sitePath("/og.png")}`, width: 1200, height: 630 }],
+    ...(siteOrigin ? { images: [{ url: `${siteOrigin}${sitePath("/og.png")}`, width: 1200, height: 630 }] } : {}),
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
-    images: [`${siteOrigin}${sitePath("/og.png")}`],
+    ...(siteOrigin ? { images: [`${siteOrigin}${sitePath("/og.png")}`] } : {}),
   },
 };
 

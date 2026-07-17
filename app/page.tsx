@@ -42,7 +42,7 @@ function DetailedHeroIllustration() {
   return (
     <figure className="heroIllustration">
       <img
-        src={sitePath("/hero-sync-flow.png")}
+        src={sitePath("/hero-sync-flow.webp")}
         alt="業務システムのデータをSyncCoordinatorで同期し、競合を自動または手動で解決する流れ"
       />
     </figure>

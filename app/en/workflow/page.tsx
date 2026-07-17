@@ -152,7 +152,7 @@ export default function EnglishWorkflowPage() {
             <li><strong>Compare values</strong><span>Review incoming and current destination values side by side.</span></li>
             <li><strong>Select the result</strong><span>Choose either value or enter a value for each conflicting field.</span></li>
             <li><strong>Request resolution</strong><span>Web stores a resolution request instead of writing directly to the business database.</span></li>
-            <li><strong>Verify and apply</strong><span>Worker reads the destination again and applies only if it has not changed. The decision remains in history, and later changes synchronize normally.</span></li>
+            <li><strong>Verify and apply</strong><span>Worker reads the destination again and applies only if it has not changed. The decision remains in history, and subsequent changes are processed as new synchronization work.</span></li>
           </ol>
           <p className="architectureCallout">
             If the destination changes while the conflict screen is open, Worker does not overwrite it. The console shows the latest value and asks for a new decision.
@@ -179,7 +179,7 @@ export default function EnglishWorkflowPage() {
             </table>
           </div>
           <p className="workflowBoundaryNote">
-            <strong>Held:</strong> Conflict holds can be resolved from the console. For validation or conversion holds, correct the configuration or data and make an operational decision; manual rerun from the console is not currently available.
+            <strong>Held:</strong> Conflict holds can be resolved from the console. Holds caused by validation or conversion cannot currently be rerun manually from the console.
           </p>
           <h3 className="architectureSubheading">What happens during a failure</h3>
           <div className="workflowRecoveryNotes">

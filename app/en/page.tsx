@@ -42,7 +42,7 @@ export default function EnglishHome() {
             </div>
             <figure className="heroIllustration">
               <img
-                src={sitePath("/hero-sync-flow.png")}
+                src={sitePath("/hero-sync-flow.webp")}
                 alt="SynCo synchronizes data across business systems and resolves conflicts automatically or manually"
               />
             </figure>

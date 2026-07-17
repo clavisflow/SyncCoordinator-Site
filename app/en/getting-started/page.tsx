@@ -73,7 +73,7 @@ export default function EnglishGettingStartedPage() {
           <div className="gettingStartedPrerequisites">
             <strong>Required for this procedure</strong>
             <ul>
-              <li>Windows 11 (win-x64)</li>
+              <li>Windows 10 (win-x64, verified)</li>
               <li>.NET SDK 10.0.301</li>
               <li>Aspire CLI 13.4.4</li>
               <li>Docker Desktop</li>
@@ -212,6 +212,17 @@ aspire run --apphost src/SyncCoordinator.AppHost/SyncCoordinator.AppHost.csproj`
           <p className="overviewBody">
             Do not promote demo databases to production. Start Web and Worker in Core mode, then register real business systems in the management console. Configuration and database deployment follow the same workflow you used in the demo.
           </p>
+
+          <div className="gettingStartedPrerequisites">
+            <strong>Verified environment for the current Core-mode procedure</strong>
+            <ul>
+              <li>Windows 10 (win-x64)</li>
+              <li>.NET SDK 10.0.301</li>
+              <li>Aspire CLI 13.4.4</li>
+              <li>Aspire packages / templates 13.4.6</li>
+            </ul>
+            <p>Docker Desktop is not required when the management database is an external SQL Server. It is required only when AppHost starts the management database in a container. Windows Server versions will be listed after their verified range is established.</p>
+          </div>
 
           <h3 className="architectureSubheading">1. Prepare the Coordinator management database</h3>
           <p className="overviewBody">

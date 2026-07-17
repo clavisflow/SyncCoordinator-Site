@@ -45,7 +45,6 @@ const contents = [
   ["deployment", "Business database deployment"],
   ["state-reliability", "State and reliable execution"],
   ["security", "Security and operational access"],
-  ["implementation-details", "Implementation details"],
 ] as const;
 
 export default function EnglishArchitecturePage() {
@@ -199,6 +198,13 @@ export default function EnglishArchitecturePage() {
               </ul>
             </article>
           </div>
+          <h3 className="architectureSubheading">When configuration changes take effect</h3>
+          <ol className="architectureSequence">
+            <li><strong>Start cycle</strong><span>Worker creates a processing scope.</span></li>
+            <li><strong>Load connections</strong><span>It reads enabled systems and protected connection data.</span></li>
+            <li><strong>Synchronize</strong><span>Connections stay stable for that cycle.</span></li>
+            <li><strong>Next cycle</strong><span>Saved changes take effect without restarting Worker.</span></li>
+          </ol>
         </section>
 
         <section id="conflicts-notifications" className="architectureSection" aria-labelledby="conflict-notification-title">
@@ -324,39 +330,6 @@ export default function EnglishArchitecturePage() {
               <strong>Least database privilege</strong>
               <p>Separate Worker read/write access from the DDL permission used to create helper tables and triggers. A DBA can review and run generated SQL.</p>
             </article>
-          </div>
-        </section>
-
-        <section id="implementation-details" className="architectureSection" aria-labelledby="implementation-title">
-          <div className="overviewSectionHeading">
-            <p className="eyebrow">IMPLEMENTATION DETAILS</p>
-            <h2 id="implementation-title">Implementation details</h2>
-          </div>
-          <p className="overviewBody">Open the details that are relevant to implementation and production deployment.</p>
-          <div className="architectureDetailsList">
-            <details>
-              <summary>Project dependency direction</summary>
-              <div className="architectureDetailsContent">
-                <p>Synchronization logic lives in Core. Web does not execute business database connectors; Worker invokes Core and performs synchronization.</p>
-                <pre aria-label="Project dependency direction"><code>{`Contracts ← Core ← Infrastructure ← Worker
-                      ↑
-                      └──────────── Web
-
-ServiceDefaults ← Worker / Web
-AppHost ─────────→ Worker / Web / demo resources`}</code></pre>
-              </div>
-            </details>
-            <details>
-              <summary>When configuration changes take effect</summary>
-              <div className="architectureDetailsContent">
-                <ol className="architectureSequence">
-                  <li><strong>Start cycle</strong><span>Worker creates a processing scope.</span></li>
-                  <li><strong>Load connections</strong><span>It reads enabled systems and protected connection data.</span></li>
-                  <li><strong>Synchronize</strong><span>Connections stay stable for that cycle.</span></li>
-                  <li><strong>Next cycle</strong><span>Saved changes take effect without restarting Worker.</span></li>
-                </ol>
-              </div>
-            </details>
           </div>
         </section>
 

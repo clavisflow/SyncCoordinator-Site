@@ -45,7 +45,6 @@ const contents = [
   ["deployment", "業務DBへの配備"],
   ["state-reliability", "状態管理と再実行"],
   ["security", "セキュリティと運用権限"],
-  ["implementation-details", "実装の詳細"],
 ] as const;
 
 export default function ArchitecturePage() {
@@ -200,6 +199,13 @@ export default function ArchitecturePage() {
               </ul>
             </article>
           </div>
+          <h3 className="architectureSubheading">設定変更が反映されるタイミング</h3>
+          <ol className="architectureSequence">
+            <li><strong>周期開始</strong><span>Workerが処理用のscopeを作ります。</span></li>
+            <li><strong>接続先を取得</strong><span>有効なシステム定義と接続情報を管理DBから読みます。</span></li>
+            <li><strong>同期を実行</strong><span>同じ周期の途中では接続先を切り替えません。</span></li>
+            <li><strong>次周期</strong><span>設定変更はWorkerを再起動せず、次の周期から反映されます。</span></li>
+          </ol>
         </section>
 
         <section id="conflicts-notifications" className="architectureSection" aria-labelledby="conflict-notification-title">
@@ -360,41 +366,6 @@ export default function ArchitecturePage() {
               <strong>DBの最小権限</strong>
               <p>Workerの通常の読書き権限と、同期用の補助テーブル・Triggerを作成するDDL権限を分けます。生成SQLはDBAが確認して実行できます。</p>
             </article>
-          </div>
-        </section>
-
-        <section id="implementation-details" className="architectureSection" aria-labelledby="implementation-title">
-          <div className="overviewSectionHeading">
-            <p className="eyebrow">IMPLEMENTATION DETAILS</p>
-            <h2 id="implementation-title">実装の詳細</h2>
-          </div>
-          <p className="overviewBody">
-            実装と本番配備に関係する補足です。必要な項目を開いて確認してください。
-          </p>
-          <div className="architectureDetailsList">
-            <details>
-              <summary>プロジェクトの依存方向</summary>
-              <div className="architectureDetailsContent">
-                <p>同期処理はCoreに置きます。Webは業務DB Connectorを直接実行しません。WorkerがCoreを呼び出して同期を進めます。</p>
-                <pre aria-label="Project dependency direction"><code>{`Contracts ← Core ← Infrastructure ← Worker
-                      ↑
-                      └──────────── Web
-
-ServiceDefaults ← Worker / Web
-AppHost ─────────→ Worker / Web / demo resources`}</code></pre>
-              </div>
-            </details>
-            <details>
-              <summary>設定変更が反映されるタイミング</summary>
-              <div className="architectureDetailsContent">
-                <ol className="architectureSequence">
-                  <li><strong>周期開始</strong><span>Workerが処理用のscopeを作ります。</span></li>
-                  <li><strong>接続先を取得</strong><span>有効なシステム定義と接続情報を管理DBから読みます。</span></li>
-                  <li><strong>同期を実行</strong><span>同じ周期の途中では接続先を切り替えません。</span></li>
-                  <li><strong>次周期</strong><span>設定変更はWorkerを再起動せず、次の周期から反映されます。</span></li>
-                </ol>
-              </div>
-            </details>
           </div>
         </section>
 

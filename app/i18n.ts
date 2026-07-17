@@ -1,6 +1,7 @@
 export type SiteLocale = "ja" | "en";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+export const siteOrigin = process.env.NEXT_PUBLIC_SITE_ORIGIN?.replace(/\/+$/, "");
 
 export function sitePath(path: string) {
   if (!path.startsWith("/") || path.startsWith("//")) return path;
@@ -13,11 +14,13 @@ export function localizedPath(locale: SiteLocale, path: string) {
 }
 
 export function localeAlternates(path: string, locale: SiteLocale = "ja") {
+  if (!siteOrigin) return undefined;
+
   return {
-    canonical: localizedPath(locale, path),
+    canonical: `${siteOrigin}${localizedPath(locale, path)}`,
     languages: {
-      ja: localizedPath("ja", path),
-      en: localizedPath("en", path),
+      ja: `${siteOrigin}${localizedPath("ja", path)}`,
+      en: `${siteOrigin}${localizedPath("en", path)}`,
     },
   };
 }

@@ -202,7 +202,7 @@ export default function WorkflowPage() {
             <li><strong>違いを確認</strong><span>送られてきた値と、同期先にある現在の値を並べて確認します。</span></li>
             <li><strong>残す値を選ぶ</strong><span>項目ごとに、どちらの値を使うか、または手入力するかを選びます。</span></li>
             <li><strong>解決を依頼</strong><span>管理画面から直接書き込まず、管理DBに解決要求を保存します。</span></li>
-            <li><strong>安全を確認して反映</strong><span>Workerが同期先をもう一度確認し、変わっていなければ反映します。解決結果は履歴に残り、その後の変更は通常どおり同期されます。</span></li>
+            <li><strong>安全を確認して反映</strong><span>Workerが同期先をもう一度確認し、変わっていなければ反映します。解決結果は履歴に残り、以後の変更は新しい同期として処理されます。</span></li>
           </ol>
           <p className="architectureCallout">
             画面を開いてから反映するまでに同期先の値が変わっていた場合は、上書きしません。最新の値を表示して、もう一度選び直せる状態に戻します。
@@ -232,7 +232,7 @@ export default function WorkflowPage() {
           </div>
           <p className="workflowBoundaryNote">
             <strong>Heldの扱い：</strong>
-            競合によるHeldは管理画面から解決できます。値変換や列の検証でHeldになったデータは、設定またはデータを修正したうえで運用判断が必要です。管理画面から手動で再実行する機能は現在ありません。
+            競合によるHeldは管理画面から解決できます。値変換や列の検証が原因のHeldは、管理画面から手動で再実行できません。
           </p>
           <h3 className="architectureSubheading">障害時の動き</h3>
           <div className="workflowRecoveryNotes">

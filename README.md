@@ -92,6 +92,10 @@ actions tied to the current ChatGPT user. Leave public content anonymous.
 - `npm test`: build the starter and verify its rendered loading skeleton
 - `npm run db:generate`: generate Drizzle migrations after schema changes
 
+## Production metadata
+
+Set `NEXT_PUBLIC_SITE_ORIGIN` to the public origin, including the scheme and host, when building for production. Canonical URLs and social preview images are emitted only when this value is configured, so a local build never publishes `localhost` metadata.
+
 ## Learn More
 
 - [vinext Documentation](https://github.com/cloudflare/vinext)
