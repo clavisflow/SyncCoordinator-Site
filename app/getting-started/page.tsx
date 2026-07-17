@@ -10,6 +10,7 @@ import {
   Workflow,
 } from "lucide-react";
 import { DocsShell, ProductMark } from "../docs-shell";
+import { ExpandableImage } from "../expandable-image";
 import { localeAlternates, sitePath } from "../i18n";
 
 export const metadata: Metadata = {
@@ -172,15 +173,15 @@ aspire run --apphost src/SyncCoordinator.AppHost/SyncCoordinator.AppHost.csproj`
           </div>
           <div className="workflowConsoleGrid gettingStartedScreens">
             <figure>
-              <img src={sitePath("/management-ui/systems.jpg")} alt="システム管理画面。同期対象システムとDB接続情報を確認・変更" />
+              <ExpandableImage src={sitePath("/management-ui/systems.jpg")} alt="システム管理画面。同期対象システムとDB接続情報を確認・変更" expandLabel="システム管理画面を拡大表示" closeLabel="拡大表示を閉じる" />
               <figcaption><strong>システム</strong><span>DB接続情報と有効状態を管理します。</span></figcaption>
             </figure>
             <figure>
-              <img src={sitePath("/management-ui/routes.jpg")} alt="同期ルール管理画面。送信元、送信先、同期方向を確認・変更" />
+              <ExpandableImage src={sitePath("/management-ui/routes.jpg")} alt="同期ルール管理画面。送信元、送信先、同期方向を確認・変更" expandLabel="同期ルール管理画面を拡大表示" closeLabel="拡大表示を閉じる" />
               <figcaption><strong>同期ルール</strong><span>同期方向と競合時の扱いを決めます。</span></figcaption>
             </figure>
             <figure className="workflowConsolePrimary">
-              <img src={sitePath("/management-ui/mapping.jpg")} alt="テーブルマッピング画面。同期するテーブル、列、キーを確認・変更" />
+              <ExpandableImage src={sitePath("/management-ui/mapping.jpg")} alt="テーブルマッピング画面。同期するテーブル、列、キーを確認・変更" expandLabel="テーブルマッピング画面を拡大表示" closeLabel="拡大表示を閉じる" />
               <figcaption><strong>テーブルマッピング</strong><span>テーブル、列、キー、値変換を設定します。</span></figcaption>
             </figure>
           </div>
@@ -202,7 +203,7 @@ aspire run --apphost src/SyncCoordinator.AppHost/SyncCoordinator.AppHost.csproj`
               <li><span>4</span><div><strong>ルールを有効にする</strong><p>両側のDBが検証済みになったら、基本設定から同期対象にします。</p></div></li>
             </ol>
             <figure className="gettingStartedDeployPreview">
-              <img src={sitePath("/management-ui/database-setup.jpg")} alt="データベース反映画面。生成SQLの確認、反映、DB構成の検証を実行" />
+              <ExpandableImage src={sitePath("/management-ui/database-setup.jpg")} alt="データベース反映画面。生成SQLの確認、反映、DB構成の検証を実行" expandLabel="データベース反映画面を拡大表示" closeLabel="拡大表示を閉じる" />
               <figcaption>データベース反映</figcaption>
             </figure>
           </div>

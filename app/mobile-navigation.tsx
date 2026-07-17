@@ -3,17 +3,22 @@
 import { useState, type KeyboardEvent } from "react";
 import { Menu, X } from "lucide-react";
 import { getDocumentationSections } from "./documentation-sections";
+import { DocsSearch } from "./docs-search";
 import { localizedPath, type SiteLocale } from "./i18n";
 
 export function MobileNavigation({
   activeSection,
+  currentPath = "/",
   locale = "ja",
 }: {
   activeSection?: string;
+  currentPath?: string;
   locale?: SiteLocale;
 }) {
   const [open, setOpen] = useState(false);
   const documentationSections = getDocumentationSections(locale);
+  const jaHref = localizedPath("ja", currentPath);
+  const enHref = localizedPath("en", currentPath);
 
   const close = () => setOpen(false);
   const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
@@ -40,6 +45,14 @@ export function MobileNavigation({
         id="mobile-documentation-menu"
         hidden={!open}
       >
+        <div className="mobileNavTools">
+          <DocsSearch locale={locale} />
+          <nav className="languageSwitcher" aria-label={locale === "ja" ? "言語を選択" : "Select language"}>
+            <a className={locale === "ja" ? "selected" : ""} href={jaHref} lang="ja" aria-current={locale === "ja" ? "page" : undefined}>JA</a>
+            <span aria-hidden="true">/</span>
+            <a className={locale === "en" ? "selected" : ""} href={enHref} lang="en" aria-current={locale === "en" ? "page" : undefined}>EN</a>
+          </nav>
+        </div>
         <p className="mobileNavLabel">Documentation</p>
         <nav className="mobileNavLinks" aria-label="Mobile documentation sections">
           {documentationSections.map((section) => {
@@ -56,10 +69,6 @@ export function MobileNavigation({
               </a>
             );
           })}
-        </nav>
-        <nav className="mobileNavUtility" aria-label="Mobile primary navigation">
-          <a href={localizedPath(locale, "/")} onClick={close}>Home</a>
-          <a href="https://github.com/clavisflow/SyncCoordinator" rel="noreferrer" onClick={close}>GitHub</a>
         </nav>
       </div>
 

@@ -16,6 +16,7 @@ import {
   Workflow as WorkflowIcon,
 } from "lucide-react";
 import { DocsShell, ProductMark } from "../../docs-shell";
+import { ExpandableImage } from "../../expandable-image";
 import { localeAlternates, sitePath } from "../../i18n";
 
 export const metadata: Metadata = {
@@ -151,7 +152,7 @@ export default function EnglishWorkflowPage() {
             <li><strong>Compare values</strong><span>Review incoming and current destination values side by side.</span></li>
             <li><strong>Select the result</strong><span>Choose either value or enter a value for each conflicting field.</span></li>
             <li><strong>Request resolution</strong><span>Web stores a resolution request instead of writing directly to the business database.</span></li>
-            <li><strong>Verify and apply</strong><span>Worker reads the destination again and applies only if it has not changed.</span></li>
+            <li><strong>Verify and apply</strong><span>Worker reads the destination again and applies only if it has not changed. The decision remains in history, and later changes synchronize normally.</span></li>
           </ol>
           <p className="architectureCallout">
             If the destination changes while the conflict screen is open, Worker does not overwrite it. The console shows the latest value and asks for a new decision.
@@ -178,11 +179,12 @@ export default function EnglishWorkflowPage() {
             </table>
           </div>
           <p className="workflowBoundaryNote">
-            <strong>Held:</strong> Conflict holds can be resolved from the console. Manual rerun for non-conflict validation or conversion holds is not currently available.
+            <strong>Held:</strong> Conflict holds can be resolved from the console. For validation or conversion holds, correct the configuration or data and make an operational decision; manual rerun from the console is not currently available.
           </p>
+          <h3 className="architectureSubheading">What happens during a failure</h3>
           <div className="workflowRecoveryNotes">
-            <article><RefreshCw aria-hidden="true" /><strong>No duplicate apply</strong><p>Retries reuse the same delivery ID and check SyncAppliedMessage at the destination.</p></article>
-            <article><GitFork aria-hidden="true" /><strong>Other sources continue</strong><p>An error at one source does not stop a different source with its own Checkpoint.</p></article>
+            <article><RefreshCw aria-hidden="true" /><strong>When a connection is unavailable</strong><p>On a connection failure, Worker leaves the Checkpoint in place and retries automatically in a later cycle. It resumes from that position after connectivity returns.</p></article>
+            <article><GitFork aria-hidden="true" /><strong>Interrupted work or redelivery</strong><p>Each delivery reuses its deterministic ID and checks the destination apply record. Reacquiring interrupted work does not apply the same change twice.</p></article>
           </div>
           <h3 className="architectureSubheading">Pause and resume</h3>
           <p className="overviewBody">
@@ -223,15 +225,15 @@ export default function EnglishWorkflowPage() {
           </p>
           <div className="workflowConsoleGrid">
             <figure className="workflowConsolePrimary">
-              <img src={sitePath("/management-ui/operations.jpg")} alt="Operations page showing Queue Checkpoints and synchronization history" />
+              <ExpandableImage src={sitePath("/management-ui/operations.jpg")} alt="Operations page showing Queue Checkpoints and synchronization history" expandLabel="Expand the Operations page image" closeLabel="Close expanded image" hintLabel="Expand" />
               <figcaption><strong>Operations</strong><span>Review Checkpoints, results, attempts, and errors.</span></figcaption>
             </figure>
             <figure>
-              <img src={sitePath("/management-ui/conflicts.jpg")} alt="Conflict history page listing conflicts that need attention" />
+              <ExpandableImage src={sitePath("/management-ui/conflicts.jpg")} alt="Conflict history page listing conflicts that need attention" expandLabel="Expand the conflict history image" closeLabel="Close expanded image" hintLabel="Expand" />
               <figcaption><strong>Conflicts</strong><span>Review held conflicts and their resolution state.</span></figcaption>
             </figure>
             <figure>
-              <img src={sitePath("/management-ui/notifications.jpg")} alt="Notification settings page for webhook endpoints and events" />
+              <ExpandableImage src={sitePath("/management-ui/notifications.jpg")} alt="Notification settings page for webhook endpoints and events" expandLabel="Expand the notification settings image" closeLabel="Close expanded image" hintLabel="Expand" />
               <figcaption><strong>Notifications</strong><span>Manage endpoints, event selection, and signing configuration.</span></figcaption>
             </figure>
           </div>

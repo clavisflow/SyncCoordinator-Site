@@ -39,10 +39,12 @@ const deploymentObjects = [
 
 const contents = [
   ["topology", "全体構成"],
+  ["supported-databases", "対応データベース"],
   ["sync-rules", "同期ルールとマッピング"],
   ["conflicts-notifications", "競合と通知"],
   ["deployment", "業務DBへの配備"],
   ["state-reliability", "状態管理と再実行"],
+  ["security", "セキュリティと運用権限"],
   ["implementation-details", "実装の詳細"],
 ] as const;
 
@@ -129,6 +131,44 @@ export default function ArchitecturePage() {
                 </article>
               );
             })}
+          </div>
+        </section>
+
+        <section id="supported-databases" className="architectureSection" aria-labelledby="supported-databases-title">
+          <div className="overviewSectionHeading">
+            <p className="eyebrow">COMPATIBILITY</p>
+            <h2 id="supported-databases-title">対応データベース</h2>
+          </div>
+          <p className="overviewBody">
+            同期対象となる業務DBの対応範囲です。各DBには、同期補助テーブルと変更検知Triggerを作成・削除できる権限が必要です。
+          </p>
+          <div className="architectureTableWrap">
+            <table className="architectureTable">
+              <thead>
+                <tr>
+                  <th scope="col">データベース</th>
+                  <th scope="col">対応バージョン</th>
+                  <th scope="col">配備時の要件</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">SQL Server</th>
+                  <td>2016 SP1 以降</td>
+                  <td>対象テーブルへのTrigger作成と、同期補助テーブルを作成・削除できる権限</td>
+                </tr>
+                <tr>
+                  <th scope="row">MySQL</th>
+                  <td>8.0 以降</td>
+                  <td>TRIGGER権限と、同期補助テーブルを作成・削除できる権限</td>
+                </tr>
+                <tr>
+                  <th scope="row">PostgreSQL</th>
+                  <td>13 以降</td>
+                  <td>対象テーブルへのTRIGGER権限と、同期補助オブジェクトを作成・削除できる権限</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </section>
 
@@ -295,6 +335,34 @@ export default function ArchitecturePage() {
           </p>
         </section>
 
+        <section id="security" className="architectureSection" aria-labelledby="security-title">
+          <div className="overviewSectionHeading">
+            <p className="eyebrow">SECURITY AND OPERATIONS</p>
+            <h2 id="security-title">セキュリティと運用権限</h2>
+          </div>
+          <p className="overviewBody">
+            業務DBへの接続情報と同期の設定はCoordinator管理DBで扱います。本番では、秘密情報、管理画面へのアクセス、DB権限をそれぞれ分けて保護します。
+          </p>
+          <div className="architectureSecurityGrid">
+            <article>
+              <strong>接続情報と署名鍵</strong>
+              <p>業務DBの接続文字列とWebhookの署名鍵は、ASP.NET Core Data Protectionで暗号化して管理DBへ保存します。</p>
+            </article>
+            <article>
+              <strong>管理画面とKey Ring</strong>
+              <p>管理画面はHTTPSで公開します。WebとWorkerを分ける場合は、両方が読めるKey Ringを用意し、アクセス制御とバックアップを行います。</p>
+            </article>
+            <article>
+              <strong>初期設定の制限</strong>
+              <p>管理者の初期設定とパスワード再設定は、接続元とアクセス先の両方がlocalhostまたはループバックIPの場合だけ利用できます。</p>
+            </article>
+            <article>
+              <strong>DBの最小権限</strong>
+              <p>Workerの通常の読書き権限と、同期用の補助テーブル・Triggerを作成するDDL権限を分けます。生成SQLはDBAが確認して実行できます。</p>
+            </article>
+          </div>
+        </section>
+
         <section id="implementation-details" className="architectureSection" aria-labelledby="implementation-title">
           <div className="overviewSectionHeading">
             <p className="eyebrow">IMPLEMENTATION DETAILS</p>
@@ -325,23 +393,6 @@ AppHost ─────────→ Worker / Web / demo resources`}</code></p
                   <li><strong>同期を実行</strong><span>同じ周期の途中では接続先を切り替えません。</span></li>
                   <li><strong>次周期</strong><span>設定変更はWorkerを再起動せず、次の周期から反映されます。</span></li>
                 </ol>
-              </div>
-            </details>
-            <details>
-              <summary>暗号鍵とDB権限</summary>
-              <div className="architectureDetailsContent architectureSecurityGrid">
-                <article>
-                  <strong>接続情報の保護</strong>
-                  <p>業務DBの接続文字列とWebhookの署名鍵は、Data Protectionで暗号化して管理DBへ保存します。</p>
-                </article>
-                <article>
-                  <strong>共有Key Ring</strong>
-                  <p>WebとWorkerを別ホストに置く場合は、両方から読める共有Key Ringを用意し、ACLで保護します。</p>
-                </article>
-                <article>
-                  <strong>最小権限</strong>
-                  <p>Workerが通常運用で使う読書き権限と、補助オブジェクトを作成するDDL権限は分けます。</p>
-                </article>
               </div>
             </details>
           </div>

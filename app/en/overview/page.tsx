@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Box, Database, GitFork, Network, Server, Workflow } from "lucide-react";
 import { DocsShell, ProductMark } from "../../docs-shell";
+import { ExpandableImage } from "../../expandable-image";
 import { localeAlternates, sitePath } from "../../i18n";
 
 export const metadata: Metadata = {
@@ -148,9 +149,12 @@ export default function EnglishOverviewPage() {
             <p>Review routes, processing state, and recent conflicts, then retry or pause work when necessary.</p>
           </div>
           <figure className="overviewConsolePreview">
-            <img
+            <ExpandableImage
               src={sitePath("/management-ui/dashboard.jpg")}
               alt="SyncCoordinator management dashboard showing synchronization routes, processing status, and recent conflicts"
+              expandLabel="Expand the management dashboard image"
+              closeLabel="Close expanded image"
+              hintLabel="Expand"
             />
           </figure>
         </section>

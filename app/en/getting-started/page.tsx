@@ -10,6 +10,7 @@ import {
   Workflow,
 } from "lucide-react";
 import { DocsShell, ProductMark } from "../../docs-shell";
+import { ExpandableImage } from "../../expandable-image";
 import { localeAlternates, sitePath } from "../../i18n";
 
 export const metadata: Metadata = {
@@ -149,15 +150,15 @@ aspire run --apphost src/SyncCoordinator.AppHost/SyncCoordinator.AppHost.csproj`
           </div>
           <div className="workflowConsoleGrid gettingStartedScreens">
             <figure>
-              <img src={sitePath("/management-ui/systems.jpg")} alt="Systems page for reviewing database connections and enabled state" />
+              <ExpandableImage src={sitePath("/management-ui/systems.jpg")} alt="Systems page for reviewing database connections and enabled state" expandLabel="Expand the Systems page image" closeLabel="Close expanded image" hintLabel="Expand" />
               <figcaption><strong>Systems</strong><span>Manage database connections and enabled state.</span></figcaption>
             </figure>
             <figure>
-              <img src={sitePath("/management-ui/routes.jpg")} alt="Synchronization rules page for source, destination, and direction" />
+              <ExpandableImage src={sitePath("/management-ui/routes.jpg")} alt="Synchronization rules page for source, destination, and direction" expandLabel="Expand the synchronization rules image" closeLabel="Close expanded image" hintLabel="Expand" />
               <figcaption><strong>Rules</strong><span>Choose direction and conflict behavior.</span></figcaption>
             </figure>
             <figure className="workflowConsolePrimary">
-              <img src={sitePath("/management-ui/mapping.jpg")} alt="Table mapping page for tables, columns, keys, and conversion" />
+              <ExpandableImage src={sitePath("/management-ui/mapping.jpg")} alt="Table mapping page for tables, columns, keys, and conversion" expandLabel="Expand the table mapping image" closeLabel="Close expanded image" hintLabel="Expand" />
               <figcaption><strong>Mappings</strong><span>Configure tables, keys, fields, and value conversion.</span></figcaption>
             </figure>
           </div>
@@ -179,7 +180,7 @@ aspire run --apphost src/SyncCoordinator.AppHost/SyncCoordinator.AppHost.csproj`
               <li><span>4</span><div><strong>Enable the rule</strong><p>After both sides pass verification, enable synchronization in the rule settings.</p></div></li>
             </ol>
             <figure className="gettingStartedDeployPreview">
-              <img src={sitePath("/management-ui/database-setup.jpg")} alt="Database deployment page for reviewing SQL, deploying objects, and verifying definitions" />
+              <ExpandableImage src={sitePath("/management-ui/database-setup.jpg")} alt="Database deployment page for reviewing SQL, deploying objects, and verifying definitions" expandLabel="Expand the database deployment image" closeLabel="Close expanded image" hintLabel="Expand" />
               <figcaption>Database deployment</figcaption>
             </figure>
           </div>

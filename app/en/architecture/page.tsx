@@ -39,10 +39,12 @@ const deploymentObjects = [
 
 const contents = [
   ["topology", "System topology"],
+  ["supported-databases", "Supported databases"],
   ["sync-rules", "Rules and mappings"],
   ["conflicts-notifications", "Conflicts and notifications"],
   ["deployment", "Business database deployment"],
   ["state-reliability", "State and reliable execution"],
+  ["security", "Security and operational access"],
   ["implementation-details", "Implementation details"],
 ] as const;
 
@@ -128,6 +130,44 @@ export default function EnglishArchitecturePage() {
                 </article>
               );
             })}
+          </div>
+        </section>
+
+        <section id="supported-databases" className="architectureSection" aria-labelledby="supported-databases-title">
+          <div className="overviewSectionHeading">
+            <p className="eyebrow">COMPATIBILITY</p>
+            <h2 id="supported-databases-title">Supported databases</h2>
+          </div>
+          <p className="overviewBody">
+            These versions apply to business databases synchronized by SyncCoordinator. Each database requires permissions to create and remove the synchronization support tables and change-detection triggers.
+          </p>
+          <div className="architectureTableWrap">
+            <table className="architectureTable">
+              <thead>
+                <tr>
+                  <th scope="col">Database</th>
+                  <th scope="col">Supported version</th>
+                  <th scope="col">Deployment requirement</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">SQL Server</th>
+                  <td>2016 SP1 or later</td>
+                  <td>Permissions to create triggers on the target table and create or remove synchronization support tables</td>
+                </tr>
+                <tr>
+                  <th scope="row">MySQL</th>
+                  <td>8.0 or later</td>
+                  <td>The TRIGGER privilege and permissions to create or remove synchronization support tables</td>
+                </tr>
+                <tr>
+                  <th scope="row">PostgreSQL</th>
+                  <td>13 or later</td>
+                  <td>The TRIGGER privilege on the target table and permissions to create or remove synchronization support objects</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </section>
 
@@ -259,6 +299,34 @@ export default function EnglishArchitecturePage() {
           </p>
         </section>
 
+        <section id="security" className="architectureSection" aria-labelledby="security-title">
+          <div className="overviewSectionHeading">
+            <p className="eyebrow">SECURITY AND OPERATIONS</p>
+            <h2 id="security-title">Security and operational access</h2>
+          </div>
+          <p className="overviewBody">
+            Coordinator management DB holds business-database connection data and synchronization configuration. In production, protect secrets, console access, and database privileges independently.
+          </p>
+          <div className="architectureSecurityGrid">
+            <article>
+              <strong>Connection data and signing secrets</strong>
+              <p>Business database connection strings and webhook signing secrets are encrypted with ASP.NET Core Data Protection before they are stored in the management database.</p>
+            </article>
+            <article>
+              <strong>Console and Key Ring</strong>
+              <p>Publish the management console through HTTPS. When Web and Worker are separate, provide a protected, backed-up Key Ring both can read.</p>
+            </article>
+            <article>
+              <strong>Restricted initial setup</strong>
+              <p>Administrator setup and password reset are available only when both the client and requested host are localhost or a loopback address.</p>
+            </article>
+            <article>
+              <strong>Least database privilege</strong>
+              <p>Separate Worker read/write access from the DDL permission used to create helper tables and triggers. A DBA can review and run generated SQL.</p>
+            </article>
+          </div>
+        </section>
+
         <section id="implementation-details" className="architectureSection" aria-labelledby="implementation-title">
           <div className="overviewSectionHeading">
             <p className="eyebrow">IMPLEMENTATION DETAILS</p>
@@ -287,14 +355,6 @@ AppHost ─────────→ Worker / Web / demo resources`}</code></p
                   <li><strong>Synchronize</strong><span>Connections stay stable for that cycle.</span></li>
                   <li><strong>Next cycle</strong><span>Saved changes take effect without restarting Worker.</span></li>
                 </ol>
-              </div>
-            </details>
-            <details>
-              <summary>Encryption keys and database permissions</summary>
-              <div className="architectureDetailsContent architectureSecurityGrid">
-                <article><strong>Protect connections</strong><p>Business database connections and webhook secrets are encrypted with ASP.NET Core Data Protection.</p></article>
-                <article><strong>Share the Key Ring</strong><p>When Web and Worker use different accounts or hosts, give both access to a protected shared Key Ring.</p></article>
-                <article><strong>Least privilege</strong><p>Separate Worker read/write permissions from the DDL permission used to deploy helper objects.</p></article>
               </div>
             </details>
           </div>

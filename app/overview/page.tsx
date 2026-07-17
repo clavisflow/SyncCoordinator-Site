@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Box, Database, GitFork, Network, Server, Workflow } from "lucide-react";
 import { DocsShell, ProductMark } from "../docs-shell";
+import { ExpandableImage } from "../expandable-image";
 import { localeAlternates, sitePath } from "../i18n";
 
 export const metadata: Metadata = {
@@ -150,9 +151,11 @@ export default function OverviewPage() {
             </p>
           </div>
           <figure className="overviewConsolePreview">
-            <img
+            <ExpandableImage
               src={sitePath("/management-ui/dashboard.jpg")}
               alt="SyncCoordinator管理画面のダッシュボード。同期経路、処理状況、最近の競合を表示している。"
+              expandLabel="管理画面のダッシュボードを拡大表示"
+              closeLabel="拡大表示を閉じる"
             />
           </figure>
         </section>

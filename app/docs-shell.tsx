@@ -3,6 +3,7 @@ import { documentationSections, getDocumentationSections } from "./documentation
 import { DocsSearch } from "./docs-search";
 import { localizedPath, sitePath, type SiteLocale } from "./i18n";
 import { MobileNavigation } from "./mobile-navigation";
+import { ProductVersion } from "./product-version";
 
 export { documentationSections } from "./documentation-sections";
 export type { DocumentationSection } from "./documentation-sections";
@@ -10,9 +11,6 @@ export type { DocumentationSection } from "./documentation-sections";
 function BrandSignature() {
   return (
     <span className="brandSignature brandSignature-footer" aria-label="ClavisFlow">
-      <span className="signatureMark" aria-hidden="true">
-        <img src={sitePath("/clavisflow-brand-icon.png")} alt="" />
-      </span>
       <img className="signatureWordmark" src={sitePath("/clavisflow-wordmark.png")} alt="" />
     </span>
   );
@@ -46,12 +44,13 @@ export function DocsShell({
   return (
     <div className="siteShell" lang={locale}>
       <header className="topHeader">
-        <a className="brand" href={localizedPath(locale, "/")} aria-label="SyncCoordinator documentation home">
-          <ProductMark variant="header" />
-          <span className="headerProductName">SyncCoordinator</span>
-          <span className="brandDivider" />
-          <span className="productLabel">Documentation</span>
-        </a>
+        <div className="brand">
+          <a className="brandHome" href={localizedPath(locale, "/")} aria-label="SyncCoordinator documentation home">
+            <ProductMark variant="header" />
+            <span className="headerProductName">SyncCoordinator</span>
+          </a>
+          <ProductVersion locale={locale} />
+        </div>
 
         <div className="headerTools">
           <DocsSearch locale={locale} />
@@ -62,7 +61,7 @@ export function DocsShell({
           </nav>
         </div>
 
-        <MobileNavigation activeSection={activeSection} locale={locale} />
+        <MobileNavigation activeSection={activeSection} currentPath={currentPath} locale={locale} />
       </header>
 
       <aside className="sideNav">

@@ -16,6 +16,7 @@ import {
   Workflow as WorkflowIcon,
 } from "lucide-react";
 import { DocsShell, ProductMark } from "../docs-shell";
+import { ExpandableImage } from "../expandable-image";
 import { localeAlternates, sitePath } from "../i18n";
 
 export const metadata: Metadata = {
@@ -201,7 +202,7 @@ export default function WorkflowPage() {
             <li><strong>違いを確認</strong><span>送られてきた値と、同期先にある現在の値を並べて確認します。</span></li>
             <li><strong>残す値を選ぶ</strong><span>項目ごとに、どちらの値を使うか、または手入力するかを選びます。</span></li>
             <li><strong>解決を依頼</strong><span>管理画面から直接書き込まず、管理DBに解決要求を保存します。</span></li>
-            <li><strong>安全を確認して反映</strong><span>Workerが同期先をもう一度確認し、変わっていなければ反映します。</span></li>
+            <li><strong>安全を確認して反映</strong><span>Workerが同期先をもう一度確認し、変わっていなければ反映します。解決結果は履歴に残り、その後の変更は通常どおり同期されます。</span></li>
           </ol>
           <p className="architectureCallout">
             画面を開いてから反映するまでに同期先の値が変わっていた場合は、上書きしません。最新の値を表示して、もう一度選び直せる状態に戻します。
@@ -231,11 +232,12 @@ export default function WorkflowPage() {
           </div>
           <p className="workflowBoundaryNote">
             <strong>Heldの扱い：</strong>
-            競合によるHeldは管理画面から解決できます。値変換や列の検証でHeldになったデータを、管理画面から手動で再実行する機能は現在ありません。
+            競合によるHeldは管理画面から解決できます。値変換や列の検証でHeldになったデータは、設定またはデータを修正したうえで運用判断が必要です。管理画面から手動で再実行する機能は現在ありません。
           </p>
+          <h3 className="architectureSubheading">障害時の動き</h3>
           <div className="workflowRecoveryNotes">
-            <article><RefreshCw aria-hidden="true" /><strong>同じ変更は二重に書かない</strong><p>やり直すときも同じ配送IDを使います。同期先の適用済み記録を確認するため、二重反映を防げます。</p></article>
-            <article><GitFork aria-hidden="true" /><strong>別の送信元は止めない</strong><p>ひとつの送信元でエラーが起きても、読取位置を別に持つほかの送信元は処理を続けます。</p></article>
+            <article><RefreshCw aria-hidden="true" /><strong>接続先が停止した場合</strong><p>接続エラーではCheckpointを進めず、次の周期で自動的に再試行します。接続が復旧すれば、残っている位置から処理を続けます。</p></article>
+            <article><GitFork aria-hidden="true" /><strong>途中停止・同じ変更の再送</strong><p>配送ごとに同じIDを使い、同期先の適用済み記録を確認します。途中で停止した処理を取得し直しても、同じ変更を二重に反映しません。</p></article>
           </div>
 
           <h3 className="architectureSubheading">一時停止した場合</h3>
@@ -277,15 +279,15 @@ export default function WorkflowPage() {
           </p>
           <div className="workflowConsoleGrid">
             <figure className="workflowConsolePrimary">
-              <img src={sitePath("/management-ui/operations.jpg")} alt="処理状況画面。システムごとのキュー読取位置と同期処理履歴を表示" />
+              <ExpandableImage src={sitePath("/management-ui/operations.jpg")} alt="処理状況画面。システムごとのキュー読取位置と同期処理履歴を表示" expandLabel="処理状況画面を拡大表示" closeLabel="拡大表示を閉じる" />
               <figcaption><strong>処理状況</strong><span>Checkpoint、処理結果、試行回数、エラーを確認します。</span></figcaption>
             </figure>
             <figure>
-              <img src={sitePath("/management-ui/conflicts.jpg")} alt="コンフリクト履歴画面。要対応の競合を一覧表示" />
+              <ExpandableImage src={sitePath("/management-ui/conflicts.jpg")} alt="コンフリクト履歴画面。要対応の競合を一覧表示" expandLabel="コンフリクト履歴画面を拡大表示" closeLabel="拡大表示を閉じる" />
               <figcaption><strong>コンフリクト</strong><span>要対応の競合と解決状態を確認します。</span></figcaption>
             </figure>
             <figure>
-              <img src={sitePath("/management-ui/notifications.jpg")} alt="通知設定画面。Webhook通知先と対象イベントを設定" />
+              <ExpandableImage src={sitePath("/management-ui/notifications.jpg")} alt="通知設定画面。Webhook通知先と対象イベントを設定" expandLabel="通知設定画面を拡大表示" closeLabel="拡大表示を閉じる" />
               <figcaption><strong>通知</strong><span>Webhook通知先、対象イベント、署名設定を管理します。</span></figcaption>
             </figure>
           </div>
