@@ -4,20 +4,15 @@ import { useEffect, useState } from "react";
 import type { SiteLocale } from "./i18n";
 
 const latestReleaseEndpoint = "https://api.github.com/repos/clavisflow/SyncCoordinator/releases/latest";
+let latestReleaseRequest: Promise<string | null> | null = null;
 
-export function ProductVersion({ locale }: { locale: SiteLocale }) {
-  const [version, setVersion] = useState<string | null>(null);
-
-  useEffect(() => {
-    const controller = new AbortController();
-
-    async function loadLatestVersion() {
-      try {
-        const response = await fetch(latestReleaseEndpoint, {
-          headers: { Accept: "application/vnd.github+json" },
-          signal: controller.signal,
-        });
-        if (!response.ok) return;
+function requestLatestReleaseTag() {
+  if (!latestReleaseRequest) {
+    latestReleaseRequest = fetch(latestReleaseEndpoint, {
+      headers: { Accept: "application/vnd.github+json" },
+    })
+      .then(async (response) => {
+        if (!response.ok) return null;
 
         const release: unknown = await response.json();
         if (
@@ -27,16 +22,36 @@ export function ProductVersion({ locale }: { locale: SiteLocale }) {
           typeof release.tag_name === "string" &&
           release.tag_name.trim()
         ) {
-          setVersion(release.tag_name.trim());
+          return release.tag_name.trim();
         }
-      } catch {
-        // Keep the header uncluttered when the release endpoint is unavailable.
-      }
-    }
 
-    void loadLatestVersion();
-    return () => controller.abort();
+        return null;
+      })
+      .catch(() => null);
+  }
+
+  return latestReleaseRequest;
+}
+
+export function useLatestReleaseTag() {
+  const [version, setVersion] = useState<string | null>(null);
+
+  useEffect(() => {
+    let active = true;
+    void requestLatestReleaseTag().then((tag) => {
+      if (active) setVersion(tag);
+    });
+
+    return () => {
+      active = false;
+    };
   }, []);
+
+  return version;
+}
+
+export function ProductVersion({ locale }: { locale: SiteLocale }) {
+  const version = useLatestReleaseTag();
 
   if (!version) return null;
 

@@ -317,6 +317,24 @@ button, input { font: inherit; }
 
 .navIcon { width: 23px; height: 23px; }
 
+.productManualLink {
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 17px 20px 0;
+  color: #4f5956;
+  font-size: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.productManualLink:hover,
+.productManualLink:focus-visible {
+  color: var(--green-900);
+}
+
+.productManualLink .lucide { width: 19px; height: 19px; }
+
 .mainContent {
   margin-left: 260px;
   padding-top: 88px;
