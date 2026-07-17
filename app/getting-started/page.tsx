@@ -4,18 +4,19 @@ import {
   ClipboardCheck,
   Container,
   Database,
-  GitBranch,
   MonitorCog,
   ServerCog,
   ShieldCheck,
   Workflow,
 } from "lucide-react";
 import { DocsShell, ProductMark } from "../docs-shell";
+import { localeAlternates } from "../i18n";
 
 export const metadata: Metadata = {
   title: "Getting Started | SyncCoordinator Documentation",
   description:
     "Run the SyncCoordinator demo, change its synchronization settings, and prepare an environment for actual business databases.",
+  alternates: localeAlternates("/getting-started"),
 };
 
 const contents = [
@@ -304,7 +305,6 @@ Remove-Item Env:SYNC_COORDINATOR_DESIGN_CONNECTION`}</code></pre>
           <h2 id="getting-started-next">次に読む</h2>
           <div>
             <a href="/workflow"><Workflow aria-hidden="true" />Workflow</a>
-            <a href="/#examples"><GitBranch aria-hidden="true" />Examples</a>
           </div>
         </section>
       </article>

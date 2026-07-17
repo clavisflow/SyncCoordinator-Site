@@ -7,11 +7,13 @@ import {
   Server,
 } from "lucide-react";
 import { DocsShell, documentationSections, ProductMark } from "./docs-shell";
+import { localeAlternates } from "./i18n";
 
 export const metadata: Metadata = {
   title: "SyncCoordinator Documentation | ClavisFlow",
   description:
     "SyncCoordinator detects changes, resolves conflicts, and synchronizes data safely across enterprise systems.",
+  alternates: localeAlternates("/"),
 };
 
 // Set to false to restore the original lightweight architecture diagram.

@@ -2,10 +2,18 @@
 
 import { useState, type KeyboardEvent } from "react";
 import { Menu, X } from "lucide-react";
-import { documentationSections } from "./documentation-sections";
+import { getDocumentationSections } from "./documentation-sections";
+import { localizedPath, type SiteLocale } from "./i18n";
 
-export function MobileNavigation({ activeSection }: { activeSection?: string }) {
+export function MobileNavigation({
+  activeSection,
+  locale = "ja",
+}: {
+  activeSection?: string;
+  locale?: SiteLocale;
+}) {
   const [open, setOpen] = useState(false);
+  const documentationSections = getDocumentationSections(locale);
 
   const close = () => setOpen(false);
   const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
@@ -19,7 +27,7 @@ export function MobileNavigation({ activeSection }: { activeSection?: string }) 
       <button
         className="mobileMenuButton"
         type="button"
-        aria-label={open ? "Close documentation menu" : "Open documentation menu"}
+        aria-label={open ? (locale === "ja" ? "ドキュメントメニューを閉じる" : "Close documentation menu") : (locale === "ja" ? "ドキュメントメニューを開く" : "Open documentation menu")}
         aria-expanded={open}
         aria-controls="mobile-documentation-menu"
         onClick={() => setOpen((current) => !current)}
@@ -50,9 +58,8 @@ export function MobileNavigation({ activeSection }: { activeSection?: string }) 
           })}
         </nav>
         <nav className="mobileNavUtility" aria-label="Mobile primary navigation">
-          <a href="/" onClick={close}>Home</a>
-          <a href="/getting-started" onClick={close}>Download</a>
-          <a href="https://github.com/" rel="noreferrer" onClick={close}>GitHub</a>
+          <a href={localizedPath(locale, "/")} onClick={close}>Home</a>
+          <a href="https://github.com/clavisflow/SyncCoordinator" rel="noreferrer" onClick={close}>GitHub</a>
         </nav>
       </div>
 
@@ -60,7 +67,7 @@ export function MobileNavigation({ activeSection }: { activeSection?: string }) 
         <button
           className="mobileNavBackdrop"
           type="button"
-          aria-label="Close documentation menu"
+          aria-label={locale === "ja" ? "ドキュメントメニューを閉じる" : "Close documentation menu"}
           onClick={close}
         />
       )}

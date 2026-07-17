@@ -1,9 +1,8 @@
 import type { ReactNode } from "react";
-import {
-  FileText,
-  Search,
-} from "lucide-react";
-import { documentationSections } from "./documentation-sections";
+import { FileText } from "lucide-react";
+import { documentationSections, getDocumentationSections } from "./documentation-sections";
+import { DocsSearch } from "./docs-search";
+import { localizedPath, type SiteLocale } from "./i18n";
 import { MobileNavigation } from "./mobile-navigation";
 
 export { documentationSections } from "./documentation-sections";
@@ -34,41 +33,42 @@ export function ProductMark({ variant }: { variant: "header" | "hero" | "diagram
 export function DocsShell({
   activeSection,
   children,
+  locale = "ja",
 }: {
   activeSection?: string;
   children: ReactNode;
+  locale?: SiteLocale;
 }) {
+  const sections = getDocumentationSections(locale);
+  const currentPath = activeSection ? `/${activeSection}` : "/";
+  const jaHref = currentPath;
+  const enHref = localizedPath("en", currentPath);
+
   return (
-    <div className="siteShell">
+    <div className="siteShell" lang={locale}>
       <header className="topHeader">
-        <a className="brand" href="/" aria-label="SyncCoordinator documentation home">
+        <a className="brand" href={localizedPath(locale, "/")} aria-label="SyncCoordinator documentation home">
           <ProductMark variant="header" />
           <span className="headerProductName">SyncCoordinator</span>
           <span className="brandDivider" />
           <span className="productLabel">Documentation</span>
         </a>
 
-        <nav className="headerNav" aria-label="Primary navigation">
-          <a className="active" href="/">Home</a>
-          <a href="/getting-started">Download</a>
-          <a href="https://github.com/" rel="noreferrer">GitHub</a>
-        </nav>
+        <div className="headerTools">
+          <DocsSearch locale={locale} />
+          <nav className="languageSwitcher" aria-label={locale === "ja" ? "言語を選択" : "Select language"}>
+            <a className={locale === "ja" ? "selected" : ""} href={jaHref} lang="ja" aria-current={locale === "ja" ? "page" : undefined}>JA</a>
+            <span aria-hidden="true">/</span>
+            <a className={locale === "en" ? "selected" : ""} href={enHref} lang="en" aria-current={locale === "en" ? "page" : undefined}>EN</a>
+          </nav>
+        </div>
 
-        <form className="search" action="/" role="search">
-          <label className="srOnly" htmlFor="docs-search">Search the documentation</label>
-          <input id="docs-search" type="search" placeholder="Search the docs" />
-          <kbd>⌘ K</kbd>
-          <button type="submit" aria-label="Search">
-            <Search aria-hidden="true" />
-          </button>
-        </form>
-
-        <MobileNavigation activeSection={activeSection} />
+        <MobileNavigation activeSection={activeSection} locale={locale} />
       </header>
 
       <aside className="sideNav">
         <nav aria-label="Documentation sections">
-          {documentationSections.map((section) => {
+          {sections.map((section) => {
             const Icon = section.icon;
             return (
               <a className={activeSection === section.id ? "selected" : ""} href={section.href} key={section.id}>
@@ -78,7 +78,7 @@ export function DocsShell({
             );
           })}
         </nav>
-        <a className="pdfLink" href="/">
+        <a className="pdfLink" href={localizedPath(locale, "/")}>
           <FileText aria-hidden="true" />
           PDF Version
         </a>

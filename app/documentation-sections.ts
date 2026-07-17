@@ -4,9 +4,9 @@ import {
   Box,
   GitFork,
   Rocket,
-  SquareTerminal,
   Workflow,
 } from "lucide-react";
+import { localizedPath, type SiteLocale } from "./i18n";
 
 export type DocumentationSection = {
   id: string;
@@ -16,47 +16,67 @@ export type DocumentationSection = {
   description: string;
 };
 
-export const documentationSections: DocumentationSection[] = [
+const sectionDefinitions = [
   {
     id: "overview",
-    href: "/overview",
+    path: "/overview",
     icon: BookOpen,
     title: "Overview",
-    description: "SyncCoordinator の概要、主要な機能、ユースケースを説明します。",
+    description: {
+      ja: "SyncCoordinator の概要、主要な機能、ユースケースを説明します。",
+      en: "Learn what SyncCoordinator does, its core capabilities, and common use cases.",
+    },
   },
   {
     id: "architecture",
-    href: "/architecture",
+    path: "/architecture",
     icon: Box,
     title: "Architecture",
-    description: "システム構成、コンポーネント、データフローを説明します。",
+    description: {
+      ja: "システム構成、コンポーネント、データフローを説明します。",
+      en: "Understand the system topology, components, data flow, and reliability model.",
+    },
   },
   {
     id: "workflow",
-    href: "/workflow",
+    path: "/workflow",
     icon: Workflow,
     title: "Workflow",
-    description: "変更検知から競合解決、同期完了までの流れを説明します。",
+    description: {
+      ja: "変更検知から競合解決、同期完了までの流れを説明します。",
+      en: "Follow change detection, conflict resolution, retries, and delivery to completion.",
+    },
   },
   {
     id: "getting-started",
-    href: "/getting-started",
+    path: "/getting-started",
     icon: Rocket,
     title: "Getting Started",
-    description: "インストール、初期設定、最初の同期を順に案内します。",
-  },
-  {
-    id: "examples",
-    href: "/#examples",
-    icon: SquareTerminal,
-    title: "Examples",
-    description: "代表的な同期シナリオと実践的な設定例を紹介します。",
+    description: {
+      ja: "インストール、初期設定、最初の同期を順に案内します。",
+      en: "Run the demo, review its configuration, and connect your first business databases.",
+    },
   },
   {
     id: "github",
-    href: "/#github",
+    path: "https://github.com/clavisflow/SyncCoordinator",
     icon: GitFork,
     title: "GitHub",
-    description: "ソースコード、Issue、最新のリリース情報を確認できます。",
+    description: {
+      ja: "ソースコード、Issue、最新のリリース情報を確認できます。",
+      en: "Browse the source code, issues, and the latest release information.",
+    },
   },
-];
+] as const;
+
+export function getDocumentationSections(locale: SiteLocale): DocumentationSection[] {
+  return sectionDefinitions.map((section) => ({
+    id: section.id,
+    href: section.path.startsWith("http") ? section.path : localizedPath(locale, section.path),
+    icon: section.icon,
+    title: section.title,
+    description: section.description[locale],
+  }));
+}
+
+export const documentationSections = getDocumentationSections("ja");

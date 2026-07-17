@@ -16,11 +16,13 @@ import {
   Workflow as WorkflowIcon,
 } from "lucide-react";
 import { DocsShell, ProductMark } from "../docs-shell";
+import { localeAlternates } from "../i18n";
 
 export const metadata: Metadata = {
   title: "Workflow | SyncCoordinator Documentation",
   description:
     "How SyncCoordinator detects changes, resolves conflicts, applies data, sends notifications, and resumes after failures.",
+  alternates: localeAlternates("/workflow"),
 };
 
 const contents = [

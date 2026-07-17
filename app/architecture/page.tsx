@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { Box, Database, GitFork, Workflow } from "lucide-react";
 import { DocsShell, ProductMark } from "../docs-shell";
+import { localeAlternates } from "../i18n";
 
 export const metadata: Metadata = {
   title: "Architecture | SyncCoordinator Documentation",
   description:
     "The SyncCoordinator runtime topology, management boundary, and business database deployment model.",
+  alternates: localeAlternates("/architecture"),
 };
 
 const components = [
