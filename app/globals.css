@@ -6,6 +6,7 @@
   --green-800: #115a49;
   --green-100: #e7f0ec;
   --green-50: #f3f7f5;
+  --pink: #f3aaa9;
   --ink: #17201e;
   --muted: #5e6966;
   --line: #dce2df;
@@ -13,9 +14,7 @@
   --sidebar: #fbfcfb;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 html {
   scroll-behavior: smooth;
@@ -31,14 +30,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+a { color: inherit; text-decoration: none; }
+button, input { font: inherit; }
 
-button,
-input {
-  font: inherit;
+.lucide {
+  flex: 0 0 auto;
+  stroke-width: 1.8;
 }
 
 .srOnly {
@@ -53,9 +50,7 @@ input {
   border: 0;
 }
 
-.siteShell {
-  min-height: 100vh;
-}
+.siteShell { min-height: 100vh; }
 
 .topHeader {
   position: fixed;
@@ -65,87 +60,62 @@ input {
   left: 0;
   height: 88px;
   display: grid;
-  grid-template-columns: minmax(390px, 1fr) auto 308px;
+  grid-template-columns: minmax(430px, 1fr) auto 308px;
   align-items: center;
   gap: 28px;
-  padding: 0 32px 0 38px;
-  background: rgba(255, 255, 255, 0.98);
+  padding: 0 32px 0 34px;
+  background: rgba(255, 255, 255, .98);
   border-bottom: 1px solid var(--line);
 }
 
 .brand,
-.footerBrand {
+.footerBrand,
+.footerGithub {
   display: flex;
   align-items: center;
 }
 
-.mark {
+.brandMark {
   position: relative;
-  display: inline-grid;
-  place-items: center;
-  width: 38px;
-  height: 42px;
-  margin-right: 13px;
-  background: var(--green-950);
-  clip-path: polygon(50% 0, 94% 24%, 94% 76%, 50% 100%, 6% 76%, 6% 24%);
+  display: inline-block;
+  flex: 0 0 auto;
+  overflow: hidden;
 }
 
-.mark::before,
-.mark::after,
-.markCore {
-  content: "";
+.brandMark img {
   position: absolute;
-  width: 15px;
-  height: 18px;
-  background: #fff;
-}
-
-.mark::before {
-  left: 6px;
-  top: 10px;
-  clip-path: polygon(0 20%, 100% 0, 100% 80%, 0 100%);
-}
-
-.mark::after {
-  right: 6px;
-  top: 10px;
-  clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 80%);
-}
-
-.markCore {
-  z-index: 2;
+  top: 50%;
   left: 50%;
-  top: 12px;
-  width: 8px;
-  height: 18px;
-  transform: translateX(-50%);
-  background: var(--green-100);
-  clip-path: polygon(50% 0, 100% 16%, 100% 84%, 50% 100%, 0 84%, 0 16%);
+  width: 200%;
+  height: 200%;
+  object-fit: contain;
+  transform: translate(-50%, -50%);
 }
 
-.markSmall {
-  width: 25px;
-  height: 28px;
-  margin-right: 9px;
+.brandMark-header {
+  width: 38px;
+  height: 38px;
+  margin-right: 11px;
 }
 
-.markSmall::before,
-.markSmall::after {
-  width: 10px;
-  height: 12px;
-  top: 7px;
+.brandMark-diagram {
+  width: 66px;
+  height: 66px;
 }
 
-.markSmall::before { left: 4px; }
-.markSmall::after { right: 4px; }
-.markSmall .markCore { width: 5px; height: 12px; top: 8px; }
-
-.brandName {
-  color: var(--green-950);
-  font-size: 27px;
-  font-weight: 690;
-  letter-spacing: -0.04em;
+.brandMark-footer {
+  width: 26px;
+  height: 26px;
+  margin-right: 7px;
 }
+
+.brandWordmark {
+  display: block;
+  width: 143px;
+  height: auto;
+}
+
+.footerWordmark { width: 94px; }
 
 .brandDivider {
   width: 1px;
@@ -155,8 +125,8 @@ input {
 }
 
 .productLabel {
-  font-size: 15px;
   color: #35403d;
+  font-size: 15px;
   white-space: nowrap;
 }
 
@@ -178,9 +148,7 @@ input {
 
 .headerNav a:hover,
 .headerNav a:focus-visible,
-.headerNav .active {
-  color: var(--green-900);
-}
+.headerNav .active { color: var(--green-900); }
 
 .headerNav .active::after {
   content: "";
@@ -196,15 +164,15 @@ input {
   height: 44px;
   display: flex;
   align-items: center;
+  overflow: hidden;
+  background: #fff;
   border: 1px solid #ccd4d0;
   border-radius: 6px;
-  background: #fff;
-  overflow: hidden;
 }
 
 .search:focus-within {
   border-color: var(--green-800);
-  box-shadow: 0 0 0 3px rgba(17, 90, 73, 0.11);
+  box-shadow: 0 0 0 3px rgba(17, 90, 73, .11);
 }
 
 .search input {
@@ -212,9 +180,9 @@ input {
   min-width: 0;
   height: 100%;
   padding: 0 13px;
+  color: var(--ink);
   border: 0;
   outline: 0;
-  color: var(--ink);
 }
 
 .search input::placeholder { color: #7c8784; }
@@ -229,14 +197,17 @@ input {
 .search button {
   width: 47px;
   height: 100%;
+  display: grid;
+  place-items: center;
   margin-left: 11px;
+  color: var(--green-950);
+  background: #fff;
   border: 0;
   border-left: 1px solid var(--line);
-  background: #fff;
-  color: var(--green-950);
-  font-size: 25px;
   cursor: pointer;
 }
+
+.search button .lucide { width: 20px; height: 20px; }
 
 .sideNav {
   position: fixed;
@@ -259,10 +230,10 @@ input {
 }
 
 .sideNav nav a {
+  min-height: 56px;
   display: flex;
   align-items: center;
   gap: 17px;
-  min-height: 56px;
   padding: 0 20px;
   border-radius: 6px;
   font-weight: 590;
@@ -271,74 +242,24 @@ input {
 .sideNav nav a:hover,
 .sideNav nav a:focus-visible,
 .sideNav nav .selected {
-  background: #edf2f0;
   color: var(--green-900);
+  background: #edf2f0;
 }
 
-.lineIcon {
-  position: relative;
-  display: inline-block;
-  flex: 0 0 auto;
-  width: 24px;
-  height: 24px;
-  color: currentColor;
-}
-
-.lineIcon::before,
-.lineIcon::after {
-  content: "";
-  position: absolute;
-}
-
-.icon-book { border: 1.8px solid currentColor; border-radius: 2px 2px 5px 5px; }
-.icon-book::before { top: 2px; bottom: 2px; left: 50%; border-left: 1.8px solid currentColor; }
-.icon-book::after { top: -3px; left: 2px; width: 8px; height: 5px; border-top: 1.8px solid currentColor; transform: skewY(-20deg); }
-
-.icon-cube { border: 1.8px solid currentColor; transform: rotate(30deg) skewY(-5deg) scale(.77); }
-.icon-cube::before { top: -1px; bottom: -1px; left: 50%; border-left: 1.8px solid currentColor; }
-.icon-cube::after { top: 50%; right: -1px; left: -1px; border-top: 1.8px solid currentColor; }
-
-.icon-flow::before { inset: 2px; border: 1.8px solid currentColor; border-radius: 50%; box-shadow: 0 17px 0 -6px var(--paper), 0 17px 0 -4.2px currentColor, 17px 17px 0 -6px var(--paper), 17px 17px 0 -4.2px currentColor; width: 7px; height: 7px; }
-.icon-flow::after { left: 7px; top: 10px; width: 13px; height: 8px; border-left: 1.8px solid currentColor; border-bottom: 1.8px solid currentColor; border-right: 1.8px solid currentColor; }
-
-.icon-arrow { border: 1.8px solid currentColor; border-radius: 50%; }
-.icon-arrow::before { width: 10px; border-top: 1.8px solid currentColor; left: 5px; top: 11px; transform: rotate(-45deg); }
-.icon-arrow::after { width: 7px; height: 7px; border-top: 1.8px solid currentColor; border-right: 1.8px solid currentColor; right: 5px; top: 5px; }
-
-.icon-code { border: 1.8px solid currentColor; border-radius: 3px; }
-.icon-code::before { content: ">_"; inset: 0; display: grid; place-items: center; font-family: var(--font-geist-mono), monospace; font-size: 12px; font-weight: 700; }
-
-.icon-github { border: 1.8px solid currentColor; border-radius: 50%; }
-.icon-github::before { content: "GH"; inset: 0; display: grid; place-items: center; font-family: var(--font-geist-mono), monospace; font-size: 8px; font-weight: 800; }
+.navIcon { width: 23px; height: 23px; }
 
 .pdfLink {
+  min-height: 50px;
   display: flex;
   align-items: center;
   gap: 15px;
-  min-height: 50px;
   padding: 18px 20px 0;
-  border-top: 1px solid var(--line);
   color: #4f5956;
   font-size: 14px;
+  border-top: 1px solid var(--line);
 }
 
-.documentIcon {
-  position: relative;
-  width: 17px;
-  height: 21px;
-  border: 1.5px solid currentColor;
-  border-radius: 2px;
-}
-
-.documentIcon::after {
-  content: "";
-  position: absolute;
-  left: 4px;
-  bottom: 5px;
-  width: 7px;
-  border-top: 1.5px solid currentColor;
-  box-shadow: 0 -4px 0 currentColor;
-}
+.pdfLink .lucide { width: 19px; height: 19px; }
 
 .mainContent {
   margin-left: 308px;
@@ -400,12 +321,12 @@ input {
 
 .primaryButton,
 .secondaryButton {
+  min-width: 177px;
+  height: 54px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  min-width: 177px;
-  height: 54px;
   padding: 0 22px;
   border: 1px solid var(--green-900);
   border-radius: 5px;
@@ -413,22 +334,11 @@ input {
   transition: background .18s ease, color .18s ease, border-color .18s ease;
 }
 
-.primaryButton {
-  background: var(--green-900);
-  color: #fff;
-}
-
-.secondaryButton {
-  background: #fff;
-  border-color: #cbd4d0;
-  color: var(--green-950);
-}
-
-.primaryButton:hover,
-.primaryButton:focus-visible { background: var(--green-950); }
-.secondaryButton:hover,
-.secondaryButton:focus-visible { border-color: var(--green-800); background: var(--green-50); }
-.heroActions .lineIcon { width: 20px; height: 20px; }
+.primaryButton { color: #fff; background: var(--green-900); }
+.secondaryButton { color: var(--green-950); background: #fff; border-color: #cbd4d0; }
+.primaryButton:hover, .primaryButton:focus-visible { background: var(--green-950); }
+.secondaryButton:hover, .secondaryButton:focus-visible { border-color: var(--green-800); background: var(--green-50); }
+.heroActions .lucide { width: 20px; height: 20px; }
 
 .architectureDiagram {
   position: relative;
@@ -440,30 +350,17 @@ input {
 .coordinatorNode {
   position: absolute;
   z-index: 5;
-  left: 50%;
   top: 50%;
-  display: grid;
-  place-items: center;
+  left: 50%;
   width: 126px;
   height: 112px;
-  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
   background: var(--green-950);
   clip-path: polygon(50% 0, 94% 24%, 94% 76%, 50% 100%, 6% 76%, 6% 24%);
+  transform: translate(-50%, -50%);
   box-shadow: 0 16px 28px rgba(6, 47, 39, .12);
 }
-
-.coordinatorNode .markSmall {
-  width: 50px;
-  height: 56px;
-  margin: 0;
-  background: #fff;
-}
-
-.coordinatorNode .markSmall::before,
-.coordinatorNode .markSmall::after { background: var(--green-950); }
-.coordinatorNode .markSmall::before { left: 8px; top: 13px; width: 19px; height: 24px; }
-.coordinatorNode .markSmall::after { right: 8px; top: 13px; width: 19px; height: 24px; }
-.coordinatorNode .markSmall .markCore { top: 17px; width: 8px; height: 24px; background: var(--green-100); }
 
 .connector {
   position: absolute;
@@ -476,118 +373,37 @@ input {
 .connector::after {
   content: "";
   position: absolute;
-  right: 5px;
   top: -5px;
+  right: 5px;
   width: 8px;
   height: 8px;
   background: var(--green-800);
   border-radius: 50%;
 }
 
-.connectorA { left: 57px; top: 105px; transform: rotate(30deg); }
-.connectorB { right: 52px; top: 103px; transform: rotate(-29deg); }
-.connectorC { left: 63px; bottom: 104px; transform: rotate(-31deg); }
+.connectorA { top: 105px; left: 57px; transform: rotate(30deg); }
+.connectorB { top: 103px; right: 52px; transform: rotate(-29deg); }
+.connectorC { bottom: 104px; left: 63px; transform: rotate(-31deg); }
 .connectorD { right: 48px; bottom: 105px; transform: rotate(29deg); }
 
 .diagramNode {
   position: absolute;
   z-index: 3;
+  width: 66px;
+  height: 66px;
+  display: grid;
+  place-items: center;
   color: var(--green-900);
   background: #f7f9f8;
-  border: 2px solid #53756c;
+  border: 1.8px solid #668078;
+  border-radius: 9px;
 }
 
-.databaseNode {
-  top: 38px;
-  left: 18px;
-  width: 65px;
-  height: 65px;
-  border-radius: 50% / 18%;
-}
-
-.databaseNode::before,
-.databaseNode::after {
-  content: "";
-  position: absolute;
-  right: -2px;
-  left: -2px;
-  height: 19px;
-  border: 2px solid #53756c;
-  border-radius: 50%;
-}
-
-.databaseNode::before { top: -2px; background: #e8efec; }
-.databaseNode::after { bottom: 10px; border-top-color: transparent; border-right-color: transparent; border-left-color: transparent; }
-
-.cloudNode {
-  top: 45px;
-  right: 7px;
-  width: 82px;
-  height: 43px;
-  border-radius: 24px;
-}
-
-.cloudNode::before,
-.cloudNode::after {
-  content: "";
-  position: absolute;
-  background: #f7f9f8;
-  border: 2px solid #53756c;
-  border-bottom: 0;
-  border-radius: 50% 50% 0 0;
-}
-
-.cloudNode::before { width: 37px; height: 35px; left: 9px; top: -24px; }
-.cloudNode::after { width: 43px; height: 42px; right: 7px; top: -30px; }
-.cloudNode i { position: absolute; z-index: 2; inset: 0; background: #f7f9f8; border-radius: 24px; }
-
-.serverNode {
-  bottom: 27px;
-  left: 22px;
-  width: 56px;
-  height: 74px;
-  border-radius: 5px;
-  transform: skewY(4deg);
-}
-
-.serverNode span {
-  position: absolute;
-  left: 11px;
-  width: 26px;
-  border-top: 2px solid #53756c;
-}
-.serverNode span:first-child { top: 23px; }
-.serverNode span:last-child { top: 35px; }
-
-.fileNode {
-  right: 8px;
-  bottom: 34px;
-  width: 62px;
-  height: 76px;
-  border-radius: 4px;
-}
-
-.fileNode::before {
-  content: "";
-  position: absolute;
-  right: -2px;
-  top: -2px;
-  width: 22px;
-  height: 22px;
-  background: #fff;
-  border-left: 2px solid #53756c;
-  border-bottom: 2px solid #53756c;
-}
-
-.fileNode span {
-  position: absolute;
-  left: 10px;
-  right: 10px;
-  bottom: 11px;
-  height: 29px;
-  border: 2px solid #53756c;
-  background: repeating-linear-gradient(to right, transparent 0 8px, #53756c 8px 10px), repeating-linear-gradient(to bottom, transparent 0 7px, #53756c 7px 9px);
-}
+.diagramNode .lucide { width: 32px; height: 32px; stroke-width: 1.6; }
+.databaseNode { top: 28px; left: 17px; }
+.cloudNode { top: 31px; right: 10px; }
+.serverNode { bottom: 28px; left: 20px; }
+.fileNode { right: 9px; bottom: 31px; }
 
 .diagramCaption {
   position: absolute;
@@ -648,9 +464,9 @@ input {
   gap: 16px;
   align-items: start;
   padding: 24px 26px 23px 20px;
+  background: #fff;
   border: 1px solid var(--line);
   border-radius: 5px;
-  background: #fff;
   scroll-margin-top: 110px;
   transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
 }
@@ -658,45 +474,38 @@ input {
 .docCard:hover,
 .docCard:focus-visible {
   border-color: #9cb5ac;
+  outline: none;
   box-shadow: 0 7px 18px rgba(9, 60, 49, .06);
   transform: translateY(-2px);
-  outline: none;
 }
 
 .cardIcon {
-  display: grid;
-  place-items: center;
   width: 52px;
   height: 52px;
-  border-radius: 50%;
-  background: var(--green-100);
+  display: grid;
+  place-items: center;
   color: var(--green-950);
+  background: var(--green-100);
+  border-radius: 50%;
 }
 
-.cardIcon .lineIcon { width: 25px; height: 25px; }
+.cardIcon .lucide { width: 25px; height: 25px; }
 
 .cardText {
   display: grid;
   gap: 8px;
 }
 
-.cardText strong {
-  color: var(--green-950);
-  font-size: 17px;
-}
-
-.cardText > span {
-  color: #5d6764;
-  font-size: 12px;
-  line-height: 1.7;
-}
+.cardText strong { color: var(--green-950); font-size: 17px; }
+.cardText > span { color: #5d6764; font-size: 12px; line-height: 1.7; }
 
 .cardArrow {
   position: absolute;
   right: 18px;
-  bottom: 12px;
+  bottom: 14px;
+  width: 18px;
+  height: 18px;
   color: var(--green-950);
-  font-size: 20px;
 }
 
 footer {
@@ -712,19 +521,14 @@ footer {
   font-size: 12px;
 }
 
-.footerBrand {
-  color: var(--green-950);
-  font-size: 13px;
-  font-weight: 650;
-}
-
-footer a:hover,
-footer a:focus-visible { color: var(--green-900); }
+.footerGithub { gap: 5px; }
+.footerGithub .lucide:first-child { width: 15px; height: 15px; }
+.footerGithub .lucide:last-child { width: 13px; height: 13px; }
+footer a:hover, footer a:focus-visible { color: var(--green-900); }
 
 @media (max-width: 1180px) {
   .topHeader { grid-template-columns: 1fr auto 240px; }
-  .productLabel { display: none; }
-  .brandDivider { display: none; }
+  .productLabel, .brandDivider { display: none; }
   .sideNav { width: 246px; }
   .mainContent { margin-left: 246px; }
   .hero { grid-template-columns: 1fr; gap: 40px; }
@@ -735,18 +539,14 @@ footer a:focus-visible { color: var(--green-900); }
 @media (max-width: 860px) {
   html { scroll-padding-top: 126px; }
   .topHeader {
-    height: auto;
     min-height: 76px;
+    height: auto;
     grid-template-columns: 1fr auto;
     gap: 10px;
     padding: 12px 18px;
   }
-  .mark { width: 30px; height: 34px; }
-  .mark::before, .mark::after { width: 12px; height: 15px; top: 8px; }
-  .mark::before { left: 5px; }
-  .mark::after { right: 5px; }
-  .markCore { top: 10px; height: 15px; }
-  .brandName { font-size: 22px; }
+  .brandMark-header { width: 32px; height: 32px; margin-right: 9px; }
+  .brandWordmark { width: 126px; }
   .headerNav { display: none; }
   .search { width: min(100%, 260px); }
   .sideNav {
@@ -763,7 +563,7 @@ footer a:focus-visible { color: var(--green-900); }
   }
   .sideNav nav { display: flex; gap: 0; }
   .sideNav nav a { min-height: 48px; padding: 0 13px; border-radius: 0; font-size: 13px; white-space: nowrap; }
-  .sideNav .lineIcon, .pdfLink { display: none; }
+  .sideNav .navIcon, .pdfLink { display: none; }
   .mainContent { margin-left: 0; padding-top: 125px; }
   .hero { padding: 64px 32px 50px; }
   .docsSection { padding: 44px 32px 30px; }

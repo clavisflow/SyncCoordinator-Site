@@ -1,4 +1,22 @@
 import type { Metadata } from "next";
+import type { LucideIcon } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  BookOpen,
+  Box,
+  Cloud,
+  Database,
+  FileSpreadsheet,
+  FileText,
+  GitFork,
+  Network,
+  Rocket,
+  Search,
+  Server,
+  SquareTerminal,
+  Workflow,
+} from "lucide-react";
 
 export const metadata: Metadata = {
   title: "SyncCoordinator Documentation | ClavisFlow",
@@ -6,55 +24,68 @@ export const metadata: Metadata = {
     "SyncCoordinator detects changes, resolves conflicts, and synchronizes data safely across enterprise systems.",
 };
 
-const sections = [
+type Section = {
+  id: string;
+  icon: LucideIcon;
+  title: string;
+  description: string;
+};
+
+const sections: Section[] = [
   {
     id: "overview",
-    icon: "book",
+    icon: BookOpen,
     title: "Overview",
     description: "SyncCoordinator の概要、主要な機能、ユースケースを説明します。",
   },
   {
     id: "architecture",
-    icon: "cube",
+    icon: Box,
     title: "Architecture",
     description: "システム構成、コンポーネント、データフローを説明します。",
   },
   {
     id: "workflow",
-    icon: "flow",
+    icon: Workflow,
     title: "Workflow",
     description: "変更検知から競合解決、同期完了までの流れを説明します。",
   },
   {
     id: "getting-started",
-    icon: "arrow",
+    icon: Rocket,
     title: "Getting Started",
     description: "インストール、初期設定、最初の同期を順に案内します。",
   },
   {
     id: "examples",
-    icon: "code",
+    icon: SquareTerminal,
     title: "Examples",
     description: "代表的な同期シナリオと実践的な設定例を紹介します。",
   },
   {
     id: "github",
-    icon: "github",
+    icon: GitFork,
     title: "GitHub",
     description: "ソースコード、Issue、最新のリリース情報を確認できます。",
   },
-] as const;
+];
 
-function Mark({ small = false }: { small?: boolean }) {
+function BrandMark({ variant = "header" }: { variant?: "header" | "diagram" | "footer" }) {
   return (
-    <span className={small ? "mark markSmall" : "mark"} aria-hidden="true">
-      <span className="markCore" />
+    <span className={`brandMark brandMark-${variant}`} aria-hidden="true">
+      <img src="/sync-brand-mark.png" alt="" />
     </span>
   );
 }
 
-function LineIcon({ name }: { name: (typeof sections)[number]["icon"] }) {
-  return <span className={`lineIcon icon-${name}`} aria-hidden="true" />;
+function BrandWordmark({ footer = false }: { footer?: boolean }) {
+  return (
+    <img
+      className={footer ? "brandWordmark footerWordmark" : "brandWordmark"}
+      src="/clavisflow-wordmark.png"
+      alt="ClavisFlow"
+    />
+  );
 }
 
 function ArchitectureDiagram() {
@@ -66,21 +97,20 @@ function ArchitectureDiagram() {
       <span className="connector connectorD" />
 
       <div className="diagramNode databaseNode" aria-hidden="true">
-        <span />
+        <Database />
       </div>
       <div className="diagramNode cloudNode" aria-hidden="true">
-        <i />
+        <Cloud />
       </div>
       <div className="diagramNode serverNode" aria-hidden="true">
-        <span />
-        <span />
+        <Server />
       </div>
       <div className="diagramNode fileNode" aria-hidden="true">
-        <span />
+        <FileSpreadsheet />
       </div>
 
       <div className="coordinatorNode">
-        <Mark small />
+        <BrandMark variant="diagram" />
       </div>
       <p className="diagramCaption">Detect · Resolve · Synchronize</p>
     </div>
@@ -92,8 +122,8 @@ export default function Home() {
     <div className="siteShell">
       <header className="topHeader">
         <a className="brand" href="#overview" aria-label="ClavisFlow documentation home">
-          <Mark />
-          <span className="brandName">ClavisFlow</span>
+          <BrandMark />
+          <BrandWordmark />
           <span className="brandDivider" />
           <span className="productLabel">SyncCoordinator Documentation</span>
         </a>
@@ -108,21 +138,26 @@ export default function Home() {
           <label className="srOnly" htmlFor="docs-search">Search the documentation</label>
           <input id="docs-search" type="search" placeholder="Search the docs" />
           <kbd>⌘ K</kbd>
-          <button type="submit" aria-label="Search">⌕</button>
+          <button type="submit" aria-label="Search">
+            <Search aria-hidden="true" />
+          </button>
         </form>
       </header>
 
       <aside className="sideNav">
         <nav aria-label="Documentation sections">
-          {sections.map((section, index) => (
-            <a className={index === 0 ? "selected" : ""} href={`#${section.id}`} key={section.id}>
-              <LineIcon name={section.icon} />
-              <span>{section.title}</span>
-            </a>
-          ))}
+          {sections.map((section, index) => {
+            const Icon = section.icon;
+            return (
+              <a className={index === 0 ? "selected" : ""} href={`#${section.id}`} key={section.id}>
+                <Icon className="navIcon" aria-hidden="true" />
+                <span>{section.title}</span>
+              </a>
+            );
+          })}
         </nav>
         <a className="pdfLink" href="#overview">
-          <span className="documentIcon" aria-hidden="true" />
+          <FileText aria-hidden="true" />
           PDF Version
         </a>
       </aside>
@@ -138,11 +173,11 @@ export default function Home() {
             </p>
             <div className="heroActions">
               <a className="primaryButton" href="#getting-started">
-                <LineIcon name="arrow" />
+                <Rocket aria-hidden="true" />
                 Get Started
               </a>
               <a className="secondaryButton" href="#architecture">
-                <LineIcon name="flow" />
+                <Network aria-hidden="true" />
                 Architecture
               </a>
             </div>
@@ -160,23 +195,33 @@ export default function Home() {
           </div>
 
           <div className="cardGrid">
-            {sections.map((section) => (
-              <a className="docCard" href={`#${section.id}`} id={section.id} key={section.id}>
-                <span className="cardIcon"><LineIcon name={section.icon} /></span>
-                <span className="cardText">
-                  <strong>{section.title}</strong>
-                  <span>{section.description}</span>
-                </span>
-                <span className="cardArrow" aria-hidden="true">→</span>
-              </a>
-            ))}
+            {sections.map((section) => {
+              const Icon = section.icon;
+              return (
+                <a className="docCard" href={`#${section.id}`} id={section.id} key={section.id}>
+                  <span className="cardIcon"><Icon aria-hidden="true" /></span>
+                  <span className="cardText">
+                    <strong>{section.title}</strong>
+                    <span>{section.description}</span>
+                  </span>
+                  <ArrowRight className="cardArrow" aria-hidden="true" />
+                </a>
+              );
+            })}
           </div>
         </section>
 
         <footer>
-          <span className="footerBrand"><Mark small />ClavisFlow</span>
+          <span className="footerBrand">
+            <BrandMark variant="footer" />
+            <BrandWordmark footer />
+          </span>
           <span>© 2026 ClavisFlow. All rights reserved.</span>
-          <a href="https://github.com/" rel="noreferrer">GitHub ↗</a>
+          <a className="footerGithub" href="https://github.com/" rel="noreferrer">
+            <GitFork aria-hidden="true" />
+            GitHub
+            <ArrowUpRight aria-hidden="true" />
+          </a>
         </footer>
       </main>
     </div>
