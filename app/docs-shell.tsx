@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import { FileText } from "lucide-react";
 import { documentationSections, getDocumentationSections } from "./documentation-sections";
 import { DocsSearch } from "./docs-search";
 import { localizedPath, type SiteLocale } from "./i18n";
@@ -78,10 +77,6 @@ export function DocsShell({
             );
           })}
         </nav>
-        <a className="pdfLink" href={localizedPath(locale, "/")}>
-          <FileText aria-hidden="true" />
-          PDF Version
-        </a>
       </aside>
 
       <main className="mainContent">

@@ -177,7 +177,7 @@ export function DocsSearch({ locale = "ja" }: { locale?: SiteLocale }) {
           ref={inputRef}
           id="docs-search"
           type="search"
-          placeholder={locale === "ja" ? "ドキュメントを検索" : "Search the docs"}
+          placeholder={locale === "ja" ? "ドキュメント検索" : "Search docs"}
           value={query}
           role="combobox"
           aria-autocomplete="list"

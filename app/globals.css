@@ -338,19 +338,6 @@ button, input { font: inherit; }
 
 .navIcon { width: 23px; height: 23px; }
 
-.pdfLink {
-  min-height: 50px;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 18px 20px 0;
-  color: #4f5956;
-  font-size: 14px;
-  border-top: 1px solid var(--line);
-}
-
-.pdfLink .lucide { width: 19px; height: 19px; }
-
 .mainContent {
   margin-left: 260px;
   padding-top: 88px;
@@ -2211,6 +2198,7 @@ footer {
   border-radius: 3px;
   font-family: var(--font-geist-mono), monospace;
   font-size: .9em;
+  overflow-wrap: anywhere;
 }
 
 .gettingStartedProductionDetails .architectureDetailsContent > p code {
@@ -2417,6 +2405,7 @@ footer {
 }
 
 @media (max-width: 1180px) {
+  .search kbd { display: none; }
   html { scroll-padding-top: 86px; }
   .topHeader {
     min-height: 76px;
@@ -2568,7 +2557,7 @@ footer {
   .heroWithIllustration .heroIllustration { width: 100%; }
   .heroTitle { align-items: flex-start; gap: 12px; }
   .productMark-hero { width: 44px; margin-top: 5px; border-radius: 11px; }
-  .heroTitle h1 { min-width: 0; font-size: clamp(34px, 10vw, 46px); overflow-wrap: anywhere; }
+  .heroTitle h1 { min-width: 0; font-size: clamp(28px, 8vw, 40px); white-space: nowrap; }
   .nickname { display: block; margin: .4em 0 0; font-size: .46em; }
   .tagline { margin-top: 27px; font-size: 22px; }
   .description { font-size: 14px; line-height: 1.9; }
