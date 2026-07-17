@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import type { LucideIcon } from "lucide-react";
 import {
   ArrowRight,
-  ArrowUpRight,
   BookOpen,
   Box,
   Cloud,
@@ -70,18 +69,29 @@ const sections: Section[] = [
   },
 ];
 
-function BrandMark({ variant = "header" }: { variant?: "header" | "diagram" | "footer" }) {
+function BrandMark() {
   return (
-    <span className={`brandMark brandMark-${variant}`} aria-hidden="true">
-      <img src="/sync-brand-mark.png" alt="" />
+    <span className="brandMark brandMark-header" aria-hidden="true">
+      <img src="/clavisflow-brand-icon.png" alt="" />
     </span>
   );
 }
 
-function BrandWordmark({ footer = false }: { footer?: boolean }) {
+function ProductMark({ variant }: { variant: "hero" | "diagram" }) {
   return (
     <img
-      className={footer ? "brandWordmark footerWordmark" : "brandWordmark"}
+      className={`productMark productMark-${variant}`}
+      src="/sync-brand-mark.png"
+      alt=""
+      aria-hidden="true"
+    />
+  );
+}
+
+function BrandWordmark() {
+  return (
+    <img
+      className="brandWordmark"
       src="/clavisflow-wordmark.png"
       alt="ClavisFlow"
     />
@@ -110,7 +120,7 @@ function ArchitectureDiagram() {
       </div>
 
       <div className="coordinatorNode">
-        <BrandMark variant="diagram" />
+        <ProductMark variant="diagram" />
       </div>
       <p className="diagramCaption">Detect · Resolve · Synchronize</p>
     </div>
@@ -166,7 +176,13 @@ export default function Home() {
         <section className="hero" id="overview">
           <div className="heroCopy">
             <p className="eyebrow">CLAVISFLOW DOCUMENTATION</p>
-            <h1>SyncCoordinator</h1>
+            <div className="heroTitle">
+              <ProductMark variant="hero" />
+              <h1>
+                SyncCoordinator
+                <span className="nickname">（SynCo）</span>
+              </h1>
+            </div>
             <p className="tagline" lang="ja">データを、正しくつなぐ。</p>
             <p className="description" lang="ja">
               SyncCoordinator は、複数システム間のデータ変更を検知し、競合を安全に解決して、信頼できる状態で同期するエンタープライズ向けデータ同期基盤です。
@@ -212,16 +228,7 @@ export default function Home() {
         </section>
 
         <footer>
-          <span className="footerBrand">
-            <BrandMark variant="footer" />
-            <BrandWordmark footer />
-          </span>
           <span>© 2026 ClavisFlow. All rights reserved.</span>
-          <a className="footerGithub" href="https://github.com/" rel="noreferrer">
-            <GitFork aria-hidden="true" />
-            GitHub
-            <ArrowUpRight aria-hidden="true" />
-          </a>
         </footer>
       </main>
     </div>
