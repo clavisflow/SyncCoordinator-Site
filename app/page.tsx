@@ -69,31 +69,24 @@ const sections: Section[] = [
   },
 ];
 
-function BrandMark() {
+function BrandSignature() {
   return (
-    <span className="brandMark brandMark-header" aria-hidden="true">
-      <img src="/clavisflow-brand-icon.png" alt="" />
+    <span className="brandSignature brandSignature-footer" aria-label="ClavisFlow">
+      <span className="signatureMark" aria-hidden="true">
+        <img src="/clavisflow-brand-icon.png" alt="" />
+      </span>
+      <img className="signatureWordmark" src="/clavisflow-wordmark.png" alt="" />
     </span>
   );
 }
 
-function ProductMark({ variant }: { variant: "hero" | "diagram" }) {
+function ProductMark({ variant }: { variant: "header" | "hero" | "diagram" }) {
   return (
     <img
       className={`productMark productMark-${variant}`}
       src="/sync-brand-mark.png"
       alt=""
       aria-hidden="true"
-    />
-  );
-}
-
-function BrandWordmark() {
-  return (
-    <img
-      className="brandWordmark"
-      src="/clavisflow-wordmark.png"
-      alt="ClavisFlow"
     />
   );
 }
@@ -131,11 +124,11 @@ export default function Home() {
   return (
     <div className="siteShell">
       <header className="topHeader">
-        <a className="brand" href="#overview" aria-label="ClavisFlow documentation home">
-          <BrandMark />
-          <BrandWordmark />
+        <a className="brand" href="#overview" aria-label="SyncCoordinator documentation home">
+          <ProductMark variant="header" />
+          <span className="headerProductName">SyncCoordinator</span>
           <span className="brandDivider" />
-          <span className="productLabel">SyncCoordinator Documentation</span>
+          <span className="productLabel">Documentation</span>
         </a>
 
         <nav className="headerNav" aria-label="Primary navigation">
@@ -228,7 +221,15 @@ export default function Home() {
         </section>
 
         <footer>
-          <span>© 2026 ClavisFlow. All rights reserved.</span>
+          <a
+            className="footerBrandLink"
+            href="https://clavisflow.net/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="ClavisFlow website"
+          >
+            <BrandSignature />
+          </a>
         </footer>
       </main>
     </div>
