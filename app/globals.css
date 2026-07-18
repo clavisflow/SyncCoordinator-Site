@@ -2393,16 +2393,14 @@ footer {
 
 .overviewScope {
   display: grid;
-  grid-template-columns: minmax(220px, .7fr) 1.3fr;
-  gap: 46px;
+  grid-template-columns: 1fr;
+  gap: 26px;
   margin-top: 52px;
   padding: 32px 36px;
   background: var(--green-50);
   border: 1px solid #d4e2dc;
   border-left: 3px solid var(--green-800);
 }
-
-.overviewScope .eyebrow { margin-bottom: 9px; }
 
 .overviewScopeText {
   color: #374842;
@@ -2412,6 +2410,45 @@ footer {
 
 .overviewScopeText p { margin: 0; }
 .overviewScopeText p + p { margin-top: 12px; }
+
+.overviewScopeList {
+  display: grid;
+  gap: 0;
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid #cbdcd5;
+}
+
+.overviewScopeList li {
+  position: relative;
+  display: grid;
+  gap: 3px;
+  padding: 15px 0 15px 22px;
+  border-bottom: 1px solid #cbdcd5;
+}
+
+.overviewScopeList li::before {
+  position: absolute;
+  top: 24px;
+  left: 2px;
+  width: 7px;
+  height: 7px;
+  content: "";
+  background: var(--green-800);
+  border-radius: 50%;
+}
+
+.overviewScopeList strong {
+  color: var(--green-950);
+  font-size: 15px;
+}
+
+.overviewScopeList span {
+  color: #51615b;
+  font-size: 14px;
+  line-height: 1.7;
+}
 
 .overviewNext {
   padding: 52px 0 12px;

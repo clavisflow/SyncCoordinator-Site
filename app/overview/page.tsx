@@ -49,6 +49,29 @@ const useCases = [
   },
 ] as const;
 
+const unsuitableCases = [
+  {
+    title: "対象DBに変更検知Triggerを追加できない",
+    text: "現在のSynCoでは、変更検知用Triggerを配備できることが導入条件です。",
+  },
+  {
+    title: "定期的に全件を洗い替えたい",
+    text: "差分同期ではなく、毎回の全件コピーや一括再投入が主目的のケース。",
+  },
+  {
+    title: "イベントの経過を連携したい",
+    text: "承認フローなど、レコードの現在値ではなく状態遷移の順序や履歴を再現したいケース。",
+  },
+  {
+    title: "1対1以外のレコード変換やファイル連携が必要",
+    text: "同期単位は1レコード対1レコードです。1対多・多対1・多対多の変換や、ファイル・帳票・動画の連携には対応していません。",
+  },
+  {
+    title: "スキーマ変更が頻繁に発生する",
+    text: "開発初期など、テーブルやカラムの破壊的変更が継続的に発生する環境。",
+  },
+] as const;
+
 export default function OverviewPage() {
   return (
     <DocsShell activeSection="overview">
@@ -137,6 +160,25 @@ export default function OverviewPage() {
                 <p>{useCase.text}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        <section className="overviewScope" aria-labelledby="overview-scope">
+          <div>
+            <h2 id="overview-scope">SynCoが適していないケース</h2>
+          </div>
+          <div className="overviewScopeText">
+            <p>
+              SynCoは、データベースレコードの変更を継続的に検知し、競合を解決しながら同期するための製品です。次のようなケースには適していません。
+            </p>
+            <ul className="overviewScopeList">
+              {unsuitableCases.map((item) => (
+                <li key={item.title}>
+                  <strong>{item.title}</strong>
+                  <span>{item.text}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 

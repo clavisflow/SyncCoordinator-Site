@@ -49,6 +49,29 @@ const useCases = [
   },
 ] as const;
 
+const unsuitableCases = [
+  {
+    title: "The target database does not permit change-detection triggers",
+    text: "Deploying a change-detection trigger is currently a prerequisite for using SynCo.",
+  },
+  {
+    title: "Every run must replace the full data set",
+    text: "The primary requirement is a full copy or bulk reload rather than continuous change synchronization.",
+  },
+  {
+    title: "The event sequence must be reproduced",
+    text: "The integration must preserve workflow transitions or approval history, not only the current record state.",
+  },
+  {
+    title: "Non-one-to-one record mapping or file integration is required",
+    text: "Synchronization is one record to one record. One-to-many, many-to-one, and many-to-many transformations, as well as transferring files, reports, or video, are not supported.",
+  },
+  {
+    title: "The schema changes frequently",
+    text: "Tables and columns are still undergoing frequent breaking changes, such as during early development.",
+  },
+] as const;
+
 export default function EnglishOverviewPage() {
   return (
     <DocsShell activeSection="overview" locale="en">
@@ -137,6 +160,25 @@ export default function EnglishOverviewPage() {
                 <p>{useCase.text}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        <section className="overviewScope" aria-labelledby="overview-scope">
+          <div>
+            <h2 id="overview-scope">When SynCo is not the right fit</h2>
+          </div>
+          <div className="overviewScopeText">
+            <p>
+              SynCo continuously detects changes to database records and synchronizes them while resolving conflicts. It is not designed for the following cases.
+            </p>
+            <ul className="overviewScopeList">
+              {unsuitableCases.map((item) => (
+                <li key={item.title}>
+                  <strong>{item.title}</strong>
+                  <span>{item.text}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 
