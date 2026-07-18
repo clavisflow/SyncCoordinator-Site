@@ -186,19 +186,32 @@ export default function EnglishOverviewPage() {
           <div className="overviewConsoleHeading">
             <div>
               <p className="eyebrow">MANAGEMENT CONSOLE</p>
-              <h2 id="overview-console">See synchronization status in one place.</h2>
+              <h2 id="overview-console">See synchronization status at a glance and in detail.</h2>
             </div>
             <p>Review routes, processing state, and recent conflicts, then retry or pause work when necessary.</p>
           </div>
-          <figure className="overviewConsolePreview">
-            <ExpandableImage
-              src={sitePath("/management-ui/dashboard.jpg")}
-              alt="SyncCoordinator management dashboard showing synchronization routes, processing status, and recent conflicts"
-              expandLabel="Expand the management dashboard image"
-              closeLabel="Close expanded image"
-              hintLabel="Expand"
-            />
-          </figure>
+          <div className="workflowConsoleGrid">
+            <figure>
+              <ExpandableImage
+                src={sitePath("/management-ui/en/dashboard.png")}
+                alt="SyncCoordinator management dashboard showing synchronization routes, processing status, and recent conflicts"
+                expandLabel="Expand the management dashboard image"
+                closeLabel="Close expanded image"
+                hintLabel="Expand"
+              />
+              <figcaption><strong>Dashboard</strong><span>Review routes, operating status, and recent conflicts together.</span></figcaption>
+            </figure>
+            <figure>
+              <ExpandableImage
+                src={sitePath("/management-ui/en/operations.png")}
+                alt="Operations page showing synchronization history, results, and attempt counts"
+                expandLabel="Expand the Operations page image"
+                closeLabel="Close expanded image"
+                hintLabel="Expand"
+              />
+              <figcaption><strong>Operations</strong><span>Inspect individual results, attempt counts, and errors in detail.</span></figcaption>
+            </figure>
+          </div>
         </section>
 
         <section className="overviewNext" aria-labelledby="overview-next">

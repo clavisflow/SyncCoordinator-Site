@@ -112,6 +112,12 @@ aspire run --apphost src/SyncCoordinator.AppHost/SyncCoordinator.AppHost.csproj`
             <li><span>2</span><div><strong>Register a password</strong><p>Set a password between 12 and 128 characters. The username is always <code>admin</code>.</p></div></li>
             <li><span>3</span><div><strong>Sign in</strong><p>Sign in with the password to open the dashboard.</p></div></li>
           </ol>
+          <div className="workflowConsoleGrid gettingStartedScreens">
+            <figure className="workflowConsolePrimary">
+              <ExpandableImage src={sitePath("/management-ui/en/login.png")} alt="Administrator sign-in page with username, password, and remember-me fields" expandLabel="Expand the administrator sign-in image" closeLabel="Close expanded image" hintLabel="Expand" />
+              <figcaption><strong>Administrator sign-in</strong><span>Sign in with the password registered during initial setup.</span></figcaption>
+            </figure>
+          </div>
           <p className="workflowBoundaryNote">
             Initial setup and password reset are available only when both the client and requested host are localhost or a loopback address.
           </p>
@@ -150,16 +156,24 @@ aspire run --apphost src/SyncCoordinator.AppHost/SyncCoordinator.AppHost.csproj`
           </div>
           <div className="workflowConsoleGrid gettingStartedScreens">
             <figure>
-              <ExpandableImage src={sitePath("/management-ui/systems.jpg")} alt="Systems page for reviewing database connections and enabled state" expandLabel="Expand the Systems page image" closeLabel="Close expanded image" hintLabel="Expand" />
+              <ExpandableImage src={sitePath("/management-ui/en/systems.png")} alt="Systems page for reviewing database connections and enabled state" expandLabel="Expand the Systems page image" closeLabel="Close expanded image" hintLabel="Expand" />
               <figcaption><strong>Systems</strong><span>Manage database connections and enabled state.</span></figcaption>
             </figure>
             <figure>
-              <ExpandableImage src={sitePath("/management-ui/routes.jpg")} alt="Synchronization rules page for source, destination, and direction" expandLabel="Expand the synchronization rules image" closeLabel="Close expanded image" hintLabel="Expand" />
+              <ExpandableImage src={sitePath("/management-ui/en/routes.png")} alt="Synchronization rules page for source, destination, and direction" expandLabel="Expand the synchronization rules image" closeLabel="Close expanded image" hintLabel="Expand" />
               <figcaption><strong>Rules</strong><span>Choose direction and conflict behavior.</span></figcaption>
             </figure>
             <figure className="workflowConsolePrimary">
-              <ExpandableImage src={sitePath("/management-ui/mapping.jpg")} alt="Table mapping page for tables, columns, keys, and conversion" expandLabel="Expand the table mapping image" closeLabel="Close expanded image" hintLabel="Expand" />
+              <ExpandableImage src={sitePath("/management-ui/en/mapping.png")} alt="Table mapping page for tables, columns, keys, and conversion" expandLabel="Expand the table mapping image" closeLabel="Close expanded image" hintLabel="Expand" />
               <figcaption><strong>Mappings</strong><span>Configure tables, keys, fields, and value conversion.</span></figcaption>
+            </figure>
+            <figure>
+              <ExpandableImage src={sitePath("/management-ui/en/mapping-values.png")} alt="Column mapping value conversion with code conversion and a conversion preview" expandLabel="Expand the value conversion image" closeLabel="Close expanded image" hintLabel="Expand" />
+              <figcaption><strong>Value conversion</strong><span>Review code mappings and preview the converted result.</span></figcaption>
+            </figure>
+            <figure>
+              <ExpandableImage src={sitePath("/management-ui/en/mapping-delete.png")} alt="Delete synchronization settings mapping physical and logical deletion" expandLabel="Expand the delete synchronization image" closeLabel="Close expanded image" hintLabel="Expand" />
+              <figcaption><strong>Delete synchronization</strong><span>Map physical and logical deletion for each system.</span></figcaption>
             </figure>
           </div>
         </section>
@@ -180,7 +194,7 @@ aspire run --apphost src/SyncCoordinator.AppHost/SyncCoordinator.AppHost.csproj`
               <li><span>4</span><div><strong>Enable the rule</strong><p>After both sides pass verification, enable synchronization in the rule settings.</p></div></li>
             </ol>
             <figure className="gettingStartedDeployPreview">
-              <ExpandableImage src={sitePath("/management-ui/database-setup.jpg")} alt="Database deployment page for reviewing SQL, deploying objects, and verifying definitions" expandLabel="Expand the database deployment image" closeLabel="Close expanded image" hintLabel="Expand" />
+              <ExpandableImage src={sitePath("/management-ui/en/database-setup.png")} alt="Database deployment page for reviewing SQL, deploying objects, and verifying definitions" expandLabel="Expand the database deployment image" closeLabel="Close expanded image" hintLabel="Expand" />
               <figcaption>Database deployment</figcaption>
             </figure>
           </div>

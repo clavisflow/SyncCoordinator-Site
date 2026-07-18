@@ -154,6 +154,16 @@ export default function EnglishWorkflowPage() {
             <li><strong>Request resolution</strong><span>Web stores a resolution request instead of writing directly to the business database.</span></li>
             <li><strong>Verify and apply</strong><span>Worker reads the destination again and applies only if it has not changed. The decision remains in history, and subsequent changes are processed as new synchronization work.</span></li>
           </ol>
+          <div className="workflowConsoleGrid">
+            <figure>
+              <ExpandableImage src={sitePath("/management-ui/en/conflict-update.png")} alt="Update-conflict resolution comparing previous, incoming, and current values before selecting the result" expandLabel="Expand the update-conflict resolution image" closeLabel="Close expanded image" hintLabel="Expand" />
+              <figcaption><strong>Update conflict</strong><span>Compare each field and choose the value to keep after resolution.</span></figcaption>
+            </figure>
+            <figure>
+              <ExpandableImage src={sitePath("/management-ui/en/conflict-delete.png")} alt="Delete-conflict resolution comparing the current record before choosing whether to delete or keep it" expandLabel="Expand the delete-conflict resolution image" closeLabel="Close expanded image" hintLabel="Expand" />
+              <figcaption><strong>Delete conflict</strong><span>Review the current destination and choose whether to delete or keep the record.</span></figcaption>
+            </figure>
+          </div>
           <p className="architectureCallout">
             If the destination changes while the conflict screen is open, Worker does not overwrite it. The console shows the latest value and asks for a new decision.
           </p>
@@ -224,16 +234,12 @@ export default function EnglishWorkflowPage() {
             Use the management console to verify progress, find failures or held work, and manage webhook endpoints and delivery history.
           </p>
           <div className="workflowConsoleGrid">
-            <figure className="workflowConsolePrimary">
-              <ExpandableImage src={sitePath("/management-ui/operations.jpg")} alt="Operations page showing Queue Checkpoints and synchronization history" expandLabel="Expand the Operations page image" closeLabel="Close expanded image" hintLabel="Expand" />
-              <figcaption><strong>Operations</strong><span>Review Checkpoints, results, attempts, and errors.</span></figcaption>
-            </figure>
             <figure>
-              <ExpandableImage src={sitePath("/management-ui/conflicts.jpg")} alt="Conflict history page listing conflicts that need attention" expandLabel="Expand the conflict history image" closeLabel="Close expanded image" hintLabel="Expand" />
+              <ExpandableImage src={sitePath("/management-ui/en/conflicts.png")} alt="Conflict history page listing conflicts that need attention" expandLabel="Expand the conflict history image" closeLabel="Close expanded image" hintLabel="Expand" />
               <figcaption><strong>Conflicts</strong><span>Review held conflicts and their resolution state.</span></figcaption>
             </figure>
             <figure>
-              <ExpandableImage src={sitePath("/management-ui/notifications.jpg")} alt="Notification settings page for webhook endpoints and events" expandLabel="Expand the notification settings image" closeLabel="Close expanded image" hintLabel="Expand" />
+              <ExpandableImage src={sitePath("/management-ui/en/notifications.png")} alt="Notification settings page for webhook endpoints and events" expandLabel="Expand the notification settings image" closeLabel="Close expanded image" hintLabel="Expand" />
               <figcaption><strong>Notifications</strong><span>Manage endpoints, event selection, and signing configuration.</span></figcaption>
             </figure>
           </div>

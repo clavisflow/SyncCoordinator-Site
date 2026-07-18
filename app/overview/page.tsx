@@ -186,20 +186,32 @@ export default function OverviewPage() {
           <div className="overviewConsoleHeading">
             <div>
               <p className="eyebrow">MANAGEMENT CONSOLE</p>
-              <h2 id="overview-console">同期の状況を、一つの画面で把握する。</h2>
+              <h2 id="overview-console">同期の全体と詳細を、管理画面で把握する。</h2>
             </div>
             <p>
               同期経路、処理状況、最近の競合を確認し、必要に応じて再試行や停止を操作できます。
             </p>
           </div>
-          <figure className="overviewConsolePreview">
-            <ExpandableImage
-              src={sitePath("/management-ui/dashboard.jpg")}
-              alt="SyncCoordinator管理画面のダッシュボード。同期経路、処理状況、最近の競合を表示している。"
-              expandLabel="管理画面のダッシュボードを拡大表示"
-              closeLabel="拡大表示を閉じる"
-            />
-          </figure>
+          <div className="workflowConsoleGrid">
+            <figure>
+              <ExpandableImage
+                src={sitePath("/management-ui/dashboard.png")}
+                alt="SyncCoordinator管理画面のダッシュボード。同期経路、処理状況、最近の競合を表示している。"
+                expandLabel="管理画面のダッシュボードを拡大表示"
+                closeLabel="拡大表示を閉じる"
+              />
+              <figcaption><strong>ダッシュボード</strong><span>同期経路、稼働状況、最近のコンフリクトをまとめて確認します。</span></figcaption>
+            </figure>
+            <figure>
+              <ExpandableImage
+                src={sitePath("/management-ui/operations.png")}
+                alt="処理状況画面。同期処理履歴、処理結果、試行回数を表示"
+                expandLabel="処理状況画面を拡大表示"
+                closeLabel="拡大表示を閉じる"
+              />
+              <figcaption><strong>処理状況</strong><span>個々の同期結果、試行回数、エラーを詳しく確認します。</span></figcaption>
+            </figure>
+          </div>
         </section>
 
         <section className="overviewNext" aria-labelledby="overview-next">

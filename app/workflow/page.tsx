@@ -204,6 +204,16 @@ export default function WorkflowPage() {
             <li><strong>解決を依頼</strong><span>管理画面から直接書き込まず、管理DBに解決要求を保存します。</span></li>
             <li><strong>安全を確認して反映</strong><span>Workerが同期先をもう一度確認し、変わっていなければ反映します。解決結果は履歴に残り、以後の変更は新しい同期として処理されます。</span></li>
           </ol>
+          <div className="workflowConsoleGrid">
+            <figure>
+              <ExpandableImage src={sitePath("/management-ui/conflict-update.png")} alt="更新競合の解決画面。前回値、受信値、現在値を比較して採用値を選択" expandLabel="更新競合の解決画面を拡大表示" closeLabel="拡大表示を閉じる" />
+              <figcaption><strong>更新競合</strong><span>項目ごとに値を比較し、解決後に採用する値を選びます。</span></figcaption>
+            </figure>
+            <figure>
+              <ExpandableImage src={sitePath("/management-ui/conflict-delete.png")} alt="削除競合の解決画面。現在値を確認して削除または維持を選択" expandLabel="削除競合の解決画面を拡大表示" closeLabel="拡大表示を閉じる" />
+              <figcaption><strong>削除競合</strong><span>同期先の現在値を確認し、削除するか維持するかを選びます。</span></figcaption>
+            </figure>
+          </div>
           <p className="architectureCallout">
             画面を開いてから反映するまでに同期先の値が変わっていた場合は、上書きしません。最新の値を表示して、もう一度選び直せる状態に戻します。
           </p>
@@ -278,16 +288,12 @@ export default function WorkflowPage() {
             ふだんの運用では、どこまで同期できているか、エラーや要対応が残っていないかを管理画面で確認します。Webhookの設定と送信履歴も同じ画面から管理できます。
           </p>
           <div className="workflowConsoleGrid">
-            <figure className="workflowConsolePrimary">
-              <ExpandableImage src={sitePath("/management-ui/operations.jpg")} alt="処理状況画面。システムごとのキュー読取位置と同期処理履歴を表示" expandLabel="処理状況画面を拡大表示" closeLabel="拡大表示を閉じる" />
-              <figcaption><strong>処理状況</strong><span>Checkpoint、処理結果、試行回数、エラーを確認します。</span></figcaption>
-            </figure>
             <figure>
-              <ExpandableImage src={sitePath("/management-ui/conflicts.jpg")} alt="コンフリクト履歴画面。要対応の競合を一覧表示" expandLabel="コンフリクト履歴画面を拡大表示" closeLabel="拡大表示を閉じる" />
+              <ExpandableImage src={sitePath("/management-ui/conflicts.png")} alt="コンフリクト履歴画面。要対応の競合を一覧表示" expandLabel="コンフリクト履歴画面を拡大表示" closeLabel="拡大表示を閉じる" />
               <figcaption><strong>コンフリクト</strong><span>要対応の競合と解決状態を確認します。</span></figcaption>
             </figure>
             <figure>
-              <ExpandableImage src={sitePath("/management-ui/notifications.jpg")} alt="通知設定画面。Webhook通知先と対象イベントを設定" expandLabel="通知設定画面を拡大表示" closeLabel="拡大表示を閉じる" />
+              <ExpandableImage src={sitePath("/management-ui/notifications.png")} alt="通知設定画面。Webhook通知先と対象イベントを設定" expandLabel="通知設定画面を拡大表示" closeLabel="拡大表示を閉じる" />
               <figcaption><strong>通知</strong><span>Webhook通知先、対象イベント、署名設定を管理します。</span></figcaption>
             </figure>
           </div>

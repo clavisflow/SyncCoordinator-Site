@@ -129,6 +129,12 @@ aspire run --apphost src/SyncCoordinator.AppHost/SyncCoordinator.AppHost.csproj`
             <li><span>2</span><div><strong>パスワードを登録する</strong><p>12文字以上128文字以下のパスワードを設定します。ユーザー名は<code>admin</code>固定です。</p></div></li>
             <li><span>3</span><div><strong>ログインする</strong><p>設定したパスワードでログインすると、ダッシュボードが表示されます。</p></div></li>
           </ol>
+          <div className="workflowConsoleGrid gettingStartedScreens">
+            <figure className="workflowConsolePrimary">
+              <ExpandableImage src={sitePath("/management-ui/login.png")} alt="管理者ログイン画面。ユーザー名、パスワード、ログイン状態の保持を入力" expandLabel="管理者ログイン画面を拡大表示" closeLabel="拡大表示を閉じる" />
+              <figcaption><strong>管理者ログイン</strong><span>初期設定で登録したパスワードを使ってログインします。</span></figcaption>
+            </figure>
+          </div>
           <p className="workflowBoundaryNote">
             初期設定とパスワード再設定は、接続元とアクセス先の両方がlocalhostまたはループバックIPの場合だけ利用できます。
           </p>
@@ -173,16 +179,24 @@ aspire run --apphost src/SyncCoordinator.AppHost/SyncCoordinator.AppHost.csproj`
           </div>
           <div className="workflowConsoleGrid gettingStartedScreens">
             <figure>
-              <ExpandableImage src={sitePath("/management-ui/systems.jpg")} alt="システム管理画面。同期対象システムとDB接続情報を確認・変更" expandLabel="システム管理画面を拡大表示" closeLabel="拡大表示を閉じる" />
+              <ExpandableImage src={sitePath("/management-ui/systems.png")} alt="システム管理画面。同期対象システムとDB接続情報を確認・変更" expandLabel="システム管理画面を拡大表示" closeLabel="拡大表示を閉じる" />
               <figcaption><strong>システム</strong><span>DB接続情報と有効状態を管理します。</span></figcaption>
             </figure>
             <figure>
-              <ExpandableImage src={sitePath("/management-ui/routes.jpg")} alt="同期ルール管理画面。送信元、送信先、同期方向を確認・変更" expandLabel="同期ルール管理画面を拡大表示" closeLabel="拡大表示を閉じる" />
+              <ExpandableImage src={sitePath("/management-ui/routes.png")} alt="同期ルール管理画面。送信元、送信先、同期方向を確認・変更" expandLabel="同期ルール管理画面を拡大表示" closeLabel="拡大表示を閉じる" />
               <figcaption><strong>同期ルール</strong><span>同期方向と競合時の扱いを決めます。</span></figcaption>
             </figure>
             <figure className="workflowConsolePrimary">
-              <ExpandableImage src={sitePath("/management-ui/mapping.jpg")} alt="テーブルマッピング画面。同期するテーブル、列、キーを確認・変更" expandLabel="テーブルマッピング画面を拡大表示" closeLabel="拡大表示を閉じる" />
+              <ExpandableImage src={sitePath("/management-ui/mapping.png")} alt="テーブルマッピング画面。同期するテーブル、列、キーを確認・変更" expandLabel="テーブルマッピング画面を拡大表示" closeLabel="拡大表示を閉じる" />
               <figcaption><strong>テーブルマッピング</strong><span>テーブル、列、キー、値変換を設定します。</span></figcaption>
+            </figure>
+            <figure>
+              <ExpandableImage src={sitePath("/management-ui/mapping-values.png")} alt="列マッピングの値変換設定。コード変換と変換プレビューを表示" expandLabel="値変換設定を拡大表示" closeLabel="拡大表示を閉じる" />
+              <figcaption><strong>値変換</strong><span>コード値の対応と変換結果を確認します。</span></figcaption>
+            </figure>
+            <figure>
+              <ExpandableImage src={sitePath("/management-ui/mapping-delete.png")} alt="削除同期設定。物理削除と論理削除の対応を設定" expandLabel="削除同期設定を拡大表示" closeLabel="拡大表示を閉じる" />
+              <figcaption><strong>削除同期</strong><span>システムごとの物理削除・論理削除を対応付けます。</span></figcaption>
             </figure>
           </div>
         </section>
@@ -203,7 +217,7 @@ aspire run --apphost src/SyncCoordinator.AppHost/SyncCoordinator.AppHost.csproj`
               <li><span>4</span><div><strong>ルールを有効にする</strong><p>両側のDBが検証済みになったら、基本設定から同期対象にします。</p></div></li>
             </ol>
             <figure className="gettingStartedDeployPreview">
-              <ExpandableImage src={sitePath("/management-ui/database-setup.jpg")} alt="データベース反映画面。生成SQLの確認、反映、DB構成の検証を実行" expandLabel="データベース反映画面を拡大表示" closeLabel="拡大表示を閉じる" />
+              <ExpandableImage src={sitePath("/management-ui/database-setup.png")} alt="データベース反映画面。生成SQLの確認、反映、DB構成の検証を実行" expandLabel="データベース反映画面を拡大表示" closeLabel="拡大表示を閉じる" />
               <figcaption>データベース反映</figcaption>
             </figure>
           </div>
