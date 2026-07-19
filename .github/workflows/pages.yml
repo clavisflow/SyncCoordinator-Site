@@ -21,6 +21,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - name: Checkout product manual
+        uses: actions/checkout@v6
+        with:
+          repository: clavisflow/SyncCoordinator
+          path: SyncCoordinator
+
       - name: Configure GitHub Pages
         id: pages
         uses: actions/configure-pages@v5
@@ -39,6 +45,7 @@ jobs:
         env:
           NEXT_PUBLIC_SITE_ORIGIN: ${{ steps.pages.outputs.origin }}
           NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          SYNC_COORDINATOR_REPO: ${{ github.workspace }}/SyncCoordinator
 
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v4

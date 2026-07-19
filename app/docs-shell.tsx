@@ -3,7 +3,6 @@ import { getDocumentationSections } from "./documentation-sections";
 import { DocsSearch } from "./docs-search";
 import { localizedPath, sitePath, type SiteLocale } from "./i18n";
 import { MobileNavigation } from "./mobile-navigation";
-import { ProductManualLink } from "./product-manual-link";
 import { ProductVersion } from "./product-version";
 
 export { documentationSections } from "./documentation-sections";
@@ -77,7 +76,6 @@ export function DocsShell({
             );
           })}
         </nav>
-        <ProductManualLink locale={locale} />
       </aside>
 
       <main className="mainContent">

@@ -1,6 +1,7 @@
 import type { LucideIcon } from "lucide-react";
 import {
   BookOpen,
+  BookOpenCheck,
   Box,
   GitFork,
   Rocket,
@@ -58,6 +59,20 @@ const sectionDefinitions = [
     },
   },
   {
+    id: "manual",
+    path: "/manual",
+    icon: BookOpenCheck,
+    title: "Manual",
+    localizedTitle: {
+      ja: "操作マニュアル",
+      en: "User Guide",
+    },
+    description: {
+      ja: "管理画面を使った同期設定と日常運用の手順を確認できます。",
+      en: "Follow the management-console setup and day-to-day operating procedures.",
+    },
+  },
+  {
     id: "github",
     path: "https://github.com/clavisflow/SyncCoordinator",
     icon: GitFork,
@@ -74,7 +89,7 @@ export function getDocumentationSections(locale: SiteLocale): DocumentationSecti
     id: section.id,
     href: section.path.startsWith("http") ? section.path : localizedPath(locale, section.path),
     icon: section.icon,
-    title: section.title,
+    title: "localizedTitle" in section ? section.localizedTitle[locale] : section.title,
     description: section.description[locale],
   }));
 }

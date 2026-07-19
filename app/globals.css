@@ -2485,6 +2485,159 @@ footer {
 
 .overviewNext .lucide { width: 18px; height: 18px; }
 
+.manualPage {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 68px 0 38px;
+}
+
+.manualHeader {
+  margin-bottom: 42px;
+  padding: 0 0 28px;
+  border-bottom: 1px solid var(--line);
+}
+
+.manualHeader > p:last-child {
+  max-width: 760px;
+  margin: 12px 0 0;
+  color: #52615c;
+  font-size: 15px;
+}
+
+.manualLanguageNote {
+  padding: 16px 18px;
+  background: var(--green-50);
+  border-left: 3px solid var(--green-800);
+}
+
+.manualArticle {
+  color: #2d3a35;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.manualArticle h1 {
+  margin: 0 0 20px;
+  color: var(--green-950);
+  font-size: clamp(32px, 4vw, 46px);
+  line-height: 1.25;
+  letter-spacing: -.03em;
+}
+
+.manualArticle h2 {
+  margin: 64px 0 20px;
+  padding-top: 4px;
+  color: var(--green-950);
+  font-size: 27px;
+  line-height: 1.4;
+}
+
+.manualArticle h2::after {
+  width: 42px;
+  height: 2px;
+  display: block;
+  margin-top: 13px;
+  content: "";
+  background: var(--green-800);
+}
+
+.manualArticle h3 {
+  margin: 38px 0 13px;
+  color: var(--green-900);
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.manualArticle p { margin: 0 0 18px; }
+
+.manualArticle a {
+  color: var(--green-800);
+  text-decoration: underline;
+  text-decoration-color: #9bb9ad;
+  text-underline-offset: .2em;
+}
+
+.manualArticle a:hover,
+.manualArticle a:focus-visible {
+  color: var(--green-950);
+  text-decoration-color: currentColor;
+  outline: none;
+}
+
+.manualArticle code {
+  padding: .12em .38em;
+  color: #174f41;
+  background: #edf4f1;
+  border: 1px solid #d8e5df;
+  border-radius: 4px;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: .9em;
+}
+
+.manualArticle ul,
+.manualArticle ol {
+  margin: 0 0 24px;
+  padding-left: 1.65em;
+}
+
+.manualArticle li { padding: 2px 0 2px 5px; }
+.manualArticle li + li { margin-top: 3px; }
+.manualArticle li::marker { color: var(--green-800); font-weight: 650; }
+
+.manualTableWrap {
+  margin: 24px 0 34px;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.manualArticle table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.manualArticle th,
+.manualArticle td {
+  min-width: 150px;
+  padding: 13px 16px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+
+.manualArticle th {
+  color: var(--green-950);
+  background: var(--green-50);
+  font-weight: 650;
+}
+
+.manualArticle tbody tr:last-child td { border-bottom: 0; }
+
+.manualFigure {
+  margin: 28px 0 42px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  box-shadow: 0 8px 22px rgba(6, 47, 39, .06);
+}
+
+.manualFigure img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.manualFigure figcaption {
+  padding: 10px 14px;
+  color: #5a6863;
+  background: #fbfcfb;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+}
+
 @media (max-width: 1180px) {
   .productVersionHeader, .brandDivider { display: none; }
   .sideNav { width: 246px; }
@@ -2495,6 +2648,7 @@ footer {
   .heroIllustration { width: min(100%, 590px); }
   .cardGrid { grid-template-columns: repeat(2, 1fr); }
   .overviewPage { padding-right: 40px; padding-left: 40px; }
+  .manualPage { padding-right: 40px; padding-left: 40px; }
   footer { margin-right: 40px; margin-left: 40px; }
 }
 
@@ -2615,6 +2769,7 @@ footer {
   .heroWithIllustration .heroIllustration { width: min(100%, 680px); }
   .docsSection { padding: 44px 32px 30px; }
   .overviewPage { padding: 54px 32px 30px; }
+  .manualPage { padding: 54px 32px 30px; }
   .architectureSequence { grid-template-columns: repeat(2, 1fr); }
   .workflowPipeline { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .workflowResolutionFlow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -2651,6 +2806,10 @@ footer {
   .heroIllustration { width: 100%; }
   .docsSection { padding: 40px 22px 24px; }
   .overviewPage { padding: 44px 22px 24px; }
+  .manualPage { padding: 44px 22px 24px; }
+  .manualHeader { margin-bottom: 32px; }
+  .manualArticle h2 { margin-top: 48px; font-size: 24px; }
+  .manualArticle h3 { font-size: 19px; }
   .overviewHero { padding-bottom: 40px; }
   .overviewTitle { gap: 13px; }
   .overviewTitle .productMark-hero { width: 48px; margin-top: 2px; border-radius: 12px; }

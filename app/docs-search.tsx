@@ -50,6 +50,13 @@ const japaneseSearchEntries: SearchEntry[] = [
   { title: "業務DBへ反映する", location: "Getting Started", href: "/getting-started#deploy-database", keywords: "SQL Trigger DB反映 検証 有効化" },
   { title: "同期を確認する", location: "Getting Started", href: "/getting-started#verify-demo", keywords: "動作確認 データ変更 競合 処理状況" },
   { title: "実環境で使う", location: "Getting Started", href: "/getting-started#production", keywords: "本番 Core 管理DB SQL Server migration HTTPS Key Ring 権限" },
+
+  { title: "操作マニュアル", location: "操作マニュアル", href: "/manual", keywords: "使い方 手順 管理画面 ヘルプ" },
+  { title: "システムとDB接続を登録する", location: "操作マニュアル", href: "/manual#システムとdb接続を登録する", keywords: "接続 登録 SQL Server MySQL PostgreSQL" },
+  { title: "同期ルールを作成する", location: "操作マニュアル", href: "/manual#同期ルールを作成する", keywords: "ルール 方向 コンフリクト" },
+  { title: "テーブルマッピングを設定する", location: "操作マニュアル", href: "/manual#テーブルマッピングを設定する", keywords: "テーブル 列 キー 値変換 固定値" },
+  { title: "コンフリクトを確認する", location: "操作マニュアル", href: "/manual#コンフリクトを確認する", keywords: "競合 手動解決 受信値 現在値" },
+  { title: "通知を設定する", location: "操作マニュアル", href: "/manual#通知を設定する", keywords: "Webhook 署名 通知履歴" },
 ];
 
 const englishSearchEntries: SearchEntry[] = [
@@ -83,6 +90,13 @@ const englishSearchEntries: SearchEntry[] = [
   { title: "Deploy to business databases", location: "Getting Started", href: "/en/getting-started#deploy-database", keywords: "SQL Trigger deploy verify enable" },
   { title: "Verify synchronization", location: "Getting Started", href: "/en/getting-started#verify-demo", keywords: "test data change conflicts operations" },
   { title: "Use real business databases", location: "Getting Started", href: "/en/getting-started#production", keywords: "production Core management database SQL Server migration HTTPS Key Ring permissions" },
+
+  { title: "User Guide", location: "User Guide", href: "/en/manual", keywords: "manual management console setup operations help" },
+  { title: "Register systems and database connections", location: "User Guide", href: "/en/manual#register-systems-and-database-connections", keywords: "connection register SQL Server MySQL PostgreSQL" },
+  { title: "Create a sync rule", location: "User Guide", href: "/en/manual#create-a-sync-rule", keywords: "rule direction conflict" },
+  { title: "Configure a table mapping", location: "User Guide", href: "/en/manual#configure-a-table-mapping", keywords: "table field key transformation fixed value" },
+  { title: "Review conflicts", location: "User Guide", href: "/en/manual#review-conflicts", keywords: "conflict manual resolution incoming current" },
+  { title: "Configure notifications", location: "User Guide", href: "/en/manual#configure-notifications", keywords: "Webhook signature notification history" },
 ];
 
 function normalize(value: string) {

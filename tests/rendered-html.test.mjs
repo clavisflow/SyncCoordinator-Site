@@ -34,11 +34,13 @@ test("server-renders every documentation route", async () => {
     ["/architecture/", "Architecture"],
     ["/workflow/", "Workflow"],
     ["/getting-started/", "Getting Started"],
+    ["/manual/", "SyncCoordinator 操作マニュアル"],
     ["/en/", "SyncCoordinator"],
     ["/en/overview/", "What is SyncCoordinator?"],
     ["/en/architecture/", "Architecture"],
     ["/en/workflow/", "Workflow"],
     ["/en/getting-started/", "Getting Started"],
+    ["/en/manual/", "SyncCoordinator User Guide"],
   ];
 
   for (const [path, heading] of routes) {
