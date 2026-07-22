@@ -7,7 +7,7 @@ import { localeAlternates, sitePath } from "../i18n";
 export const metadata: Metadata = {
   title: "Overview | SyncCoordinator Documentation",
   description:
-    "What SyncCoordinator does, the problems it solves, and the systems it is designed to connect.",
+    "SyncCoordinatorの概要、解決する課題、主な機能、適した利用シーンと導入条件を解説します。",
   alternates: localeAlternates("/overview"),
 };
 

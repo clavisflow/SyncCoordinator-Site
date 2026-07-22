@@ -12,7 +12,7 @@ import { localeAlternates, sitePath } from "./i18n";
 export const metadata: Metadata = {
   title: "SyncCoordinator Documentation | ClavisFlow",
   description:
-    "SyncCoordinator detects changes, resolves conflicts, and synchronizes data safely across enterprise systems.",
+    "SyncCoordinatorは、既存の業務システムを変更せず、競合を検知・解決しながらSQL Server、MySQL、PostgreSQL間のデータを安全に同期するセルフホスト型基盤です。",
   alternates: localeAlternates("/"),
 };
 

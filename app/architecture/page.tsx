@@ -6,7 +6,7 @@ import { localeAlternates, sitePath } from "../i18n";
 export const metadata: Metadata = {
   title: "Architecture | SyncCoordinator Documentation",
   description:
-    "The SyncCoordinator runtime topology, management boundary, and business database deployment model.",
+    "SyncCoordinatorの実行構成、管理領域、業務データベースへの配備モデルとセキュリティ境界を解説します。",
   alternates: localeAlternates("/architecture"),
 };
 

@@ -16,7 +16,7 @@ import { localeAlternates, sitePath } from "../i18n";
 export const metadata: Metadata = {
   title: "Getting Started | SyncCoordinator Documentation",
   description:
-    "Run the SyncCoordinator demo, change its synchronization settings, and prepare an environment for actual business databases.",
+    "SyncCoordinatorのデモ起動、初回ログイン、同期設定、業務データベースへの配備、本番環境の準備手順を解説します。",
   alternates: localeAlternates("/getting-started"),
 };
 

@@ -22,7 +22,7 @@ import { localeAlternates, sitePath } from "../i18n";
 export const metadata: Metadata = {
   title: "Workflow | SyncCoordinator Documentation",
   description:
-    "How SyncCoordinator detects changes, resolves conflicts, applies data, sends notifications, and resumes after failures.",
+    "SyncCoordinatorが変更を検知し、競合を解決してデータを反映する流れ、通知、障害時の再試行・再開を解説します。",
   alternates: localeAlternates("/workflow"),
 };
 
