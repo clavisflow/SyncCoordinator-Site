@@ -589,123 +589,6 @@ button, input { font: inherit; }
   text-transform: uppercase;
 }
 
-.monitorSection {
-  max-width: 1220px;
-  margin: 0 auto;
-  padding: 42px 58px 8px;
-}
-
-.monitorCard {
-  position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 1.45fr) minmax(250px, .55fr);
-  gap: 54px;
-  align-items: center;
-  padding: 38px 40px 38px 44px;
-  overflow: hidden;
-  background: linear-gradient(135deg, #f3f8f5 0%, #fbfcfb 72%);
-  border: 1px solid #cbdcd5;
-  border-radius: 7px;
-  box-shadow: 0 10px 28px rgba(6, 47, 39, .05);
-}
-
-.monitorCard::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 5px;
-  background: var(--green-800);
-}
-
-.monitorCopy .eyebrow { margin-bottom: 8px; }
-
-.monitorCopy h2 {
-  margin: 0 0 16px;
-  color: var(--green-950);
-  font-size: 27px;
-  letter-spacing: -.025em;
-}
-
-.monitorCopy p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 15px;
-  line-height: 1.8;
-}
-
-.monitorCopy .monitorLead {
-  margin-bottom: 10px;
-  color: var(--ink);
-  font-size: 17px;
-  font-weight: 650;
-}
-
-.monitorCopy .monitorScope {
-  margin-top: 12px;
-  padding-top: 12px;
-  border-top: 1px solid #d9e4df;
-  font-size: 13px;
-}
-
-.monitorContact {
-  display: grid;
-  gap: 14px;
-  justify-items: stretch;
-}
-
-.monitorContact > p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.7;
-}
-
-.monitorButton {
-  min-height: 54px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 12px 18px;
-  color: #fff;
-  background: var(--green-900);
-  border: 1px solid var(--green-900);
-  border-radius: 5px;
-  font-size: 14px;
-  font-weight: 650;
-  line-height: 1.45;
-  transition: background .18s ease, border-color .18s ease, transform .18s ease;
-}
-
-.monitorButton:hover,
-.monitorButton:focus-visible {
-  background: var(--green-950);
-  border-color: var(--green-950);
-  outline: none;
-  transform: translateY(-1px);
-}
-
-.monitorButton .lucide { width: 19px; height: 19px; }
-
-.monitorEmail {
-  justify-self: center;
-  color: var(--green-800);
-  font-family: var(--font-geist-mono), monospace;
-  font-size: 12px;
-  text-decoration: underline;
-  text-decoration-color: #aabfb7;
-  text-underline-offset: 3px;
-}
-
-.monitorEmail:hover,
-.monitorEmail:focus-visible {
-  color: var(--green-950);
-  outline: none;
-  text-decoration-color: currentColor;
-}
-
 .docsSection {
   max-width: 1220px;
   margin: 0 auto;
@@ -2884,9 +2767,6 @@ footer {
   .heroWithIllustration { padding-bottom: 58px; }
   .heroDetailRow { grid-template-columns: 1fr; gap: 36px; margin-top: 34px; }
   .heroWithIllustration .heroIllustration { width: min(100%, 680px); }
-  .monitorSection { padding: 36px 32px 6px; }
-  .monitorCard { grid-template-columns: 1fr; gap: 28px; }
-  .monitorContact { max-width: 380px; }
   .docsSection { padding: 44px 32px 30px; }
   .overviewPage { padding: 54px 32px 30px; }
   .manualPage { padding: 54px 32px 30px; }
@@ -2924,11 +2804,6 @@ footer {
   .primaryButton, .secondaryButton { width: 100%; }
   .architectureDiagram { width: min(100%, 350px); }
   .heroIllustration { width: 100%; }
-  .monitorSection { padding: 30px 22px 4px; }
-  .monitorCard { gap: 24px; padding: 30px 24px 28px 28px; }
-  .monitorCopy h2 { font-size: 24px; }
-  .monitorCopy .monitorLead { font-size: 16px; }
-  .monitorContact { max-width: none; }
   .docsSection { padding: 40px 22px 24px; }
   .overviewPage { padding: 44px 22px 24px; }
   .manualPage { padding: 44px 22px 24px; }

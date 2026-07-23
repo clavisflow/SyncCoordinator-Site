@@ -81,39 +81,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="monitorSection" aria-labelledby="monitor-heading">
-        <div className="monitorCard">
-          <div className="monitorCopy">
-            <p className="eyebrow">MONITOR PROGRAM</p>
-            <h2 id="monitor-heading">SyncCoordinator導入モニター募集</h2>
-            <p className="monitorLead">
-              2つの業務システム間で、同期対象1〜3テーブルの初期導入を無償で支援します。
-            </p>
-            <p>
-              対象は、導入後のフィードバックと導入事例の作成にご協力いただける企業です。
-              導入事例の公開内容は、事前にご確認いただきます。
-            </p>
-            <p className="monitorScope">
-              個別開発、インフラ構築、初期データ移行、対象範囲を超える追加設定は支援対象外です。
-              必要な場合は別途お見積りします。
-            </p>
-          </div>
-          <div className="monitorContact">
-            <p>導入環境や同期したいデータについて、まずはご相談ください。</p>
-            <a
-              className="monitorButton"
-              href="mailto:contact@clavisflow.net?subject=SyncCoordinator導入モニターについて"
-            >
-              <span>モニター導入について相談する</span>
-              <ArrowRight aria-hidden="true" />
-            </a>
-            <a className="monitorEmail" href="mailto:contact@clavisflow.net">
-              contact@clavisflow.net
-            </a>
-          </div>
-        </div>
-      </section>
-
       <section className="docsSection" aria-labelledby="docs-heading">
         <div className="sectionHeading">
           <div>
